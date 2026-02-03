@@ -1,0 +1,73 @@
+using UnityEngine;
+
+public class FirstPersonController : MonoBehaviour
+{
+    [Header("Movement Speeds")]
+    [SerializeField] private float walkSpeed = 3.0f;
+    [SerializeField] private float sprintMultiplier = 2.0f;
+
+    [Header("Jump Parameters")]
+    [SerializeField] private float jumpForce = 5.0f;
+    [SerializeField] private float gravityMultiplier = 2.0f;
+
+    [Header("Look Parameters")]
+    [SerializeField] private float mouseSensitivity = 0.1f;
+    [SerializeField] private float upDownLookRange = 80.0f;
+
+    [Header("references")]
+    [SerializeField] private CharacterController CharacterController;
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private PlayerInputHandler playerInputHandler;
+
+    private Vector3 currentMovement;
+    private float verticalRotation;
+    private float CurrentSpeed => walkSpeed * (playerInputHandler.SprintTriggered ? sprintMultiplier : 1.0f);
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private Vector3 CalculateWorldDirection()
+    {
+        Vector3 inputDirection = new Vector3(playerInputHandler.MovementInput.x, 0f, playerInputHandler.MovementInput.y);
+        Vector3 worldDirection = transform.TransformDirection(inputDirection);
+        return worldDirection.normalized;
+    }
+
+    private void HandleJumping()
+    {
+        if (CharacterController.isGrounded)
+        {
+            currentMovement.y = -0.5f;
+
+            if(playerInputHandler.JumpTriggered)
+            { 
+                currentMovement.y = jumpForce;
+            }
+        }
+        else
+        {
+            currentMovement.y += Physics.gravity.y * gravityMultiplier * Time.deltaTime;
+        }
+    }
+
+    private void HandleMovement()
+    {         
+        Vector3 worldDirection = CalculateWorldDirection();
+        currentMovement.x = worldDirection.x * CurrentSpeed;
+        currentMovement.z = worldDirection.z * CurrentSpeed;
+
+        HandleJumping();
+        characterController.Move(currentMovement * Time.deltaTime);
+    }
+}
