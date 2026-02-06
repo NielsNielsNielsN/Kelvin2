@@ -15,7 +15,7 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private float upDownLookRange = 80.0f;
 
     [Header("references")]
-    [SerializeField] private CharacterController CharacterController;
+    [SerializeField] private CharacterController characterController;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private PlayerInputHandler playerInputHandler;
 
@@ -34,7 +34,8 @@ public class FirstPersonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       HandleMovement();
+       HandleRotation(); 
     }
 
     private Vector3 CalculateWorldDirection()
@@ -46,7 +47,7 @@ public class FirstPersonController : MonoBehaviour
 
     private void HandleJumping()
     {
-        if (CharacterController.isGrounded)
+        if (characterController.isGrounded)
         {
             currentMovement.y = -0.5f;
 
@@ -69,5 +70,25 @@ public class FirstPersonController : MonoBehaviour
 
         HandleJumping();
         characterController.Move(currentMovement * Time.deltaTime);
+    }
+
+    private void ApplyHorizontalRotation(float rotationAmount)
+    {
+        transform.Rotate(0, rotationAmount, 0);
+    }
+
+    private void ApplyVerticalRotation(float rotationAmount)
+    {
+        verticalRotation = Mathf.Clamp(verticalRotation - rotationAmount, -upDownLookRange, upDownLookRange);
+        mainCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+    }
+
+    private void HandleRotation()
+    {
+        float mouseXRotation = playerInputHandler.RotationInput.x * mouseSensitivity;
+        float mouseYRotation = playerInputHandler.RotationInput.y * mouseSensitivity;
+
+        ApplyHorizontalRotation(mouseXRotation);
+        ApplyVerticalRotation(mouseYRotation);
     }
 }
