@@ -23,7 +23,6 @@ public class FirstPersonController : MonoBehaviour
     private float verticalRotation;
     private float CurrentSpeed => walkSpeed * (playerInputHandler.SprintTriggered ? sprintMultiplier : 1.0f);
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -31,7 +30,6 @@ public class FirstPersonController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
        HandleMovement();
