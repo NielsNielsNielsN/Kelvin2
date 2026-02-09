@@ -3,15 +3,21 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     public Transform player;
+    public Vector3 offset = Vector3.zero;
 
     void Start()
     {
-        player = GameObject.Find("player").transform;
+        if (player == null)
+        {
+            var found = GameObject.Find("player");
+            if (found != null)
+                player = found.transform;
+        }
     }
 
     void LateUpdate()
     {
         if (player != null)
-            transform.position = player.position;
+            transform.position = player.position + offset;
     }
 }
