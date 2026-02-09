@@ -1293,7 +1293,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 28253d97bbb5dd84fa5088fa38cea57e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1842,11 +1842,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317806097}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1333891070 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7519499330661067928, guid: 27833feea2ed25241bd6ed2e96a8477a, type: 3}
+  m_PrefabInstance: {fileID: 2480738918055182550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1333891074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6063524632640283109, guid: 27833feea2ed25241bd6ed2e96a8477a, type: 3}
   m_PrefabInstance: {fileID: 2480738918055182550}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1333891075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333891070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 0eebd010fb857d54cb395a1190e88d60, type: 2}
 --- !u!1 &1408877898
 GameObject:
   m_ObjectHideFlags: 0
@@ -2776,7 +2798,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7519499330661067928, guid: 27833feea2ed25241bd6ed2e96a8477a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1333891075}
   m_SourcePrefab: {fileID: 100100000, guid: 27833feea2ed25241bd6ed2e96a8477a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
