@@ -2449,6 +2449,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1734997413418905582, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734997413418905582, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
@@ -2502,12 +2506,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5047429043753083394, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_Type
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5047429043753083394, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1d2f6aeae2cf0344297ed7c72c264582, type: 3}
+      objectReference: {fileID: 21300000, guid: 3f8eea7f2c3316c488eefc66e9ef06fc, type: 3}
     - target: {fileID: 5047429043753083394, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_Color.a
       value: 0.5019608
@@ -2533,6 +2537,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5047429043753083394, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047429043753083394, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_FillClockwise
       value: 1
       objectReference: {fileID: 0}
@@ -2546,7 +2554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5047429043753083394, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
-      value: 28
+      value: 28.8
       objectReference: {fileID: 0}
     - target: {fileID: 7344662199775203939, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_Color.a
