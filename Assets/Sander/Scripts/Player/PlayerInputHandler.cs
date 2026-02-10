@@ -15,8 +15,8 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private string jump = "Jump";
     [SerializeField] private string sprint = "Sprint";
     [SerializeField] private string mine = "Mine";
-    [SerializeField] private string toggleMode = "ToggleMode";  // New: Right Mouse
-    [SerializeField] private string scrollDistance = "ScrollDistance";  // New: Mouse Wheel
+    [SerializeField] private string toggleMode = "ToggleMode";  
+    [SerializeField] private string scrollDistance = "ScrollDistance"; 
 
     private InputAction movementAction;
     private InputAction rotationAction;
@@ -31,8 +31,8 @@ public class PlayerInputHandler : MonoBehaviour
     public bool JumpTriggered { get; private set; }
     public bool SprintTriggered { get; private set; }
     public bool IsMining { get; private set; }
-    public bool ToggleModeTriggered { get; private set; }  // New
-    public float ScrollInput { get; private set; }  // New: Wheel delta
+    public bool ToggleModeTriggered { get; private set; }  
+    public float ScrollInput { get; private set; }  
 
     private void Awake()
     {
@@ -84,7 +84,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Update()
     {
-        ToggleModeTriggered = false;  // Reset per frame
-        ScrollInput = 0f;  // Reset per frame after use
+        ToggleModeTriggered = false;  
+        ScrollInput = 0f;  
     }
 }

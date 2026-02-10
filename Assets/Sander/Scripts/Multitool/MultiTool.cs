@@ -25,9 +25,12 @@ public class Multitool : MonoBehaviour
     [SerializeField] private float minHoldDistance = 1f;
     [SerializeField] private float maxHoldDistance = 10f;
     [SerializeField] private float scrollSensitivity = 2f;
-    [SerializeField] private float tractorSpring = 50000f;  // Increased for strong pull
+    [SerializeField] private float tractorSpring = 50000f;  
     [SerializeField] private float tractorDamperMult = 0.7f;
     [SerializeField] private AudioSource tractorSound;
+    [SerializeField] private float springForce = 1000f;
+    [SerializeField] private float damperForce = 500f;
+    [SerializeField] private float heldDrag = 10f;
 
     [Header("Input")]
     [SerializeField] private PlayerInputHandler inputHandler;
@@ -44,6 +47,13 @@ public class Multitool : MonoBehaviour
 
     void Start()
     {
+        Gradient baseGradient = new Gradient();
+        baseGradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(Color.white, 0f), new GradientColorKey(Color.white, 1f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(1f, 0f), new GradientAlphaKey(1f, 1f) }
+        );
+        beamRenderer.colorGradient = baseGradient;
+
         if (beamRenderer == null) beamRenderer = GetComponent<LineRenderer>();
         beamRenderer.startWidth = beamWidth;
         beamRenderer.endWidth = beamWidth;
@@ -52,7 +62,6 @@ public class Multitool : MonoBehaviour
 
         if (inputHandler == null) inputHandler = GetComponentInParent<PlayerInputHandler>();
 
-        // New: Create kinematic target child
         tractorTarget = new GameObject("TractorTarget");
         tractorTarget.transform.SetParent(transform);
         tractorTarget.transform.localPosition = Vector3.forward * holdDistance;
@@ -104,13 +113,16 @@ public class Multitool : MonoBehaviour
     {
         Color beamCol = currentMode == ToolMode.Mining ? miningColor : tractorColor;
 
-        // Fixed: Use gradient for reliable color update (HDRP-friendly)
-        Gradient grad = new Gradient();
-        grad.SetKeys(
+        // Set vertex tint (now used by shader graph)
+        Gradient gradient = new Gradient();
+        gradient.SetKeys(
             new GradientColorKey[] { new GradientColorKey(beamCol, 0f), new GradientColorKey(beamCol, 1f) },
             new GradientAlphaKey[] { new GradientAlphaKey(1f, 0f), new GradientAlphaKey(1f, 1f) }
         );
-        beamRenderer.colorGradient = grad;
+        beamRenderer.colorGradient = gradient;
+
+        // Optional: Boost emission via material property if you exposed it
+        beamRenderer.material.SetFloat("_Emission_Intensity", 10f);  // Match your property name
 
         if (currentMode == ToolMode.Mining)
         {
@@ -149,50 +161,70 @@ public class Multitool : MonoBehaviour
 
     private void PerformTractor()
     {
+        bool hitLiftable = Physics.Raycast(transform.position, transform.forward, out hit, maxRange, liftableLayer);
+
         if (heldRigidbody != null)
         {
-            // Beam to held object center
+            // Existing: beam to held object
             beamRenderer.enabled = true;
             beamRenderer.SetPosition(0, transform.position);
-            beamRenderer.SetPosition(1, heldRigidbody.worldCenterOfMass);
+            beamRenderer.SetPosition(1, heldRigidbody.transform.position);
 
             UpdateTractorJoint();
-            PlaySound(tractorSound);
+
+            if (tractorSound != null && !tractorSound.isPlaying) tractorSound.Play();
+        }
+        else if (hitLiftable)
+        {
+            // Pickup and draw to hit point (new: draw before pickup for smooth attach)
+            beamRenderer.enabled = true;
+            beamRenderer.SetPosition(0, transform.position);
+            beamRenderer.SetPosition(1, hit.point);
+
+            PickupObject(hit.collider);
         }
         else
         {
-            // Raycast to pickup
-            if (Physics.Raycast(transform.position, transform.forward, out hit, maxRange, liftableLayer))
-            {
-                PickupObject(hit.collider);
-            }
-            // Beam to target position
-            beamRenderer.enabled = true;
-            beamRenderer.SetPosition(0, transform.position);
-            beamRenderer.SetPosition(1, tractorTarget.transform.position);
+            // No hit/hold: always draw full range
+            DrawBeamToRange(maxRange);
         }
+
+        // Debug: Visualize ray in editor
+        Debug.DrawRay(transform.position, transform.forward * maxRange, Color.cyan, 0.1f);
     }
+
 
     private void PickupObject(Collider col)
     {
-        Rigidbody rb = col.GetComponent<Rigidbody>();
-        if (rb == null || rb == heldRigidbody) return;
+        Rigidbody rb = col.attachedRigidbody;  // Better: gets RB even if on parent
+        if (rb == null || rb.isKinematic)
+        {
+            Debug.LogWarning("No valid non-kinematic Rigidbody on hit object: " + col.name);
+            return;
+        }
 
         heldRigidbody = rb;
+        heldRigidbody.linearDamping = heldDrag;  // Apply drag
+
         tractorJoint = heldRigidbody.gameObject.AddComponent<SpringJoint>();
-        tractorJoint.connectedBody = tractorTargetRb;
-        tractorJoint.connectedAnchor = Vector3.zero;  // Target center
-        tractorJoint.anchor = Vector3.zero;  // Held center
-        tractorJoint.spring = tractorSpring;
-        tractorJoint.damper = tractorSpring * tractorDamperMult;
+        tractorJoint.autoConfigureConnectedAnchor = false;
+        tractorJoint.connectedBody = null;  // World space target
+        tractorJoint.spring = springForce;
+        tractorJoint.damper = damperForce;
         tractorJoint.minDistance = 0f;
-        tractorJoint.maxDistance = 1f;  // Tight hold
-        tractorJoint.massScale = 1f / rb.mass;  // Consistent force regardless of mass
+        tractorJoint.maxDistance = 0.1f;  // Small tolerance to reduce jitter
+
+        Debug.Log("Picked up: " + col.name + " | RB mass: " + rb.mass);
     }
 
     private void UpdateTractorJoint()
     {
-        // Joint auto-pulls to moving target � no extra needed!
+        if (tractorJoint != null && heldRigidbody != null)
+        {
+            Vector3 targetPos = transform.position + transform.forward * targetHoldDistance;
+            tractorJoint.connectedAnchor = Vector3.zero;  // Not needed if world-anchored
+            tractorJoint.anchor = heldRigidbody.transform.InverseTransformPoint(targetPos);  // Pull to target
+        }
     }
 
     private void StopActive()
@@ -205,6 +237,13 @@ public class Multitool : MonoBehaviour
             Destroy(tractorJoint);
             heldRigidbody = null;
             tractorJoint = null;
+        }
+
+        if (heldRigidbody != null)
+        {
+            if (tractorJoint != null) Destroy(tractorJoint);
+            heldRigidbody.linearDamping = 0f;  // Reset to original (assume 0; store original if needed)
+            heldRigidbody = null;
         }
     }
 

@@ -1958,7 +1958,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f27ac9593936a742a275bdf4428d5e9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MultiTool
+  m_EditorClassIdentifier: Assembly-CSharp::Multitool
   maxRange: 10
   minableLayer:
     serializedVersion: 2
@@ -1978,8 +1978,11 @@ MonoBehaviour:
   maxHoldDistance: 10
   scrollSensitivity: 2
   tractorSpring: 500000
-  tractorDamperMult: 3
+  tractorDamperMult: 1
   tractorSound: {fileID: 0}
+  springForce: 2000
+  damperForce: 500
+  heldDrag: 10
   inputHandler: {fileID: 987871824}
 --- !u!1 &1898772527
 GameObject:
