@@ -2472,6 +2472,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6478438224852618296, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
+      propertyPath: m_Name
+      value: Current Multitool
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079990423024076111, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 28b780141e91be247ade71fcc1b5722a, type: 3}
     - target: {fileID: 7300478262006016092, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
