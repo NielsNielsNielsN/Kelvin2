@@ -25,17 +25,17 @@ public class Multitool : MonoBehaviour
     [SerializeField] private float minHoldDistance = 1f;
     [SerializeField] private float maxHoldDistance = 10f;
     [SerializeField] private float scrollSensitivity = 2f;
-    [SerializeField] private float tractorSpring = 50000f;  
-    [SerializeField] private float tractorDamperMult = 0.7f;
+    [SerializeField] private float followSpeed = 10f;  
+    [SerializeField] private float maxVelocity = 20f;
     [SerializeField] private AudioSource tractorSound;
-    [SerializeField] private float springForce = 1000f;
-    [SerializeField] private float damperForce = 500f;
-    [SerializeField] private float heldDrag = 10f;
+    private Vector3 releaseVelocity;
+    private bool originalUseGravity;
+    private bool originalIsKinematic;
 
     [Header("Input")]
     [SerializeField] private PlayerInputHandler inputHandler;
 
-    private ToolMode currentMode = ToolMode.Mining;
+    public ToolMode currentMode = ToolMode.Mining;
     private bool isActive;
     private RaycastHit hit;
     private ParticleSystem activeImpactParticles;
@@ -165,18 +165,28 @@ public class Multitool : MonoBehaviour
 
         if (heldRigidbody != null)
         {
-            // Existing: beam to held object
             beamRenderer.enabled = true;
             beamRenderer.SetPosition(0, transform.position);
             beamRenderer.SetPosition(1, heldRigidbody.transform.position);
 
-            UpdateTractorJoint();
+            Vector3 targetPos = transform.position + transform.forward * targetHoldDistance;
+            Vector3 direction = targetPos - heldRigidbody.transform.position;
+            Vector3 desiredVelocity = direction * followSpeed;
+
+            if (desiredVelocity.magnitude > maxVelocity)
+            {
+                desiredVelocity = desiredVelocity.normalized * maxVelocity;
+            }
+
+            heldRigidbody.linearVelocity = desiredVelocity;
+
+            // Store current velocity for release (updates every frame)
+            releaseVelocity = heldRigidbody.linearVelocity;
 
             if (tractorSound != null && !tractorSound.isPlaying) tractorSound.Play();
         }
         else if (hitLiftable)
         {
-            // Pickup and draw to hit point (new: draw before pickup for smooth attach)
             beamRenderer.enabled = true;
             beamRenderer.SetPosition(0, transform.position);
             beamRenderer.SetPosition(1, hit.point);
@@ -185,18 +195,14 @@ public class Multitool : MonoBehaviour
         }
         else
         {
-            // No hit/hold: always draw full range
             DrawBeamToRange(maxRange);
         }
-
-        // Debug: Visualize ray in editor
-        Debug.DrawRay(transform.position, transform.forward * maxRange, Color.cyan, 0.1f);
     }
 
 
     private void PickupObject(Collider col)
     {
-        Rigidbody rb = col.attachedRigidbody;  // Better: gets RB even if on parent
+        Rigidbody rb = col.attachedRigidbody;
         if (rb == null || rb.isKinematic)
         {
             Debug.LogWarning("No valid non-kinematic Rigidbody on hit object: " + col.name);
@@ -204,17 +210,16 @@ public class Multitool : MonoBehaviour
         }
 
         heldRigidbody = rb;
-        heldRigidbody.linearDamping = heldDrag;  // Apply drag
 
-        tractorJoint = heldRigidbody.gameObject.AddComponent<SpringJoint>();
-        tractorJoint.autoConfigureConnectedAnchor = false;
-        tractorJoint.connectedBody = null;  // World space target
-        tractorJoint.spring = springForce;
-        tractorJoint.damper = damperForce;
-        tractorJoint.minDistance = 0f;
-        tractorJoint.maxDistance = 0.1f;  // Small tolerance to reduce jitter
+        originalUseGravity = rb.useGravity;
+        originalIsKinematic = rb.isKinematic;
 
-        Debug.Log("Picked up: " + col.name + " | RB mass: " + rb.mass);
+        rb.useGravity = false;
+        rb.linearVelocity = Vector3.zero;     // Clean start
+        rb.angularVelocity = Vector3.zero;
+        releaseVelocity = Vector3.zero;       // Reset stored release vel
+
+        Debug.Log("Picked up: " + col.name);
     }
 
     private void UpdateTractorJoint()
@@ -232,17 +237,15 @@ public class Multitool : MonoBehaviour
         beamRenderer.enabled = false;
         StopEffects();
 
-        if (heldRigidbody != null && tractorJoint != null)
-        {
-            Destroy(tractorJoint);
-            heldRigidbody = null;
-            tractorJoint = null;
-        }
-
         if (heldRigidbody != null)
         {
-            if (tractorJoint != null) Destroy(tractorJoint);
-            heldRigidbody.linearDamping = 0f;  // Reset to original (assume 0; store original if needed)
+            heldRigidbody.isKinematic = originalIsKinematic;
+            heldRigidbody.useGravity = originalUseGravity;
+
+            // Apply preserved momentum instead of zeroing it
+            heldRigidbody.linearVelocity = releaseVelocity;
+            heldRigidbody.angularVelocity = Vector3.zero;  // Optional: stop spinning if unwanted
+
             heldRigidbody = null;
         }
     }

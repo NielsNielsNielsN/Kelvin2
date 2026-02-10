@@ -1959,7 +1959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f27ac9593936a742a275bdf4428d5e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Multitool
-  maxRange: 10
+  maxRange: 5
   minableLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1971,19 +1971,17 @@ MonoBehaviour:
   tractorColor: {r: 0, g: 0, b: 1, a: 1}
   beamWidth: 0.05
   damagePerSecond: 10
-  impactParticlesPrefab: {fileID: 5470400163245961415, guid: 6836da1951f44cd488eaa72bff52bfa2, type: 3}
+  impactParticlesPrefab: {fileID: 0}
   laserSound: {fileID: 0}
   holdDistance: 3
   minHoldDistance: 1
   maxHoldDistance: 10
   scrollSensitivity: 2
-  tractorSpring: 500000
-  tractorDamperMult: 1
+  followSpeed: 10
+  maxVelocity: 20
   tractorSound: {fileID: 0}
-  springForce: 2000
-  damperForce: 500
-  heldDrag: 10
   inputHandler: {fileID: 987871824}
+  currentMode: 0
 --- !u!1 &1898772527
 GameObject:
   m_ObjectHideFlags: 1
