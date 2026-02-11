@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;  // Added for Image and Sprite
 
-public enum ToolMode { Mining, Tractor }
+public enum ToolMode { Mining, Tractor, Repair }
 
 public class Multitool : MonoBehaviour
 {
@@ -8,11 +9,13 @@ public class Multitool : MonoBehaviour
     [SerializeField] private float maxRange = 5f;
     [SerializeField] private LayerMask minableLayer;
     [SerializeField] private LayerMask liftableLayer;
+    [SerializeField] private LayerMask repairableLayer;
 
     [Header("Beam Visuals")]
     [SerializeField] private LineRenderer beamRenderer;
     [SerializeField] private Color miningColor = Color.red;
     [SerializeField] private Color tractorColor = Color.blue;
+    [SerializeField] private Color repairColor = Color.green;
     [SerializeField] private float beamWidth = 0.05f;
 
     [Header("Mining")]
@@ -25,25 +28,37 @@ public class Multitool : MonoBehaviour
     [SerializeField] private float minHoldDistance = 1f;
     [SerializeField] private float maxHoldDistance = 10f;
     [SerializeField] private float scrollSensitivity = 2f;
-    [SerializeField] private float followSpeed = 10f;  
+    [SerializeField] private float followSpeed = 10f;
     [SerializeField] private float maxVelocity = 20f;
     [SerializeField] private AudioSource tractorSound;
-    private Vector3 releaseVelocity;
-    private bool originalUseGravity;
-    private bool originalIsKinematic;
+
+    [Header("Repair")]
+    [SerializeField] private float repairPerSecond = 1f;
+    [SerializeField] private ParticleSystem repairParticlesPrefab;
+    [SerializeField] private AudioSource repairSound;
 
     [Header("Input")]
     [SerializeField] private PlayerInputHandler inputHandler;
 
+    [Header("Mode UI Icon")]
+    [SerializeField] private Image modeIconImage;           // Drag your UI Image component here
+    [SerializeField] private Sprite miningIconSprite;       // Icon for Mining mode
+    [SerializeField] private Sprite tractorIconSprite;      // Icon for Tractor mode
+    [SerializeField] private Sprite repairIconSprite;       // Icon for Repair mode
+
     public ToolMode currentMode = ToolMode.Mining;
+
     private bool isActive;
     private RaycastHit hit;
     private ParticleSystem activeImpactParticles;
     private Rigidbody heldRigidbody;
-    private SpringJoint tractorJoint;
-    private GameObject tractorTarget;  
+    private Vector3 releaseVelocity;
+    private bool originalUseGravity;
+    private bool originalIsKinematic;
+    private GameObject tractorTarget;
     private Rigidbody tractorTargetRb;
     private float targetHoldDistance;
+    private ToolMode lastMode;  // Used to detect mode changes for icon update
 
     void Start()
     {
@@ -66,6 +81,7 @@ public class Multitool : MonoBehaviour
         tractorTarget.transform.SetParent(transform);
         tractorTarget.transform.localPosition = Vector3.forward * holdDistance;
         tractorTarget.transform.localRotation = Quaternion.identity;
+
         tractorTargetRb = tractorTarget.AddComponent<Rigidbody>();
         tractorTargetRb.isKinematic = true;
         tractorTargetRb.useGravity = false;
@@ -73,6 +89,10 @@ public class Multitool : MonoBehaviour
         tractorTargetRb.angularDamping = 0f;
 
         targetHoldDistance = holdDistance;
+
+        // Initialize UI icon
+        lastMode = currentMode;
+        UpdateModeIcon();
     }
 
     void Update()
@@ -82,17 +102,23 @@ public class Multitool : MonoBehaviour
         if (inputHandler.ToggleModeTriggered)
         {
             ToggleMode();
-            Debug.Log("Switched to: " + currentMode);  // Temp: Confirm toggle
+            Debug.Log("Switched to: " + currentMode);
         }
 
-        if (inputHandler.ScrollInput != 0f)
+        if (inputHandler.ScrollInput != 0f && currentMode == ToolMode.Tractor)
         {
             targetHoldDistance += inputHandler.ScrollInput * scrollSensitivity;
             targetHoldDistance = Mathf.Clamp(targetHoldDistance, minHoldDistance, maxHoldDistance);
         }
 
-        // Update target position every frame
         tractorTarget.transform.localPosition = Vector3.forward * targetHoldDistance;
+
+        // Check for mode change (in case something external changes it)
+        if (currentMode != lastMode)
+        {
+            UpdateModeIcon();
+            lastMode = currentMode;
+        }
 
         if (isActive)
         {
@@ -106,14 +132,45 @@ public class Multitool : MonoBehaviour
 
     private void ToggleMode()
     {
-        currentMode = currentMode == ToolMode.Mining ? ToolMode.Tractor : ToolMode.Mining;
+        switch (currentMode)
+        {
+            case ToolMode.Mining:
+                currentMode = ToolMode.Tractor;
+                break;
+            case ToolMode.Tractor:
+                currentMode = ToolMode.Repair;
+                break;
+            case ToolMode.Repair:
+                currentMode = ToolMode.Mining;
+                break;
+        }
+
+        UpdateModeIcon();  // Update icon immediately after toggle
+    }
+
+    private void UpdateModeIcon()
+    {
+        if (modeIconImage == null) return;
+
+        modeIconImage.sprite = currentMode switch
+        {
+            ToolMode.Mining => miningIconSprite,
+            ToolMode.Tractor => tractorIconSprite,
+            ToolMode.Repair => repairIconSprite,
+            _ => miningIconSprite // fallback
+        };
     }
 
     private void PerformActive()
     {
-        Color beamCol = currentMode == ToolMode.Mining ? miningColor : tractorColor;
+        Color beamCol = currentMode switch
+        {
+            ToolMode.Mining => miningColor,
+            ToolMode.Tractor => tractorColor,
+            ToolMode.Repair => repairColor,
+            _ => Color.white
+        };
 
-        // Set vertex tint (now used by shader graph)
         Gradient gradient = new Gradient();
         gradient.SetKeys(
             new GradientColorKey[] { new GradientColorKey(beamCol, 0f), new GradientColorKey(beamCol, 1f) },
@@ -121,16 +178,19 @@ public class Multitool : MonoBehaviour
         );
         beamRenderer.colorGradient = gradient;
 
-        // Optional: Boost emission via material property if you exposed it
-        beamRenderer.material.SetFloat("_Emission_Intensity", 10f);  // Match your property name
+        beamRenderer.material.SetFloat("_Emission_Intensity", 10f);
 
-        if (currentMode == ToolMode.Mining)
+        switch (currentMode)
         {
-            PerformMining();
-        }
-        else
-        {
-            PerformTractor();
+            case ToolMode.Mining:
+                PerformMining();
+                break;
+            case ToolMode.Tractor:
+                PerformTractor();
+                break;
+            case ToolMode.Repair:
+                PerformRepair();
+                break;
         }
     }
 
@@ -141,11 +201,8 @@ public class Multitool : MonoBehaviour
             beamRenderer.enabled = true;
             beamRenderer.SetPosition(0, transform.position);
             beamRenderer.SetPosition(1, hit.point);
-
             PlaySound(laserSound);
-
             UpdateImpactParticles(hit.point, hit.normal);
-
             MinableRock rock = hit.collider.GetComponent<MinableRock>();
             if (rock != null)
             {
@@ -179,8 +236,6 @@ public class Multitool : MonoBehaviour
             }
 
             heldRigidbody.linearVelocity = desiredVelocity;
-
-            // Store current velocity for release (updates every frame)
             releaseVelocity = heldRigidbody.linearVelocity;
 
             if (tractorSound != null && !tractorSound.isPlaying) tractorSound.Play();
@@ -190,7 +245,6 @@ public class Multitool : MonoBehaviour
             beamRenderer.enabled = true;
             beamRenderer.SetPosition(0, transform.position);
             beamRenderer.SetPosition(1, hit.point);
-
             PickupObject(hit.collider);
         }
         else
@@ -199,6 +253,29 @@ public class Multitool : MonoBehaviour
         }
     }
 
+    private void PerformRepair()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out hit, maxRange, repairableLayer))
+        {
+            beamRenderer.enabled = true;
+            beamRenderer.SetPosition(0, transform.position);
+            beamRenderer.SetPosition(1, hit.point);
+
+            PlaySound(repairSound);
+            UpdateImpactParticles(hit.point, hit.normal); // Reuse or change to repair-specific
+
+            RepairableObject repairObj = hit.collider.GetComponent<RepairableObject>();
+            if (repairObj != null)
+            {
+                repairObj.Repair(repairPerSecond * Time.deltaTime);
+            }
+        }
+        else
+        {
+            DrawBeamToRange(maxRange);
+            StopEffects();
+        }
+    }
 
     private void PickupObject(Collider col)
     {
@@ -210,26 +287,15 @@ public class Multitool : MonoBehaviour
         }
 
         heldRigidbody = rb;
-
         originalUseGravity = rb.useGravity;
         originalIsKinematic = rb.isKinematic;
 
         rb.useGravity = false;
-        rb.linearVelocity = Vector3.zero;     // Clean start
+        rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        releaseVelocity = Vector3.zero;       // Reset stored release vel
+        releaseVelocity = Vector3.zero;
 
         Debug.Log("Picked up: " + col.name);
-    }
-
-    private void UpdateTractorJoint()
-    {
-        if (tractorJoint != null && heldRigidbody != null)
-        {
-            Vector3 targetPos = transform.position + transform.forward * targetHoldDistance;
-            tractorJoint.connectedAnchor = Vector3.zero;  // Not needed if world-anchored
-            tractorJoint.anchor = heldRigidbody.transform.InverseTransformPoint(targetPos);  // Pull to target
-        }
     }
 
     private void StopActive()
@@ -241,11 +307,8 @@ public class Multitool : MonoBehaviour
         {
             heldRigidbody.isKinematic = originalIsKinematic;
             heldRigidbody.useGravity = originalUseGravity;
-
-            // Apply preserved momentum instead of zeroing it
             heldRigidbody.linearVelocity = releaseVelocity;
-            heldRigidbody.angularVelocity = Vector3.zero;  // Optional: stop spinning if unwanted
-
+            heldRigidbody.angularVelocity = Vector3.zero;
             heldRigidbody = null;
         }
     }
@@ -283,6 +346,7 @@ public class Multitool : MonoBehaviour
     {
         if (laserSound != null && laserSound.isPlaying) laserSound.Stop();
         if (tractorSound != null && tractorSound.isPlaying) tractorSound.Stop();
+        if (repairSound != null && repairSound.isPlaying) repairSound.Stop();
         if (activeImpactParticles != null)
         {
             activeImpactParticles.Stop();
@@ -295,5 +359,4 @@ public class Multitool : MonoBehaviour
     {
         if (tractorTarget != null) Destroy(tractorTarget);
     }
-
 }
