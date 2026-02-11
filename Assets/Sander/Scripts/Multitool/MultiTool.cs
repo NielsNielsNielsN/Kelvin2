@@ -41,7 +41,7 @@ public class Multitool : MonoBehaviour
     private ParticleSystem activeImpactParticles;
     private Rigidbody heldRigidbody;
     private SpringJoint tractorJoint;
-    private GameObject tractorTarget;  // New: Kinematic target for joint
+    private GameObject tractorTarget;  
     private Rigidbody tractorTargetRb;
     private float targetHoldDistance;
 
