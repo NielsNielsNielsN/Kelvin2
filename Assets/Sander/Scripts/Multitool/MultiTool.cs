@@ -119,7 +119,10 @@ public class Multitool : MonoBehaviour
             UpdateModeIcon();
             lastMode = currentMode;
         }
+    }
 
+    private void LateUpdate()
+    {
         if (isActive)
         {
             PerformActive();
