@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum ToolMode { Mining, Tractor }
 
@@ -295,4 +295,5 @@ public class Multitool : MonoBehaviour
     {
         if (tractorTarget != null) Destroy(tractorTarget);
     }
+
 }
