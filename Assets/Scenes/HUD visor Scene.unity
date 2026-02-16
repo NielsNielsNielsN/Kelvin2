@@ -3144,15 +3144,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 510959056866881788, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 650319947162173331, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1220400721185523938, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1220400721185523938, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4818597954132542659, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_Name
@@ -3160,15 +3164,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7300478262006016092, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7300478262006016092, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604321689713339873, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8878175001016924068, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_Pivot.x
@@ -3321,10 +3321,10 @@ SceneRoots:
   - {fileID: 1898772529}
   - {fileID: 1408877899}
   - {fileID: 1199882895}
-  - {fileID: 7288697440318550878}
   - {fileID: 1861192518}
   - {fileID: 2039543856}
   - {fileID: 1127929469}
   - {fileID: 604300187}
   - {fileID: 1463090702}
   - {fileID: 670847063}
+  - {fileID: 7288697440318550878}
