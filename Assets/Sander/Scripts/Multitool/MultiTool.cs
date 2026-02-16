@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;  // Added for Image and Sprite
+using UnityEngine.UI;
 
 public enum ToolMode { Mining, Tractor, Repair }
 
@@ -41,10 +41,10 @@ public class Multitool : MonoBehaviour
     [SerializeField] private PlayerInputHandler inputHandler;
 
     [Header("Mode UI Icon")]
-    [SerializeField] private Image modeIconImage;           // Drag your UI Image component here
-    [SerializeField] private Sprite miningIconSprite;       // Icon for Mining mode
-    [SerializeField] private Sprite tractorIconSprite;      // Icon for Tractor mode
-    [SerializeField] private Sprite repairIconSprite;       // Icon for Repair mode
+    [SerializeField] private Image modeIconImage;
+    [SerializeField] private Sprite miningIconSprite;
+    [SerializeField] private Sprite tractorIconSprite;
+    [SerializeField] private Sprite repairIconSprite;
 
     public ToolMode currentMode = ToolMode.Mining;
 
@@ -58,7 +58,7 @@ public class Multitool : MonoBehaviour
     private GameObject tractorTarget;
     private Rigidbody tractorTargetRb;
     private float targetHoldDistance;
-    private ToolMode lastMode;  // Used to detect mode changes for icon update
+    private ToolMode lastMode;
 
     void Start()
     {
@@ -90,7 +90,6 @@ public class Multitool : MonoBehaviour
 
         targetHoldDistance = holdDistance;
 
-        // Initialize UI icon
         lastMode = currentMode;
         UpdateModeIcon();
     }
@@ -113,7 +112,6 @@ public class Multitool : MonoBehaviour
 
         tractorTarget.transform.localPosition = Vector3.forward * targetHoldDistance;
 
-        // Check for mode change (in case something external changes it)
         if (currentMode != lastMode)
         {
             UpdateModeIcon();
@@ -147,8 +145,7 @@ public class Multitool : MonoBehaviour
                 currentMode = ToolMode.Mining;
                 break;
         }
-
-        UpdateModeIcon();  // Update icon immediately after toggle
+        UpdateModeIcon();
     }
 
     private void UpdateModeIcon()
@@ -160,7 +157,7 @@ public class Multitool : MonoBehaviour
             ToolMode.Mining => miningIconSprite,
             ToolMode.Tractor => tractorIconSprite,
             ToolMode.Repair => repairIconSprite,
-            _ => miningIconSprite // fallback
+            _ => miningIconSprite
         };
     }
 
@@ -229,7 +226,6 @@ public class Multitool : MonoBehaviour
             beamRenderer.SetPosition(0, transform.position);
             beamRenderer.SetPosition(1, heldRigidbody.transform.position);
 
-            // Existing velocity follow
             Vector3 targetPos = transform.position + transform.forward * targetHoldDistance;
             Vector3 direction = targetPos - heldRigidbody.transform.position;
             Vector3 desiredVelocity = direction * followSpeed;
@@ -242,7 +238,6 @@ public class Multitool : MonoBehaviour
             heldRigidbody.linearVelocity = desiredVelocity;
             releaseVelocity = heldRigidbody.linearVelocity;
 
-            // ← NEW: Check for snap socket proximity
             CheckSnapSocket();
 
             PlaySound(tractorSound);
@@ -270,14 +265,11 @@ public class Multitool : MonoBehaviour
 
         if (distance <= transportObj.SnapDistance)
         {
-            // Snap the object
             socket.SnapObject(heldRigidbody.transform);
             heldRigidbody.isKinematic = true;
 
-            // Notify ObjectiveManager using the GameObject
             FindObjectOfType<ObjectiveManager>()?.OnTransportObjectiveCompleted(heldRigidbody.gameObject);
 
-            // Release from tractor
             heldRigidbody = null;
         }
     }
@@ -289,10 +281,8 @@ public class Multitool : MonoBehaviour
             beamRenderer.enabled = true;
             beamRenderer.SetPosition(0, transform.position);
             beamRenderer.SetPosition(1, hit.point);
-
             PlaySound(repairSound);
-            UpdateImpactParticles(hit.point, hit.normal); // Reuse or change to repair-specific
-
+            UpdateImpactParticles(hit.point, hit.normal);
             RepairableObject repairObj = hit.collider.GetComponent<RepairableObject>();
             if (repairObj != null)
             {
@@ -327,7 +317,7 @@ public class Multitool : MonoBehaviour
         Debug.Log("Picked up: " + col.name);
     }
 
-    private void StopActive()
+    public void StopActive()  // ← Made public
     {
         beamRenderer.enabled = false;
         StopEffects();

@@ -1,10 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
     [Header("Input Action Asset")]
-    [SerializeField] private InputActionAsset playerControls;
+    [SerializeField] public InputActionAsset playerControls;  // ← Changed to public
 
     [Header("Action Map Name Reference")]
     [SerializeField] private string actionMapName = "Player";
@@ -15,8 +15,8 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private string jump = "Jump";
     [SerializeField] private string sprint = "Sprint";
     [SerializeField] private string mine = "Mine";
-    [SerializeField] private string toggleMode = "ToggleMode";  
-    [SerializeField] private string scrollDistance = "ScrollDistance"; 
+    [SerializeField] private string toggleMode = "ToggleMode";
+    [SerializeField] private string scrollDistance = "ScrollDistance";
 
     private InputAction movementAction;
     private InputAction rotationAction;
@@ -31,13 +31,12 @@ public class PlayerInputHandler : MonoBehaviour
     public bool JumpTriggered { get; private set; }
     public bool SprintTriggered { get; private set; }
     public bool IsMining { get; private set; }
-    public bool ToggleModeTriggered { get; private set; }  
-    public float ScrollInput { get; private set; }  
+    public bool ToggleModeTriggered { get; private set; }
+    public float ScrollInput { get; private set; }
 
     private void Awake()
     {
         InputActionMap mapReference = playerControls.FindActionMap(actionMapName);
-
         movementAction = mapReference.FindAction(movement);
         rotationAction = mapReference.FindAction(rotation);
         jumpAction = mapReference.FindAction(jump);
@@ -84,7 +83,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Update()
     {
-        ToggleModeTriggered = false;  
-        ScrollInput = 0f;  
+        ToggleModeTriggered = false;
+        ScrollInput = 0f;
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1979850279057417801}
   - component: {fileID: 7406286435849121829}
+  - component: {fileID: 4921995044985277038}
   m_Layer: 5
   m_Name: UI Manager
   m_TagString: Untagged
@@ -59,3 +60,19 @@ MonoBehaviour:
   image3: {fileID: 0}
   image3TargetAlpha: 0.2
   startInvisible: 1
+--- !u!114 &4921995044985277038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5750199664500682036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47edc9245c8883744881f2ad2bade91a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuUI
+  ingameUI: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  playerInputHandler: {fileID: 0}
+  multitool: {fileID: 0}
