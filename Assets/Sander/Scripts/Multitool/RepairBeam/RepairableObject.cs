@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RepairableObject : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class RepairableObject : MonoBehaviour
     [SerializeField] private Material repairedMaterial;         // Optional: different material when repaired
     [SerializeField] private ParticleSystem repairCompleteParticlesPrefab; // Optional effect on finish
     [SerializeField] private AudioClip repairCompleteSound;
+
+    public UnityEvent OnRepaired = new UnityEvent();
 
     private float currentRepairProgress = 0f;
     private MeshFilter meshFilter;
@@ -54,6 +57,8 @@ public class RepairableObject : MonoBehaviour
 
         // Optional: disable script after repair
         enabled = false;
+
+        OnRepaired.Invoke();
     }
 
     // For visual feedback (optional): change color or scale slightly during repair

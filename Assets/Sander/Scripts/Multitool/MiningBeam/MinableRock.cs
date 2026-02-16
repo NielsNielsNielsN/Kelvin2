@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MinableRock : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class MinableRock : MonoBehaviour
     [SerializeField] private GameObject resourceDropPrefab;
     [SerializeField] private ParticleSystem breakParticlesPrefab;
     [SerializeField] private AudioClip breakSound;
+    public UnityEvent OnMined = new UnityEvent();
 
     private float currentHealth;
 
@@ -41,6 +43,8 @@ public class MinableRock : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(breakSound, transform.position);
         }
+
+        OnMined.Invoke();
 
         Destroy(gameObject);
     }

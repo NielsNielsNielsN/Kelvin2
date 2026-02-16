@@ -229,6 +229,7 @@ public class Multitool : MonoBehaviour
             beamRenderer.SetPosition(0, transform.position);
             beamRenderer.SetPosition(1, heldRigidbody.transform.position);
 
+            // Existing velocity follow
             Vector3 targetPos = transform.position + transform.forward * targetHoldDistance;
             Vector3 direction = targetPos - heldRigidbody.transform.position;
             Vector3 desiredVelocity = direction * followSpeed;
@@ -241,7 +242,10 @@ public class Multitool : MonoBehaviour
             heldRigidbody.linearVelocity = desiredVelocity;
             releaseVelocity = heldRigidbody.linearVelocity;
 
-            if (tractorSound != null && !tractorSound.isPlaying) tractorSound.Play();
+            // ← NEW: Check for snap socket proximity
+            CheckSnapSocket();
+
+            PlaySound(tractorSound);
         }
         else if (hitLiftable)
         {
@@ -253,6 +257,28 @@ public class Multitool : MonoBehaviour
         else
         {
             DrawBeamToRange(maxRange);
+        }
+    }
+
+    private void CheckSnapSocket()
+    {
+        TransportObjective transportObj = heldRigidbody.GetComponent<TransportObjective>();
+        if (transportObj == null || transportObj.TargetSocket == null) return;
+
+        SnapSocket socket = transportObj.TargetSocket;
+        float distance = Vector3.Distance(heldRigidbody.transform.position, socket.transform.position);
+
+        if (distance <= transportObj.SnapDistance)
+        {
+            // Snap the object
+            socket.SnapObject(heldRigidbody.transform);
+            heldRigidbody.isKinematic = true;
+
+            // Notify ObjectiveManager using the GameObject
+            FindObjectOfType<ObjectiveManager>()?.OnTransportObjectiveCompleted(heldRigidbody.gameObject);
+
+            // Release from tractor
+            heldRigidbody = null;
         }
     }
 
