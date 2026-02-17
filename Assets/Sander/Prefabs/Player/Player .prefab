@@ -74,7 +74,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 503
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 2042650016783173876}
   - component: {fileID: 3451024219697572861}
   - component: {fileID: 958739413865173023}
-  - component: {fileID: 6374598029287493586}
+  - component: {fileID: 776663068396561905}
   m_Layer: 0
   m_Name: Multitool
   m_TagString: Untagged
@@ -633,7 +633,7 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &6374598029287493586
+--- !u!114 &776663068396561905
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -654,7 +654,7 @@ MonoBehaviour:
     m_Bits: 128
   repairableLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   beamRenderer: {fileID: 958739413865173023}
   miningColor: {r: 1, g: 0, b: 0, a: 1}
   tractorColor: {r: 0, g: 0, b: 1, a: 1}

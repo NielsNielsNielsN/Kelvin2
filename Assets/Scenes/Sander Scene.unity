@@ -1589,17 +1589,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
---- !u!114 &1503618469 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6374598029287493586, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
-  m_PrefabInstance: {fileID: 8062390919646788157}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f27ac9593936a742a275bdf4428d5e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Multitool
 --- !u!1 &1610324852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,17 +1623,6 @@ Transform:
   - {fileID: 744519390}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1636238387 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7079990423024076111, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
-  m_PrefabInstance: {fileID: 883181809}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1714869652
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,7 +2369,7 @@ PrefabInstance:
     - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
       propertyPath: multitool
       value: 
-      objectReference: {fileID: 1503618469}
+      objectReference: {fileID: 0}
     - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -2570,49 +2548,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3941911576437967042, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
-      propertyPath: m_Name
-      value: 'player '
-      objectReference: {fileID: 0}
-    - target: {fileID: 4132970842479061322, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 503
-      objectReference: {fileID: 0}
-    - target: {fileID: 6374598029287493586, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
+    - target: {fileID: 776663068396561905, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
       propertyPath: inputHandler
       value: 
       objectReference: {fileID: 987871824}
-    - target: {fileID: 6374598029287493586, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
-      propertyPath: modeIconImage
-      value: 
-      objectReference: {fileID: 1636238387}
-    - target: {fileID: 6374598029287493586, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
-      propertyPath: repairColor.b
-      value: 0.14901963
-      objectReference: {fileID: 0}
-    - target: {fileID: 6374598029287493586, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
-      propertyPath: repairColor.g
-      value: 0.8627451
-      objectReference: {fileID: 0}
-    - target: {fileID: 6374598029287493586, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
-      propertyPath: repairColor.r
-      value: 0.20056748
-      objectReference: {fileID: 0}
-    - target: {fileID: 6374598029287493586, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
-      propertyPath: miningIconSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d91f542b1ff88bd40be505ce86f2450c, type: 3}
-    - target: {fileID: 6374598029287493586, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
-      propertyPath: repairIconSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 90204f11e619d8d499458bfe76eb8988, type: 3}
-    - target: {fileID: 6374598029287493586, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
-      propertyPath: tractorIconSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 28b780141e91be247ade71fcc1b5722a, type: 3}
-    - target: {fileID: 6374598029287493586, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
-      propertyPath: repairableLayer.m_Bits
-      value: 256
+    - target: {fileID: 3941911576437967042, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
+      propertyPath: m_Name
+      value: 'player '
       objectReference: {fileID: 0}
     - target: {fileID: 7272489756031020052, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
       propertyPath: m_LocalPosition.x
