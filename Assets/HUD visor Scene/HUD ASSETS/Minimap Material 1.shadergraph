@@ -640,13 +640,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.Rendering.HighDefinition.ShaderGraph.TerrainLitData",
-    "m_ObjectId": "2a77caae49bf43c3a3ddbb911f76c857",
-    "m_EnableInstancedPerPixelNormal": true
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "2d5f7ddf107f4b46b644639dfd8922c8",
     "m_Id": 0,
@@ -1555,9 +1548,6 @@
         },
         {
             "m_Id": "40d1f30954e94757b0dcf7edf8e03381"
-        },
-        {
-            "m_Id": "2a77caae49bf43c3a3ddbb911f76c857"
         },
         {
             "m_Id": "a4883b8cb0f542d885017192082c6fd5"
