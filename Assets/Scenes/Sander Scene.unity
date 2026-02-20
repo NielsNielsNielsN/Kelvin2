@@ -1087,8 +1087,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RepairableObject
   maxRepairTime: 4
-  repairedMesh: {fileID: -2910575185110703556, guid: 3e85dc3c9a389c84b8bb58991ce4d9e0, type: 3}
-  repairedMaterial: {fileID: 2100000, guid: b62bd1c563c68294ba2203195e76c676, type: 2}
+  repairedMesh: {fileID: -6402532953415861574, guid: b2aa4f07ed8a53a44b59880db5bc2f7b, type: 3}
+  repairedMaterial: {fileID: 2100000, guid: 3eeeacbc0b00f9c429b69545e9420505, type: 2}
   repairCompleteParticlesPrefab: {fileID: 0}
   repairCompleteSound: {fileID: 0}
   OnRepaired:
@@ -1142,7 +1142,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 8d3a1b78c7d32f64689990479b8be589, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1173,7 +1173,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570865413}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -6402532953415861574, guid: b2aa4f07ed8a53a44b59880db5bc2f7b, type: 3}
 --- !u!4 &570865418
 Transform:
   m_ObjectHideFlags: 0
