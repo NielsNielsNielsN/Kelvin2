@@ -512,6 +512,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4ed9fb55acdb045870da74280d50df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
+--- !u!4 &181932573 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7272489756031020052, guid: 7a5abf3ade8b1244bb83deac1bd5d03b, type: 3}
+  m_PrefabInstance: {fileID: 1889729983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &209906770 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6143436561797156841, guid: a1f1bc76395373047b067c0b13547fa8, type: 3}
@@ -858,7 +863,7 @@ PrefabInstance:
     - target: {fileID: 1260725194092413578, guid: dbd6f5e9cc36cad4ab0da5904f9a76f5, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 181932573}
     - target: {fileID: 6140231138592607212, guid: dbd6f5e9cc36cad4ab0da5904f9a76f5, type: 3}
       propertyPath: m_Name
       value: Particles Snow
