@@ -1,0 +1,31 @@
+using UnityEngine;
+
+public class CustomTextureOverride : MonoBehaviour
+{
+    // Assign these in the Inspector for each object
+    public Texture2D secondTexture;
+    public Texture2D normalTexture;
+
+    private void Start()
+    {
+        Renderer renderer = GetComponent<Renderer>();
+        if (renderer == null)
+        {
+            Debug.LogError("No Renderer found on this GameObject!");
+            return;
+        }
+
+        MaterialPropertyBlock block = new MaterialPropertyBlock();
+        // Use the exact reference names from your Shader Graph properties
+        if (secondTexture != null)
+        {
+            block.SetTexture("_SecondTexture", secondTexture);
+        }
+        if (normalTexture != null)
+        {
+            block.SetTexture("_NormalTexture", normalTexture);
+        }
+
+        renderer.SetPropertyBlock(block);
+    }
+}
