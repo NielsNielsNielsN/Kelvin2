@@ -2027,11 +2027,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 73524e4bf4d60044bbc2581deaf7bbb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.55
+      value: -4.14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 73524e4bf4d60044bbc2581deaf7bbb8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9401453
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 73524e4bf4d60044bbc2581deaf7bbb8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2080,6 +2080,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 73524e4bf4d60044bbc2581deaf7bbb8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1993590436}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 73524e4bf4d60044bbc2581deaf7bbb8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1993590437}
   m_SourcePrefab: {fileID: 100100000, guid: 73524e4bf4d60044bbc2581deaf7bbb8, type: 3}
 --- !u!1 &1714869652
 GameObject:
@@ -2709,6 +2712,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CustomTextureOverride
   secondTexture: {fileID: 2800000, guid: e58fb350ea5f41a468c3ec0127a5c2e3, type: 3}
   normalTexture: {fileID: 2800000, guid: 33aa9d5ff40d2a643b733d12e37bf6a9, type: 3}
+--- !u!65 &1993590437
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993590435}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.6340346, y: 2.2884562, z: 3.1330569}
+  m_Center: {x: 0.095942974, y: 0.38071418, z: 0.091619134}
 --- !u!114 &2102977584 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1734997413418905582, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
