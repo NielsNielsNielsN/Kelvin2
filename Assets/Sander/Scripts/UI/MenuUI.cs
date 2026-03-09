@@ -1,85 +1,142 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class MenuUI : MonoBehaviour
 {
-    [Header("UI GameObjects")]
+    [Header("UI Canvases / GameObjects")]
+    [SerializeField] private GameObject pauseMenu;           // Pause menu canvas
+    public GameObject startMenu;                           // Start menu root GO
+    public Button backButton;                              // Back button (in settings/pause)
     [SerializeField] private GameObject ingameUI;
-    [SerializeField] private GameObject pauseMenu;
 
-    [Header("Input & Player")]
-    [SerializeField] private PlayerInputHandler playerInputHandler;  // Drag your PlayerInputHandler here
-    [SerializeField] private Multitool multitool;  // Drag your Multitool here (forces beam off)
+    [Header("Input & Player References")]
+    [SerializeField] private PlayerInputHandler playerInputHandler;
+    [SerializeField] private Multitool multitool;
 
-    private bool isPaused = false;
+    private bool visible = false;
+    private bool backButtonPressed = false;
     private InputActionMap playerMap;
 
     void Start()
     {
-        // Auto-find if not assigned
-        if (playerInputHandler == null)
-            playerInputHandler = FindObjectOfType<PlayerInputHandler>();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
+        ShowStartMenu();
+
+        if (backButton != null)
+        {
+            backButton.onClick.AddListener(() => backButtonPressed = true);
+        }
+
+        // Find player input map and disable it until Play
+        if (playerInputHandler != null && playerInputHandler.playerControls != null)
+        {
+            playerMap = playerInputHandler.playerControls.FindActionMap("Player");
+            if (playerMap != null)
+            {
+                playerMap.Disable();
+            }
+        }
+
+        // Auto-find multitool if not assigned
         if (multitool == null)
-            multitool = FindAnyObjectByType<Multitool>();
-
-        // Cache the player action map
-        if (playerInputHandler != null)
-            playerMap = playerInputHandler.playerControls.FindActionMap("Player");  // Your action map name
+            multitool = FindObjectOfType<Multitool>();
     }
 
     void Update()
     {
-        if (InputSystem.settings == null) return;  // Safety check
+        PauseMenuOn();
+    }
 
-        if (Keyboard.current.pKey.wasPressedThisFrame)
+    private void PauseMenuOn()
+    {
+        // Use old Input for pause toggle (ESC key)
+        if (Input.GetKeyDown(KeyCode.Escape) || backButtonPressed)
         {
-            TogglePause();
+            backButtonPressed = false;
+            visible = !visible;
+
+            pauseMenu.gameObject.SetActive(visible);
+
+            if (visible)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                Freeze();
+                ingameUI.SetActive(false);  // Hide gameplay HUD if needed
+            }
+            else
+            {
+                CursorLockModeOn();
+            }
         }
     }
 
-    public void TogglePause()
+    public void Resume()
     {
-        isPaused = !isPaused;
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        startMenu.SetActive(false);
+        pauseMenu.gameObject.SetActive(false);
+        ingameUI.SetActive(true);  // Show gameplay HUD
+    }
 
-        if (isPaused)
-        {
-            // Freeze time & physics
-            Time.timeScale = 0f;
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;  // Fix physics step
+    public void Quit()
+    {
 
-            // Disable input completely
-            if (playerMap != null)
-                playerMap.Disable();
+        Application.Quit();
 
-            // Force multitool off
-            if (multitool != null)
-            {
-                typeof(Multitool).GetField("isActive", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)?.SetValue(multitool, false);
-                multitool.StopActive();  // Immediate stop beam/effects
-            }
+    }
 
-            // Cursor & UI
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            ingameUI.SetActive(false);
-            pauseMenu.SetActive(true);
-        }
-        else
-        {
-            // Unfreeze
-            Time.timeScale = 1f;
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+    public void ShowStartMenu()
+    {
+        startMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 
-            // Re-enable input
-            if (playerMap != null)
-                playerMap.Enable();
+    public void Restart()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
-            // Cursor
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            ingameUI.SetActive(true);
-            pauseMenu.SetActive(false);
-        }
+    public void CursorLockModeOn()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Unfreeze();
+    }
+
+    public void Freeze()
+    {
+        Time.timeScale = 0f;
+        if (playerMap != null)
+            playerMap.Disable();
+
+        if (multitool != null)
+            multitool.StopActive();
+    }
+
+    public void Unfreeze()
+    {
+        Time.timeScale = 1f;
+        if (playerMap != null)
+            playerMap.Enable();
+    }
+
+    public void OnPlayButtonPressed()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        startMenu.SetActive(false);
+        ingameUI.SetActive(true);
+
+        if (playerMap != null)
+            playerMap.Enable();
     }
 }

@@ -9,8 +9,8 @@ public class SharedTimerSliders : MonoBehaviour
     [Tooltip("Total time in seconds")]
     [SerializeField] private float totalTime = 30f;
 
-    [Tooltip("Start counting down automatically on scene load?")]
-    [SerializeField] private bool autoStart = true;
+    [Tooltip("Start counting down automatically on scene load? (false if using start menu)")]
+    [SerializeField] private bool autoStart = false;
 
     [Header("Sliders (decrease from max to min)")]
     [SerializeField] private Slider slider1;
@@ -31,11 +31,19 @@ public class SharedTimerSliders : MonoBehaviour
     [Header("Death Sequence")]
     [SerializeField] private Image fadeToBlackImage;       // Full-screen black image (alpha 0 at start)
     [SerializeField] private float fadeDuration = 3f;      // How long to fade to black
-    [SerializeField] private GameObject gameOverCanvas;    // "You Died" / Game Over screen
+    [SerializeField] private GameObject gameOverCanvas;    // "You Died" / Game Over screen with Retry/Main Menu buttons
+
+    [Header("Deactivate on Death")]
+    [SerializeField] private GameObject hudUI;             // HUD or other canvas to deactivate on death
 
     [Header("Player Freeze References")]
     [SerializeField] private PlayerInputHandler playerInputHandler;  // Drag PlayerInputHandler here
     [SerializeField] private Multitool multitool;                    // Drag Multitool here
+
+    [Header("Start Menu")]
+    [SerializeField] private GameObject startMenuCanvas;   // Start menu with Play/Quit buttons
+    [SerializeField] private Camera startCamera;           // Special camera for start menu angle
+    [SerializeField] private Camera mainGameCamera;        // Regular gameplay camera
 
     // Runtime
     private float remainingTime;
@@ -45,6 +53,17 @@ public class SharedTimerSliders : MonoBehaviour
 
     void Awake()
     {
+        // Start with start menu active
+        if (startMenuCanvas != null) startMenuCanvas.SetActive(true);
+        if (hudUI != null) hudUI.SetActive(false);  // Hide HUD at start
+        if (gameOverCanvas != null) gameOverCanvas.SetActive(false);
+
+        if (startCamera != null && mainGameCamera != null)
+        {
+            startCamera.enabled = true;
+            mainGameCamera.enabled = false;
+        }
+
         ResetTimer();
 
         // Frost images start invisible if wanted
@@ -62,22 +81,10 @@ public class SharedTimerSliders : MonoBehaviour
             fadeToBlackImage.gameObject.SetActive(true);
         }
 
-        // Game over canvas starts hidden
-        if (gameOverCanvas != null)
-            gameOverCanvas.SetActive(false);
-
         // Cache player input map
         if (playerInputHandler != null && playerInputHandler.playerControls != null)
         {
             playerMap = playerInputHandler.playerControls.FindActionMap("Player"); // change "Player" if your map has different name
-        }
-    }
-
-    void Start()
-    {
-        if (autoStart)
-        {
-            StartCountdown();
         }
     }
 
@@ -98,7 +105,7 @@ public class SharedTimerSliders : MonoBehaviour
     }
 
     // ────────────────────────────────────────────────
-    // Public control methods
+    // Public control methods (for buttons)
     // ────────────────────────────────────────────────
 
     public void StartCountdown()
@@ -132,6 +139,9 @@ public class SharedTimerSliders : MonoBehaviour
 
         if (gameOverCanvas != null)
             gameOverCanvas.SetActive(false);
+
+        // Unfreeze player on reset
+        UnfreezePlayer();
     }
 
     public void SetTotalTime(float newTime)
@@ -145,6 +155,80 @@ public class SharedTimerSliders : MonoBehaviour
         remainingTime += deltaSeconds;
         remainingTime = Mathf.Clamp(remainingTime, 0f, totalTime);
         UpdateVisuals();
+    }
+
+    // ────────────────────────────────────────────────
+    // Start Menu Buttons
+    // ────────────────────────────────────────────────
+
+    public void OnPlayButtonPressed()
+    {
+        // Hide start menu
+        if (startMenuCanvas != null) startMenuCanvas.SetActive(false);
+
+        // Switch cameras
+        if (startCamera != null && mainGameCamera != null)
+        {
+            startCamera.enabled = false;
+            mainGameCamera.enabled = true;
+        }
+
+        // Show HUD
+        if (hudUI != null) hudUI.SetActive(true);
+
+        // Unfreeze player input
+        UnfreezePlayer();
+
+        // Start timer
+        StartCountdown();
+    }
+
+    public void OnQuitButtonPressed()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
+    // ────────────────────────────────────────────────
+    // Death Screen Buttons
+    // ────────────────────────────────────────────────
+
+    public void OnRetryButtonPressed()
+    {
+        // Reset timer & gameplay
+        ResetTimer();
+
+        // Hide game over canvas
+        if (gameOverCanvas != null) gameOverCanvas.SetActive(false);
+
+        // Unfreeze & start again
+        UnfreezePlayer();
+        StartCountdown();
+    }
+
+    public void OnMainMenuButtonPressed()
+    {
+        // Reset timer
+        ResetTimer();
+
+        // Hide game over
+        if (gameOverCanvas != null) gameOverCanvas.SetActive(false);
+
+        // Show start menu
+        if (startMenuCanvas != null) startMenuCanvas.SetActive(true);
+
+        // Switch cameras back to start angle
+        if (startCamera != null && mainGameCamera != null)
+        {
+            startCamera.enabled = true;
+            mainGameCamera.enabled = false;
+        }
+
+        // Hide HUD
+        if (hudUI != null) hudUI.SetActive(false);
     }
 
     // Getters
@@ -202,33 +286,43 @@ public class SharedTimerSliders : MonoBehaviour
     {
         isDead = true;
 
-        // Freeze player input & actions
+        // Freeze player input & multitool
         FreezePlayer();
 
-        // Start fade to black + frost already fading in via UpdateImageAlphas
-        StartCoroutine(FadeToBlackAndShowGameOver());
+        // Deactivate HUD UI
+        if (hudUI != null)
+            hudUI.SetActive(false);
+
+        // Start black fade (no time freeze for realism)
+        StartCoroutine(FadeToBlack());
     }
 
     private void FreezePlayer()
     {
         // Disable player input map
         if (playerMap != null)
-        {
             playerMap.Disable();
-        }
 
         // Force-stop multitool
         if (multitool != null)
-        {
             multitool.StopActive();
-        }
-
-        // Optional: complete freeze (uncomment if you want NO animations/particles during fade)
-        // Time.timeScale = 0f;
     }
 
-    private IEnumerator FadeToBlackAndShowGameOver()
+    private void UnfreezePlayer()
     {
+        // Re-enable player input map
+        if (playerMap != null)
+            playerMap.Enable();
+
+        // Show HUD again
+        if (hudUI != null)
+            hudUI.SetActive(true);
+    }
+
+    private IEnumerator FadeToBlack()
+    {
+        if (fadeToBlackImage == null) yield break;
+
         float elapsed = 0f;
         Color startColor = fadeToBlackImage.color;
         Color targetColor = startColor;
@@ -242,20 +336,16 @@ public class SharedTimerSliders : MonoBehaviour
             yield return null;
         }
 
-        // Fully black
         fadeToBlackImage.color = targetColor;
 
-        // Show Game Over canvas
+        // Activate game over canvas
         if (gameOverCanvas != null)
-        {
             gameOverCanvas.SetActive(true);
-        }
     }
 
     private void OnTimerFinished()
     {
-        // This is now handled by TriggerDeathSequence()
-        // You can leave it empty or add extra sound/effects here if wanted
+        // Empty — TriggerDeathSequence handles everything
     }
 
     // Editor helpers

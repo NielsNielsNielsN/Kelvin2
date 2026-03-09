@@ -201,7 +201,7 @@
                 {
                     "name": "Pause",
                     "type": "Button",
-                    "id": "e30f7a57-8668-431c-80c5-bd6d06048061",
+                    "id": "d6a1d706-d95d-4ea4-9fe5-b993958911e6",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -211,7 +211,7 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "2a02a8da-ee44-4cc7-be24-66cf86fe9f30",
+                    "id": "18872937-14a0-4513-93fa-7e2a0379c5bb",
                     "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
