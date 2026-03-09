@@ -3491,10 +3491,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 466653556882025648, guid: 9fd263bb678892145996a0ee499ec945, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1261620335872944784, guid: 9fd263bb678892145996a0ee499ec945, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3575,17 +3571,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3748258773383927004, guid: 9fd263bb678892145996a0ee499ec945, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 687f2f70da3948f44a10328592f3e8db, type: 3}
     - target: {fileID: 8969378813515015435, guid: 9fd263bb678892145996a0ee499ec945, type: 3}
       propertyPath: m_Name
       value: LoseScreen Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8969378813515015435, guid: 9fd263bb678892145996a0ee499ec945, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5092,6 +5080,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 142818466210326128, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 510959056866881788, guid: 36a919bab49bb9c4ab13029e073d8163, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -5433,10 +5425,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4242184155860268458, guid: 9fadb01a6e24cd8428e089f84f58b140, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 687f2f70da3948f44a10328592f3e8db, type: 3}
     - target: {fileID: 4964791694619984253, guid: 9fadb01a6e24cd8428e089f84f58b140, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5516,10 +5504,6 @@ PrefabInstance:
     - target: {fileID: 4964791694619984253, guid: 9fadb01a6e24cd8428e089f84f58b140, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869206212469890078, guid: 9fadb01a6e24cd8428e089f84f58b140, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
