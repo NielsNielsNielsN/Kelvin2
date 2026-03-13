@@ -3985,7 +3985,7 @@ GameObject:
   - component: {fileID: 821891617}
   - component: {fileID: 821891616}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: Multitool UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
