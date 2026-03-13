@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 8315737147927695410}
   - component: {fileID: 7463576971123687631}
   m_Layer: 5
-  m_Name: Main Menu Canvas
+  m_Name: Start Menu Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

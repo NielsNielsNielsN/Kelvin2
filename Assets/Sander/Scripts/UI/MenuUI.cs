@@ -7,13 +7,21 @@ public class MenuUI : MonoBehaviour
 {
     [Header("UI Canvases / GameObjects")]
     [SerializeField] private GameObject pauseMenu;           // Pause menu canvas
-    public GameObject startMenu;                           // Start menu root GO
-    public Button backButton;                              // Back button (in settings/pause)
-    [SerializeField] private GameObject ingameUI;
+    public GameObject startMenu;                             // Start menu root GO
+    public GameObject settingsMenu;                          // Settings menu root GO
+    public Button backButton;                                // Back button (in settings/pause)
+    [SerializeField] private GameObject ingameUI;            // In-game HUD/UI
+
+    [Header("Cameras")]
+    [SerializeField] private Camera startCamera;             // Special camera for start menu angle
+    [SerializeField] private Camera mainGameCamera;          // Regular gameplay camera
 
     [Header("Input & Player References")]
     [SerializeField] private PlayerInputHandler playerInputHandler;
     [SerializeField] private Multitool multitool;
+
+    [Header("Gameplay Objects to Activate on Play")]
+    [SerializeField] private GameObject[] gameplayObjectsToActivate;
 
     private bool visible = false;
     private bool backButtonPressed = false;
@@ -23,7 +31,6 @@ public class MenuUI : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
         ShowStartMenu();
 
         if (backButton != null)
@@ -31,7 +38,6 @@ public class MenuUI : MonoBehaviour
             backButton.onClick.AddListener(() => backButtonPressed = true);
         }
 
-        // Find player input map and disable it until Play
         if (playerInputHandler != null && playerInputHandler.playerControls != null)
         {
             playerMap = playerInputHandler.playerControls.FindActionMap("Player");
@@ -41,9 +47,18 @@ public class MenuUI : MonoBehaviour
             }
         }
 
-        // Auto-find multitool if not assigned
         if (multitool == null)
             multitool = FindObjectOfType<Multitool>();
+
+        ingameUI.SetActive(false);
+        pauseMenu.SetActive(false);
+
+        // Ensure start camera is active at scene start
+        if (startCamera != null && mainGameCamera != null)
+        {
+            startCamera.enabled = true;
+            mainGameCamera.enabled = false;
+        }
     }
 
     void Update()
@@ -53,12 +68,10 @@ public class MenuUI : MonoBehaviour
 
     private void PauseMenuOn()
     {
-        // Use old Input for pause toggle (ESC key)
         if (Input.GetKeyDown(KeyCode.Escape) || backButtonPressed)
         {
             backButtonPressed = false;
             visible = !visible;
-
             pauseMenu.gameObject.SetActive(visible);
 
             if (visible)
@@ -66,7 +79,7 @@ public class MenuUI : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 Freeze();
-                ingameUI.SetActive(false);  // Hide gameplay HUD if needed
+                ingameUI.SetActive(false);
             }
             else
             {
@@ -82,14 +95,13 @@ public class MenuUI : MonoBehaviour
         Cursor.visible = false;
         startMenu.SetActive(false);
         pauseMenu.gameObject.SetActive(false);
-        ingameUI.SetActive(true);  // Show gameplay HUD
+        ingameUI.SetActive(true);
+        Unfreeze();
     }
 
     public void Quit()
     {
-
         Application.Quit();
-
     }
 
     public void ShowStartMenu()
@@ -97,6 +109,12 @@ public class MenuUI : MonoBehaviour
         startMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    public void ShowSettingsMenu()
+    {
+        startMenu.SetActive(false);
+        settingsMenu.SetActive(true);
     }
 
     public void Restart()
@@ -117,7 +135,6 @@ public class MenuUI : MonoBehaviour
         Time.timeScale = 0f;
         if (playerMap != null)
             playerMap.Disable();
-
         if (multitool != null)
             multitool.StopActive();
     }
@@ -136,7 +153,47 @@ public class MenuUI : MonoBehaviour
         startMenu.SetActive(false);
         ingameUI.SetActive(true);
 
+        if (gameplayObjectsToActivate != null)
+        {
+            foreach (GameObject go in gameplayObjectsToActivate)
+            {
+                if (go != null)
+                    go.SetActive(true);
+            }
+        }
+
         if (playerMap != null)
             playerMap.Enable();
+
+        if (startCamera != null && mainGameCamera != null)
+        {
+            startCamera.enabled = false;
+            mainGameCamera.enabled = true;
+        }
+    }
+
+    public void OnQuitButtonPressed()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
+    void LateUpdate()
+    {
+        // Enforce unlocked cursor + disabled input while start menu is visible
+        if (startMenu != null && startMenu.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            if (playerMap != null && playerMap.enabled)
+                playerMap.Disable();
+
+            if (ingameUI != null && ingameUI.activeSelf)
+                ingameUI.SetActive(false);
+        }
     }
 }
