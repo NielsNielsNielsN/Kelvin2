@@ -84,6 +84,7 @@ public class MenuUI : MonoBehaviour
     {
         visible = !visible;
         pauseMenu.gameObject.SetActive(visible);
+        ingameUI.gameObject.SetActive(visible);
 
         if (visible)
         {
