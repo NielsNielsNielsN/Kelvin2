@@ -133,6 +133,10 @@ public class Multitool : MonoBehaviour
 
     private void ToggleMode()
     {
+        if (heldRigidbody != null)
+        {
+            return;
+        }
         switch (currentMode)
         {
             case ToolMode.Mining:
