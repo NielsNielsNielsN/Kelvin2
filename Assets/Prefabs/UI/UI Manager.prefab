@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab6b63d64971e64a8f28a54d1307e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SharedTimerSliders
-  totalTime: 30
+  totalTime: 300
   autoStart: 1
   slider1: {fileID: 0}
   slider2: {fileID: 0}
@@ -60,6 +60,11 @@ MonoBehaviour:
   image3: {fileID: 0}
   image3TargetAlpha: 0.2
   startInvisible: 1
+  fadeToBlackImage: {fileID: 0}
+  fadeDuration: 3
+  gameOverCanvas: {fileID: 0}
+  playerInputHandler: {fileID: 0}
+  multitool: {fileID: 0}
 --- !u!114 &4921995044985277038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +77,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47edc9245c8883744881f2ad2bade91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuUI
-  ingameUI: {fileID: 0}
   pauseMenu: {fileID: 0}
+  startMenu: {fileID: 0}
+  settingsMenu: {fileID: 0}
+  backButton: {fileID: 0}
+  ingameUI: {fileID: 0}
+  startCamera: {fileID: 0}
+  mainGameCamera: {fileID: 0}
   playerInputHandler: {fileID: 0}
   multitool: {fileID: 0}
+  gameplayObjectsToActivate:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

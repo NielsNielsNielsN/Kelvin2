@@ -3661,57 +3661,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 311211948}
     - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: pauseAction
-      value: 
-      objectReference: {fileID: -4000604412329780932, guid: 1abd68fd5e8fb8b40a417974922d79dd, type: 3}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: pauseCanvas
-      value: 
-      objectReference: {fileID: 1958711837}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
       propertyPath: startCamera
       value: 
       objectReference: {fileID: 50653029}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: settingsMenu
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
       propertyPath: mainGameCamera
       value: 
       objectReference: {fileID: 1465122969}
     - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Id
-      value: 8d97f26f-c584-46a4-8870-10f3cad3b029
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: startMenuCanvas
-      value: 
-      objectReference: {fileID: 1261974904}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Name
-      value: Player Map
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
       propertyPath: playerInputHandler
       value: 
       objectReference: {fileID: 987871824}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Actions.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: gameplayObjectsToActivate.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Actions.Array.data[0].m_Id
-      value: d025c7b8-d373-4a3e-a571-fd0a028edb66
-      objectReference: {fileID: 0}
     - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
       propertyPath: 'gameplayObjectsToActivate.Array.data[0]'
       value: 
@@ -3728,90 +3688,10 @@ PrefabInstance:
       propertyPath: 'gameplayObjectsToActivate.Array.data[3]'
       value: 
       objectReference: {fileID: 1928529623}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.data[0].m_Id
-      value: 18b7fc70-30b0-4646-9efa-ebaa542ed0fb
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.data[1].m_Id
-      value: 97f9936b-3d3a-41b3-b66a-2d3df6e18c67
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.data[2].m_Id
-      value: b262dcea-118a-44ba-96b1-9191d93918fa
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.data[3].m_Id
-      value: dc190620-de98-42ae-a22e-599d1b2c4413
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Actions.Array.data[0].m_Name
-      value: New action
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Actions.Array.data[0].m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.data[1].m_Name
-      value: 1D Axis
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.data[1].m_Path
-      value: 1DAxis
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.data[2].m_Name
-      value: negative
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.data[3].m_Name
-      value: positive
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.data[1].m_Flags
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.data[2].m_Flags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.data[3].m_Flags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.data[0].m_Action
-      value: New action
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.data[1].m_Action
-      value: New action
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.data[2].m_Action
-      value: New action
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Bindings.Array.data[3].m_Action
-      value: New action
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921995044985277038, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: playerMap.m_Actions.Array.data[0].m_ExpectedControlType
-      value: Button
-      objectReference: {fileID: 0}
     - target: {fileID: 5750199664500682036, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
       propertyPath: m_Name
       value: UI Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 5750199664500682036, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7406286435849121829, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: hudUI
-      value: 
-      objectReference: {fileID: 399429982}
     - target: {fileID: 7406286435849121829, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
       propertyPath: image1
       value: 
@@ -3837,29 +3717,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 857227234}
     - target: {fileID: 7406286435849121829, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: totalTime
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 7406286435849121829, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: deathCanvas
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7406286435849121829, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: startCamera
-      value: 
-      objectReference: {fileID: 50653029}
-    - target: {fileID: 7406286435849121829, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 541687715}
-    - target: {fileID: 7406286435849121829, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: mainGameCamera
-      value: 
-      objectReference: {fileID: 1465122969}
-    - target: {fileID: 7406286435849121829, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
-      propertyPath: startMenuCanvas
-      value: 
-      objectReference: {fileID: 1261974904}
     - target: {fileID: 7406286435849121829, guid: 78c582a822aab2f4187b5d6db0bb7b64, type: 3}
       propertyPath: fadeToBlackImage
       value: 

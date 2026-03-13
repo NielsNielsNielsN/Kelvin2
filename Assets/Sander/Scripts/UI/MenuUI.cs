@@ -68,35 +68,44 @@ public class MenuUI : MonoBehaviour
 
     private void PauseMenuOn()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || backButtonPressed)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
+
+        if (backButtonPressed)
         {
             backButtonPressed = false;
-            visible = !visible;
-            pauseMenu.gameObject.SetActive(visible);
+            Resume();  
+        }
+    }
 
-            if (visible)
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                Freeze();
-                ingameUI.SetActive(false);
-            }
-            else
-            {
-                CursorLockModeOn();
-            }
+    public void TogglePause()
+    {
+        visible = !visible;
+        pauseMenu.gameObject.SetActive(visible);
+
+        if (visible)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Freeze();
+            ingameUI.SetActive(false);
+        }
+        else
+        {
+            CursorLockModeOn();
         }
     }
 
     public void Resume()
     {
-        Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        startMenu.SetActive(false);
-        pauseMenu.gameObject.SetActive(false);
-        ingameUI.SetActive(true);
-        Unfreeze();
+        if (visible)
+        {
+            visible = false;
+            pauseMenu.gameObject.SetActive(false);
+            CursorLockModeOn();
+        }
     }
 
     public void Quit()
