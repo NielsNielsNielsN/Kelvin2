@@ -240,7 +240,7 @@ Material:
     - _DisplacementLockObjectScale: 1
     - _DisplacementLockTilingScale: 1
     - _DisplacementMode: 1
-    - _DisplacementStrength: -0
+    - _DisplacementStrength: 0
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
@@ -293,8 +293,13 @@ Material:
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
     - _SecondSmoothness: 0
+<<<<<<< Updated upstream
     - _SecondTextureHeight: 0.22
     - _SecondTextureThreshhold: 0.279
+=======
+    - _SecondTextureHeight: 3.32
+    - _SecondTextureThreshhold: 0.282
+>>>>>>> Stashed changes
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
