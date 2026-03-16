@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class CustomTextureOverride : MonoBehaviour
 {
-    // Assign these in the Inspector for each object
     public Texture2D secondTexture;
     public Texture2D normalTexture;
 
@@ -16,7 +15,6 @@ public class CustomTextureOverride : MonoBehaviour
         }
 
         MaterialPropertyBlock block = new MaterialPropertyBlock();
-        // Use the exact reference names from your Shader Graph properties
         if (secondTexture != null)
         {
             block.SetTexture("_SecondTexture", secondTexture);

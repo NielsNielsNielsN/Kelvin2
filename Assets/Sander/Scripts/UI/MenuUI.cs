@@ -84,8 +84,7 @@ public class MenuUI : MonoBehaviour
     {
         visible = !visible;
         pauseMenu.gameObject.SetActive(visible);
-        ingameUI.gameObject.SetActive(visible);
-
+        
         if (visible)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -105,6 +104,7 @@ public class MenuUI : MonoBehaviour
         {
             visible = false;
             pauseMenu.gameObject.SetActive(false);
+            ingameUI.SetActive(true);
             CursorLockModeOn();
         }
     }
