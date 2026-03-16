@@ -212,6 +212,7 @@ Material:
     - _MetallicRemapMin: 0
     - _NormalMapSpace: 0
     - _NormalScale: 1
+    - _NormalStrength: 10
     - _ObjectSpaceUVMapping: 0
     - _ObjectSpaceUVMappingEmissive: 0
     - _OpaqueCullMode: 2
@@ -228,8 +229,8 @@ Material:
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
     - _SecondSmoothness: 2
-    - _SecondTextureHeight: 1.06
-    - _SecondTextureThreshhold: 0
+    - _SecondTextureHeight: 2.54
+    - _SecondTextureThreshhold: 0.549
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
