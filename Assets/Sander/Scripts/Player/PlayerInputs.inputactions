@@ -43,7 +43,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Fire",
+                    "name": "Mine",
                     "type": "Button",
                     "id": "c96bb7e1-3d3a-4508-b046-0766e19ea269",
                     "expectedControlType": "",
@@ -166,7 +166,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Fire",
+                    "action": "Mine",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

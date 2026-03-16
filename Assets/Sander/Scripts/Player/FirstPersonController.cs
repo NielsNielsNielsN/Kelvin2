@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FirstPersonController : MonoBehaviour
 {
@@ -14,19 +14,49 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private float mouseSensitivity = 0.1f;
     [SerializeField] private float upDownLookRange = 80.0f;
 
-    [Header("references")]
+    [Header("References")]
     [SerializeField] private CharacterController characterController;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private PlayerInputHandler playerInputHandler;
 
+    // NEW: Animation
+    [Header("Animation")]
+    [SerializeField] private Animator animator;  // Drag your Animator component here (on player or child model)
+
     private Vector3 currentMovement;
     private float verticalRotation;
+
     private float CurrentSpeed => walkSpeed * (playerInputHandler.SprintTriggered ? sprintMultiplier : 1.0f);
+
+    // Animator parameter hashes (faster than string lookup)
+    private static readonly int SpeedHash = Animator.StringToHash("Speed");
+    private static readonly int IsSprintingHash = Animator.StringToHash("IsSprinting"); // optional bool
+
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
     void Update()
     {
-       HandleMovement();
-       HandleRotation(); 
+        HandleMovement();
+        HandleRotation();
+        UpdateAnimation();
+    }
+
+    private void UpdateAnimation()
+    {
+        if (animator == null) return;
+
+        float moveMagnitude = new Vector2(playerInputHandler.MovementInput.x, playerInputHandler.MovementInput.y).magnitude;
+        float targetSpeed = Mathf.Clamp01(moveMagnitude);
+
+        // Smooth the value so it doesn't snap to 0 instantly
+        float current = animator.GetFloat("Speed");
+        float smoothed = Mathf.Lerp(current, targetSpeed, 10f * Time.deltaTime); // 10f = blend speed
+
+        animator.SetFloat("Speed", smoothed);
     }
 
     private Vector3 CalculateWorldDirection()
@@ -41,9 +71,8 @@ public class FirstPersonController : MonoBehaviour
         if (characterController.isGrounded)
         {
             currentMovement.y = -0.5f;
-
-            if(playerInputHandler.JumpTriggered)
-            { 
+            if (playerInputHandler.JumpTriggered)
+            {
                 currentMovement.y = jumpForce;
             }
         }
@@ -54,11 +83,10 @@ public class FirstPersonController : MonoBehaviour
     }
 
     private void HandleMovement()
-    {         
+    {
         Vector3 worldDirection = CalculateWorldDirection();
         currentMovement.x = worldDirection.x * CurrentSpeed;
         currentMovement.z = worldDirection.z * CurrentSpeed;
-
         HandleJumping();
         characterController.Move(currentMovement * Time.deltaTime);
     }
@@ -78,7 +106,6 @@ public class FirstPersonController : MonoBehaviour
     {
         float mouseXRotation = playerInputHandler.RotationInput.x * mouseSensitivity;
         float mouseYRotation = playerInputHandler.RotationInput.y * mouseSensitivity;
-
         ApplyHorizontalRotation(mouseXRotation);
         ApplyVerticalRotation(mouseYRotation);
     }
