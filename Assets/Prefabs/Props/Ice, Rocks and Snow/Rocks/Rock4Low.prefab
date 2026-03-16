@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4712396244403484396
+--- !u!1 &7501621011599668547
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3832062062678973324}
-  - component: {fileID: 9001196035858698237}
-  - component: {fileID: 7757711086820027555}
-  - component: {fileID: 695681645258999019}
+  - component: {fileID: 4801280801686397103}
+  - component: {fileID: 6603630341122048980}
+  - component: {fileID: 605288290370641157}
+  - component: {fileID: 4868873548175364599}
   m_Layer: 0
-  m_Name: Rock1Low
+  m_Name: Rock4Low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3832062062678973324
+--- !u!4 &4801280801686397103
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4712396244403484396}
+  m_GameObject: {fileID: 7501621011599668547}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.6134152, y: 89.933, z: 0.8227364}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.6072354, y: 89.933, z: 1.1567737}
+  m_LocalScale: {x: 2.4001, y: 2.4001, z: 2.4001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &9001196035858698237
+--- !u!33 &6603630341122048980
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4712396244403484396}
-  m_Mesh: {fileID: 4137332114131522521, guid: 9a9864e19aa9a3a47abd1fb2afe6516a, type: 3}
---- !u!23 &7757711086820027555
+  m_GameObject: {fileID: 7501621011599668547}
+  m_Mesh: {fileID: 2662791268032222294, guid: 9330a3e99570ea540a95801c2584354f, type: 3}
+--- !u!23 &605288290370641157
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4712396244403484396}
+  m_GameObject: {fileID: 7501621011599668547}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bd23c07dfa0935646a3c096acdd7cd3e, type: 2}
+  - {fileID: 2100000, guid: b16872bbbee521845a399dcf77454fbc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91,17 +91,17 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &695681645258999019
+--- !u!114 &4868873548175364599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4712396244403484396}
+  m_GameObject: {fileID: 7501621011599668547}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95ddd0b27f38ca946b1c10c7f7055b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomTextureOverride
   secondTexture: {fileID: 0}
-  normalTexture: {fileID: 2800000, guid: 7c5a4263149b74e4c84d95634c3f272a, type: 3}
+  normalTexture: {fileID: 2800000, guid: be3bfc94c64842f45bd893076cc77af2, type: 3}

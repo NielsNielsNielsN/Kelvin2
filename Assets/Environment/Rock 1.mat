@@ -24,7 +24,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Rock 1
-  m_Shader: {fileID: -6465566751694194690, guid: c6cc0c36d0dcae74a99b8b17d0f2e14d, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: ee0608337b414434a9c4ddc69c623a3d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -113,6 +113,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: e2227131933c7b44a8dfe97ac1656b2c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MainTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MaskMap:
         m_Texture: {fileID: 2800000, guid: b3d493064da77b943bea750674a47306, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -129,12 +133,24 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NormalTexture:
+        m_Texture: {fileID: 2800000, guid: 831abaf2085e93e40b61bf9846441306, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Normal_Map:
         m_Texture: {fileID: 2800000, guid: 33aa9d5ff40d2a643b733d12e37bf6a9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Roughness_map:
         m_Texture: {fileID: 2800000, guid: e2227131933c7b44a8dfe97ac1656b2c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_2448e49d7fcb4c7384eb3e60d5d5b47f_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: fac8cc7aa5f9ff540bd048c91e9910bd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SecondTexture:
+        m_Texture: {fileID: 2800000, guid: e58fb350ea5f41a468c3ec0127a5c2e3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
@@ -212,6 +228,7 @@ Material:
     - _DisplacementLockObjectScale: 1
     - _DisplacementLockTilingScale: 1
     - _DisplacementMode: 0
+    - _DisplacementStrength: 0
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
@@ -241,6 +258,7 @@ Material:
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
+    - _MainSmoothness: 0
     - _MaterialID: 1
     - _MaterialTypeMask: 2
     - _Metallic: 0
@@ -264,6 +282,9 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
+    - _SecondSmoothness: 0
+    - _SecondTextureHeight: 0
+    - _SecondTextureThreshhold: 0
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
