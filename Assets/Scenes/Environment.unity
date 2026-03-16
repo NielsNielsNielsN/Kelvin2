@@ -848,229 +848,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &383394552
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 383394553}
-  - component: {fileID: 383394554}
-  m_Layer: 0
-  m_Name: Electrical Warning (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &383394553
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383394552}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.0000002533197, z: -0, w: -1}
-  m_LocalPosition: {x: -0.08700001, y: 0.0017999411, z: -0.0845}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 605429831}
-  m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
---- !u!114 &383394554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383394552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DecalProjector
-  m_Material: {fileID: 2100000, guid: 3c966c7ebef41a948ac64562454c59e8, type: 2}
-  m_DrawDistance: 1000
-  m_FadeScale: 0.9
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 0.25, y: 0.25}
-  m_UVBias: {x: 0.5, y: 0.75}
-  m_AffectsTransparency: 0
-  m_TransparentTextureResolution:
-    m_Override: 256
-    m_UseOverride: 1
-    m_Level: 0
-  m_DecalLayerMask: 1
-  m_ScaleMode: 0
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0.01, y: 0.01, z: 0.02}
-  m_FadeFactor: 1
-  m_Version: 3
---- !u!1 &386147786
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 386147787}
-  - component: {fileID: 386147788}
-  m_Layer: 0
-  m_Name: Arrow (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &386147787
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 386147786}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.020569531, y: 0.0205698, z: -0.70680743, w: 0.7068077}
-  m_LocalPosition: {x: 0.06949568, y: 0.00009942055, z: -0.11176744}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 437772050}
-  m_LocalEulerAnglesHint: {x: 0, y: -356.666, z: 270}
---- !u!114 &386147788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 386147786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DecalProjector
-  m_Material: {fileID: 2100000, guid: 3c966c7ebef41a948ac64562454c59e8, type: 2}
-  m_DrawDistance: 1000
-  m_FadeScale: 0.9
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 0.25, y: 0.25}
-  m_UVBias: {x: 0.5, y: 0.5}
-  m_AffectsTransparency: 0
-  m_TransparentTextureResolution:
-    m_Override: 256
-    m_UseOverride: 1
-    m_Level: 0
-  m_DecalLayerMask: 1
-  m_ScaleMode: 0
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_FadeFactor: 1
-  m_Version: 3
---- !u!1 &437772049
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 437772050}
-  m_Layer: 0
-  m_Name: Arrows
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &437772050
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437772049}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1155771497}
-  - {fileID: 1395769015}
-  - {fileID: 1031959555}
-  - {fileID: 838332758}
-  - {fileID: 386147787}
-  - {fileID: 1723290878}
-  m_Father: {fileID: 605429831}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &484490597
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 484490598}
-  - component: {fileID: 484490599}
-  m_Layer: 0
-  m_Name: Stripes (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &484490598
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484490597}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.0030787878, y: 0.028926112, z: -0.9939621, w: -0.10579756}
-  m_LocalPosition: {x: -0.8333796, y: -0.024918914, z: -0.092148095}
-  m_LocalScale: {x: 0.84444, y: 0.84444004, z: 0.75019217}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 605429831}
-  m_LocalEulerAnglesHint: {x: 3.259, y: -360.703, z: 167.829}
---- !u!114 &484490599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484490597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DecalProjector
-  m_Material: {fileID: 2100000, guid: 3c966c7ebef41a948ac64562454c59e8, type: 2}
-  m_DrawDistance: 1000
-  m_FadeScale: 0.9
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 0.25, y: 0.25}
-  m_UVBias: {x: 0.25, y: 0.5}
-  m_AffectsTransparency: 0
-  m_TransparentTextureResolution:
-    m_Override: 256
-    m_UseOverride: 1
-    m_Level: 0
-  m_DecalLayerMask: 1
-  m_ScaleMode: 1
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0.1, y: 0.15, z: 0.1}
-  m_FadeFactor: 1
-  m_Version: 3
 --- !u!1 &511831693
 GameObject:
   m_ObjectHideFlags: 19
@@ -1115,170 +892,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &524300635
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 524300636}
-  - component: {fileID: 524300637}
-  m_Layer: 0
-  m_Name: Stripes
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &524300636
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 524300635}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.020569535, y: 0.020569801, z: -0.70680743, w: 0.70680773}
-  m_LocalPosition: {x: -0.122179985, y: 0.016276956, z: -0.092148006}
-  m_LocalScale: {x: 0.84444, y: 0.84444004, z: 0.75019217}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 605429831}
-  m_LocalEulerAnglesHint: {x: 0, y: -356.666, z: 270}
---- !u!114 &524300637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 524300635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DecalProjector
-  m_Material: {fileID: 2100000, guid: 3c966c7ebef41a948ac64562454c59e8, type: 2}
-  m_DrawDistance: 1000
-  m_FadeScale: 0.9
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 0.25, y: 0.25}
-  m_UVBias: {x: 0.25, y: 0.5}
-  m_AffectsTransparency: 0
-  m_TransparentTextureResolution:
-    m_Override: 256
-    m_UseOverride: 1
-    m_Level: 0
-  m_DecalLayerMask: 1
-  m_ScaleMode: 1
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0.1, y: 0.2, z: 0.02}
-  m_FadeFactor: 1
-  m_Version: 3
---- !u!1 &564190767
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 564190768}
-  - component: {fileID: 564190769}
-  m_Layer: 0
-  m_Name: Warning Decal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &564190768
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564190767}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.029089566, y: 0.00000055320555, z: -0.00000005011679, w: 0.99957687}
-  m_LocalPosition: {x: -0.4036, y: 0.0388, z: -0.092100054}
-  m_LocalScale: {x: 0.84443986, y: 0.84444034, z: 0.75019205}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 605429831}
-  m_LocalEulerAnglesHint: {x: -3.334, y: -360, z: 360}
---- !u!114 &564190769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564190767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DecalProjector
-  m_Material: {fileID: 2100000, guid: 3c966c7ebef41a948ac64562454c59e8, type: 2}
-  m_DrawDistance: 1000
-  m_FadeScale: 0.9
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 0.25, y: 0.25}
-  m_UVBias: {x: 0.75, y: 0.25}
-  m_AffectsTransparency: 0
-  m_TransparentTextureResolution:
-    m_Override: 256
-    m_UseOverride: 1
-    m_Level: 0
-  m_DecalLayerMask: 1
-  m_ScaleMode: 1
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0.1, y: 0.1, z: 0.02}
-  m_FadeFactor: 1
-  m_Version: 3
---- !u!1 &605429830
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 605429831}
-  m_Layer: 0
-  m_Name: Decals
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &605429831
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605429830}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.70571, y: 1.28537, z: 0.4923}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 437772050}
-  - {fileID: 960356349}
-  - {fileID: 383394553}
-  - {fileID: 1125368806}
-  - {fileID: 564190768}
-  - {fileID: 1065564434}
-  - {fileID: 1120621971}
-  - {fileID: 524300636}
-  - {fileID: 484490598}
-  m_Father: {fileID: 829733884}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &630904372
 GameObject:
@@ -1449,143 +1062,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb558d8b86de0524b9bcd7e3b9b749e1, type: 3}
---- !u!1001 &829733883
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8909292274202909826, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 8f0565afaa8c0d74086f7e296eb13c32, type: 2}
-    - target: {fileID: -8679921383154817045, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.02
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.543
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.99599296
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.089432806
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 10.262
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -7766706150058806071, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 010bc3df94d6d7f44b339ae18ddd29b7, type: 2}
-    - target: {fileID: -7761223378362722570, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 0dd6bf00b0d559e488de310e968be4a9, type: 2}
-    - target: {fileID: -7142014258847721267, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: d46b8fec4f4f54c409ecce001cf143fb, type: 2}
-    - target: {fileID: -6993981513533723695, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: db24996b1b2ad934dbc1102671e314a7, type: 2}
-    - target: {fileID: -4226156463210825400, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.26208127
-      objectReference: {fileID: 0}
-    - target: {fileID: -4226156463210825400, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.96504337
-      objectReference: {fileID: 0}
-    - target: {fileID: -4226156463210825400, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.0019012631
-      objectReference: {fileID: 0}
-    - target: {fileID: -4226156463210825400, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.0011137276
-      objectReference: {fileID: 0}
-    - target: {fileID: -4226156463210825400, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -149.613
-      objectReference: {fileID: 0}
-    - target: {fileID: -4226156463210825400, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.20898438
-      objectReference: {fileID: 0}
-    - target: {fileID: -4226156463210825400, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.28199768
-      objectReference: {fileID: 0}
-    - target: {fileID: -2790931704294034347, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 98034dba5d9be934a83a3a23890bad83, type: 2}
-    - target: {fileID: -1969848244874594330, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 57410958da216044f944a0d8bb198f42, type: 2}
-    - target: {fileID: -1526509560930016547, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 49cd0f74c44a6824f9656b4bb2b79f39, type: 2}
-    - target: {fileID: 236216658851537685, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 2ac117ef37b1c59469c761a3268d09a8, type: 2}
-    - target: {fileID: 919132149155446097, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: m_Name
-      value: Kryden Multitool
-      objectReference: {fileID: 0}
-    - target: {fileID: 5232627393660835655, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 556643fe8c975874f8b4a406abf17b43, type: 2}
-    - target: {fileID: 7637922380966356222, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 1ab6df9ac8e96d140b961523fa89eee4, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 605429831}
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
---- !u!4 &829733884 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ceaf2635f24e22d49bed3f32bbe4093d, type: 3}
-  m_PrefabInstance: {fileID: 829733883}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &831739788
 GameObject:
   m_ObjectHideFlags: 19
@@ -1634,130 +1110,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &838332757
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 838332758}
-  - component: {fileID: 838332759}
-  m_Layer: 0
-  m_Name: Arrow (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &838332758
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838332757}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.020569531, y: 0.0205698, z: -0.70680743, w: 0.7068077}
-  m_LocalPosition: {x: -0.011880219, y: 0.00007009506, z: -0.10702631}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 437772050}
-  m_LocalEulerAnglesHint: {x: 0, y: -356.666, z: 270}
---- !u!114 &838332759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838332757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DecalProjector
-  m_Material: {fileID: 2100000, guid: 3c966c7ebef41a948ac64562454c59e8, type: 2}
-  m_DrawDistance: 1000
-  m_FadeScale: 0.9
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 0.25, y: 0.25}
-  m_UVBias: {x: 0.5, y: 0.5}
-  m_AffectsTransparency: 0
-  m_TransparentTextureResolution:
-    m_Override: 256
-    m_UseOverride: 1
-    m_Level: 0
-  m_DecalLayerMask: 1
-  m_ScaleMode: 0
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_FadeFactor: 1
-  m_Version: 3
---- !u!1 &960356348
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 960356349}
-  - component: {fileID: 960356350}
-  m_Layer: 0
-  m_Name: Electrical Warning
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &960356349
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 960356348}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.087, y: 0.0017999411, z: -0.00819}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 605429831}
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
---- !u!114 &960356350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 960356348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DecalProjector
-  m_Material: {fileID: 2100000, guid: 3c966c7ebef41a948ac64562454c59e8, type: 2}
-  m_DrawDistance: 1000
-  m_FadeScale: 0.9
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 0.25, y: 0.25}
-  m_UVBias: {x: 0.5, y: 0.75}
-  m_AffectsTransparency: 0
-  m_TransparentTextureResolution:
-    m_Override: 256
-    m_UseOverride: 1
-    m_Level: 0
-  m_DecalLayerMask: 1
-  m_ScaleMode: 0
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0.01, y: 0.01, z: 0.02}
-  m_FadeFactor: 1
-  m_Version: 3
 --- !u!1001 &1009142052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1819,130 +1171,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e85dc3c9a389c84b8bb58991ce4d9e0, type: 3}
---- !u!1 &1031959554
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1031959555}
-  - component: {fileID: 1031959556}
-  m_Layer: 0
-  m_Name: Arrow (5)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1031959555
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031959554}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.70710707, y: -0.7071065, z: 0.00000022127094, w: 0.00000022127074}
-  m_LocalPosition: {x: 0.14850003, y: 0.0017999411, z: 0.012100011}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 437772050}
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 90}
---- !u!114 &1031959556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031959554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DecalProjector
-  m_Material: {fileID: 2100000, guid: 3c966c7ebef41a948ac64562454c59e8, type: 2}
-  m_DrawDistance: 1000
-  m_FadeScale: 0.9
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 0.25, y: 0.25}
-  m_UVBias: {x: 0.5, y: 0.5}
-  m_AffectsTransparency: 0
-  m_TransparentTextureResolution:
-    m_Override: 256
-    m_UseOverride: 1
-    m_Level: 0
-  m_DecalLayerMask: 1
-  m_ScaleMode: 0
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_FadeFactor: 1
-  m_Version: 3
---- !u!1 &1065564433
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1065564434}
-  - component: {fileID: 1065564435}
-  m_Layer: 0
-  m_Name: Stripes
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1065564434
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1065564433}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.7071071, y: -0.70710653, z: 0.00000022165477, w: 0.00000022165477}
-  m_LocalPosition: {x: -0.12229997, y: 0.017763019, z: 0.006099999}
-  m_LocalScale: {x: 0.84443986, y: 0.84443986, z: 0.75019187}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 605429831}
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 90}
---- !u!114 &1065564435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1065564433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DecalProjector
-  m_Material: {fileID: 2100000, guid: 3c966c7ebef41a948ac64562454c59e8, type: 2}
-  m_DrawDistance: 1000
-  m_FadeScale: 0.9
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 0.25, y: 0.25}
-  m_UVBias: {x: 0.25, y: 0.5}
-  m_AffectsTransparency: 0
-  m_TransparentTextureResolution:
-    m_Override: 256
-    m_UseOverride: 1
-    m_Level: 0
-  m_DecalLayerMask: 1
-  m_ScaleMode: 1
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0.1, y: 0.2, z: 0.02}
-  m_FadeFactor: 1
-  m_Version: 3
 --- !u!115 &1077393063
 MonoScript:
   m_ObjectHideFlags: 0
@@ -1958,192 +1186,6 @@ MonoScript:
   m_ClassName: SceneObjectIDMapSceneAsset
   m_Namespace: UnityEngine.Rendering.HighDefinition
   m_AssemblyName: Unity.RenderPipelines.HighDefinition.Runtime
---- !u!1 &1120621970
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1120621971}
-  - component: {fileID: 1120621972}
-  m_Layer: 0
-  m_Name: Stripes (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1120621971
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120621970}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.99438286, y: 0.10584332, z: 0.00000030733642, w: -0.000000027706843}
-  m_LocalPosition: {x: -0.8319017, y: -0.025113702, z: 0.0061000586}
-  m_LocalScale: {x: 0.84443986, y: 0.84443986, z: 0.75019187}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 605429831}
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 192.152}
---- !u!114 &1120621972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120621970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DecalProjector
-  m_Material: {fileID: 2100000, guid: 3c966c7ebef41a948ac64562454c59e8, type: 2}
-  m_DrawDistance: 1000
-  m_FadeScale: 0.9
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 0.25, y: 0.25}
-  m_UVBias: {x: 0.25, y: 0.5}
-  m_AffectsTransparency: 0
-  m_TransparentTextureResolution:
-    m_Override: 256
-    m_UseOverride: 1
-    m_Level: 0
-  m_DecalLayerMask: 1
-  m_ScaleMode: 1
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0.1, y: 0.15, z: 0.1}
-  m_FadeFactor: 1
-  m_Version: 3
---- !u!1 &1125368805
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1125368806}
-  - component: {fileID: 1125368807}
-  m_Layer: 0
-  m_Name: Warning Decal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1125368806
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125368805}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.0000009483118, y: -1, z: 0.0000000027148894, w: 0.0000003110617}
-  m_LocalPosition: {x: -0.40508515, y: 0.038679242, z: 0.006148398}
-  m_LocalScale: {x: 0.8444402, y: 0.84444, z: 0.75019217}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 605429831}
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
---- !u!114 &1125368807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125368805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DecalProjector
-  m_Material: {fileID: 2100000, guid: 3c966c7ebef41a948ac64562454c59e8, type: 2}
-  m_DrawDistance: 1000
-  m_FadeScale: 0.9
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 0.25, y: 0.25}
-  m_UVBias: {x: 0.75, y: 0.25}
-  m_AffectsTransparency: 0
-  m_TransparentTextureResolution:
-    m_Override: 256
-    m_UseOverride: 1
-    m_Level: 0
-  m_DecalLayerMask: 1
-  m_ScaleMode: 1
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0.1, y: 0.1, z: 0.02}
-  m_FadeFactor: 1
-  m_Version: 3
---- !u!1 &1155771495
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1155771497}
-  - component: {fileID: 1155771496}
-  m_Layer: 0
-  m_Name: Arrow (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1155771496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155771495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DecalProjector
-  m_Material: {fileID: 2100000, guid: 3c966c7ebef41a948ac64562454c59e8, type: 2}
-  m_DrawDistance: 1000
-  m_FadeScale: 0.9
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 0.25, y: 0.25}
-  m_UVBias: {x: 0.5, y: 0.5}
-  m_AffectsTransparency: 0
-  m_TransparentTextureResolution:
-    m_Override: 256
-    m_UseOverride: 1
-    m_Level: 0
-  m_DecalLayerMask: 1
-  m_ScaleMode: 0
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_FadeFactor: 1
-  m_Version: 3
---- !u!4 &1155771497
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155771495}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.70710707, y: -0.7071065, z: 0.00000022127094, w: 0.00000022127074}
-  m_LocalPosition: {x: -0.012009978, y: 0.0018299818, z: 0.012100011}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 437772050}
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 90}
 --- !u!1 &1334714468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2369,13 +1411,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334714468}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.17348763, y: 0.13797243, z: -0.025433829, w: -0.9747917}
-  m_LocalPosition: {x: 2.823, y: 2.13, z: 0.129}
+  m_LocalRotation: {x: -0.58542633, y: 0.13505533, z: 0.037991192, w: -0.79849404}
+  m_LocalPosition: {x: -2.218, y: 1.93, z: 5.627}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 20.197, y: 343.906, z: 0.105}
+  m_LocalEulerAnglesHint: {x: 67.617, y: 316.906, z: -35.07}
 --- !u!1001 &1371994041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2437,68 +1479,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e85dc3c9a389c84b8bb58991ce4d9e0, type: 3}
---- !u!1 &1395769014
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1395769015}
-  - component: {fileID: 1395769016}
-  m_Layer: 0
-  m_Name: Arrow (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1395769015
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1395769014}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.70710707, y: -0.7071065, z: 0.00000022127094, w: 0.00000022127074}
-  m_LocalPosition: {x: 0.06950003, y: 0.0017999411, z: 0.012100011}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 437772050}
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 90}
---- !u!114 &1395769016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1395769014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DecalProjector
-  m_Material: {fileID: 2100000, guid: 3c966c7ebef41a948ac64562454c59e8, type: 2}
-  m_DrawDistance: 1000
-  m_FadeScale: 0.9
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 0.25, y: 0.25}
-  m_UVBias: {x: 0.5, y: 0.5}
-  m_AffectsTransparency: 0
-  m_TransparentTextureResolution:
-    m_Override: 256
-    m_UseOverride: 1
-    m_Level: 0
-  m_DecalLayerMask: 1
-  m_ScaleMode: 0
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_FadeFactor: 1
-  m_Version: 3
 --- !u!1001 &1536877168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2557,35 +1537,26 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8408515511439651183, guid: bc957aec909fdba4f866f5d95355f420, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1536877170}
+      addedObject: {fileID: 1536877175}
   m_SourcePrefab: {fileID: 100100000, guid: bc957aec909fdba4f866f5d95355f420, type: 3}
 --- !u!1 &1536877169 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8408515511439651183, guid: bc957aec909fdba4f866f5d95355f420, type: 3}
   m_PrefabInstance: {fileID: 1536877168}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1536877170
-Animator:
-  serializedVersion: 7
+--- !u!114 &1536877175
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1536877169}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 60160932782c8334fb70d6c83023b3ac, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 656c48a718bf53f409523efe7e37098a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Fan_Rotate
+  speed: 300
 --- !u!1 &1610324852
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,68 +2065,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1610324853}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1723290877
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1723290878}
-  - component: {fileID: 1723290879}
-  m_Layer: 0
-  m_Name: Arrow (6)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1723290878
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723290877}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.020569531, y: 0.0205698, z: -0.70680743, w: 0.7068077}
-  m_LocalPosition: {x: 0.1506, y: 0.0001, z: -0.1091}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 437772050}
-  m_LocalEulerAnglesHint: {x: 0, y: -356.666, z: 270}
---- !u!114 &1723290879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723290877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.DecalProjector
-  m_Material: {fileID: 2100000, guid: 3c966c7ebef41a948ac64562454c59e8, type: 2}
-  m_DrawDistance: 1000
-  m_FadeScale: 0.9
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 0.25, y: 0.25}
-  m_UVBias: {x: 0.5, y: 0.5}
-  m_AffectsTransparency: 0
-  m_TransparentTextureResolution:
-    m_Override: 256
-    m_UseOverride: 1
-    m_Level: 0
-  m_DecalLayerMask: 1
-  m_ScaleMode: 0
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_FadeFactor: 1
-  m_Version: 3
 --- !u!1 &1898772527
 GameObject:
   m_ObjectHideFlags: 1
@@ -3368,6 +2277,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24c7a009dfb002d40a153bfc18d32a43, type: 3}
+--- !u!1001 &7914060096106196901
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5772496302151805926, guid: fb93ad85a7102bb4fafc8d11d8149584, type: 3}
+      propertyPath: m_Name
+      value: Kryden Multitool
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581965093057327452, guid: fb93ad85a7102bb4fafc8d11d8149584, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581965093057327452, guid: fb93ad85a7102bb4fafc8d11d8149584, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581965093057327452, guid: fb93ad85a7102bb4fafc8d11d8149584, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.543
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581965093057327452, guid: fb93ad85a7102bb4fafc8d11d8149584, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99599296
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581965093057327452, guid: fb93ad85a7102bb4fafc8d11d8149584, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581965093057327452, guid: fb93ad85a7102bb4fafc8d11d8149584, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.089432806
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581965093057327452, guid: fb93ad85a7102bb4fafc8d11d8149584, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581965093057327452, guid: fb93ad85a7102bb4fafc8d11d8149584, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581965093057327452, guid: fb93ad85a7102bb4fafc8d11d8149584, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 10.262
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581965093057327452, guid: fb93ad85a7102bb4fafc8d11d8149584, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fb93ad85a7102bb4fafc8d11d8149584, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3379,7 +2345,7 @@ SceneRoots:
   - {fileID: 831739790}
   - {fileID: 2086945963}
   - {fileID: 630904375}
-  - {fileID: 829733883}
+  - {fileID: 7914060096106196901}
   - {fileID: 1334714472}
   - {fileID: 1371994041}
   - {fileID: 1009142052}
