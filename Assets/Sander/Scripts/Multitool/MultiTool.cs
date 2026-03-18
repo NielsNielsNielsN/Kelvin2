@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public enum ToolMode { Mining, Tractor, Repair }
 
@@ -22,6 +23,8 @@ public class Multitool : MonoBehaviour
     [SerializeField] private float damagePerSecond = 10f;
     [SerializeField] private ParticleSystem impactParticlesPrefab;
     [SerializeField] private AudioSource laserSound;
+    [SerializeField] private MinableRock currentTargetRock;
+    [SerializeField] private UnityEngine.UI.Slider miningProgressSlider;
 
     [Header("Tractor")]
     [SerializeField] private float holdDistance = 3f;
@@ -31,20 +34,25 @@ public class Multitool : MonoBehaviour
     [SerializeField] private float followSpeed = 10f;
     [SerializeField] private float maxVelocity = 20f;
     [SerializeField] private AudioSource tractorSound;
+    [SerializeField] private UnityEngine.UI.Slider tractorDistanceSlider;
 
     [Header("Repair")]
     [SerializeField] private float repairPerSecond = 1f;
     [SerializeField] private ParticleSystem repairParticlesPrefab;
     [SerializeField] private AudioSource repairSound;
+    [SerializeField] private UnityEngine.UI.Slider repairProgressSlider;
 
     [Header("Input")]
     [SerializeField] private PlayerInputHandler inputHandler;
 
-    [Header("Mode UI Icon")]
+    [Header("Mode UI Icon (Screen Space)")]
     [SerializeField] private Image modeIconImage;
     [SerializeField] private Sprite miningIconSprite;
     [SerializeField] private Sprite tractorIconSprite;
     [SerializeField] private Sprite repairIconSprite;
+
+    [Header("Mode Panels (World Space Canvas on Tool)")]
+    [SerializeField] private GameObject[] modePanels; // 0 = Mining, 1 = Tractor, 2 = Repair
 
     public ToolMode currentMode = ToolMode.Mining;
 
@@ -59,6 +67,13 @@ public class Multitool : MonoBehaviour
     private Rigidbody tractorTargetRb;
     private float targetHoldDistance;
     private ToolMode lastMode;
+    // Runtime targets for repair mode
+    private RepairableObject currentTargetRepairable; // currently aimed
+    private RepairableObject trackedRepairable; // last targeted, used to decay when contact lost
+
+    // Coroutine handles
+    private Coroutine miningResetCoroutine;
+    private Coroutine repairDecayCoroutine;
 
     void Start()
     {
@@ -91,7 +106,7 @@ public class Multitool : MonoBehaviour
         targetHoldDistance = holdDistance;
 
         lastMode = currentMode;
-        UpdateModeIcon();
+        UpdateModeIcon(); // Initialize panels + screen icon
     }
 
     void Update()
@@ -117,6 +132,83 @@ public class Multitool : MonoBehaviour
             UpdateModeIcon();
             lastMode = currentMode;
         }
+
+        MinableRock aimedRock = GetAimedMinableRock();
+
+        // handle mining target changes
+        if (aimedRock != currentTargetRock)
+        {
+            UnsubscribeFromCurrentRock();
+
+            currentTargetRock = aimedRock;
+
+            if (currentTargetRock != null && miningProgressSlider != null)
+            {
+                currentTargetRock.miningProgressSlider = miningProgressSlider;
+                miningProgressSlider.value = 0f;
+                // subscribe to mined event so we can animate the slider back to zero
+                currentTargetRock.OnMined.AddListener(OnRockMined);
+            }
+        }
+
+        // Tractor slider update (map hold distance to slider value 0.1 -> 1)
+        if (tractorDistanceSlider != null)
+        {
+            float norm = Mathf.InverseLerp(minHoldDistance, maxHoldDistance, targetHoldDistance);
+            float sliderVal = Mathf.Lerp(0.1f, 1f, norm);
+            tractorDistanceSlider.value = sliderVal;
+        }
+
+        // Repair target acquisition: when aiming at a repairable object, assign target
+        RepairableObject aimedRepair = GetAimedRepairable();
+        if (aimedRepair != currentTargetRepairable)
+        {
+            currentTargetRepairable = aimedRepair;
+            if (currentTargetRepairable != null)
+            {
+                // start tracking this repairable (for decay when we lose aim)
+                if (trackedRepairable != null && trackedRepairable != currentTargetRepairable)
+                {
+                    trackedRepairable.OnRepaired.RemoveListener(OnRepairComplete);
+                }
+                trackedRepairable = currentTargetRepairable;
+                if (repairProgressSlider != null)
+                    repairProgressSlider.value = trackedRepairable.GetRepairProgressNormalized();
+                trackedRepairable.OnRepaired.AddListener(OnRepairComplete);
+                // stop any decay when we regain contact
+                if (repairDecayCoroutine != null)
+                {
+                    StopCoroutine(repairDecayCoroutine);
+                    repairDecayCoroutine = null;
+                }
+            }
+            else
+            {
+                // we lost aim entirely - start decay of the last tracked repairable
+                if (trackedRepairable != null)
+                {
+                    StartRepairDecay();
+                }
+            }
+        }
+    }
+
+    private RepairableObject GetAimedRepairable()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, maxRange, repairableLayer))
+        {
+            return hitInfo.collider.GetComponent<RepairableObject>();
+        }
+        return null;
+    }
+
+    private MinableRock GetAimedMinableRock()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, maxRange, minableLayer))
+        {
+            return hitInfo.collider.GetComponent<MinableRock>();
+        }
+        return null;
     }
 
     private void LateUpdate()
@@ -137,6 +229,7 @@ public class Multitool : MonoBehaviour
         {
             return;
         }
+
         switch (currentMode)
         {
             case ToolMode.Mining:
@@ -154,15 +247,40 @@ public class Multitool : MonoBehaviour
 
     private void UpdateModeIcon()
     {
-        if (modeIconImage == null) return;
-
-        modeIconImage.sprite = currentMode switch
+        // Update screen-space icon (unchanged)
+        if (modeIconImage != null)
         {
-            ToolMode.Mining => miningIconSprite,
-            ToolMode.Tractor => tractorIconSprite,
-            ToolMode.Repair => repairIconSprite,
-            _ => miningIconSprite
-        };
+            modeIconImage.sprite = currentMode switch
+            {
+                ToolMode.Mining => miningIconSprite,
+                ToolMode.Tractor => tractorIconSprite,
+                ToolMode.Repair => repairIconSprite,
+                _ => miningIconSprite
+            };
+        }
+
+        // NEW: Update world-space panels (only one active)
+        if (modePanels != null && modePanels.Length == 3)
+        {
+            // Deactivate all
+            for (int i = 0; i < modePanels.Length; i++)
+            {
+                if (modePanels[i] != null)
+                    modePanels[i].SetActive(false);
+            }
+
+            // Activate the correct one
+            int index = currentMode switch
+            {
+                ToolMode.Mining => 0,
+                ToolMode.Tractor => 1,
+                ToolMode.Repair => 2,
+                _ => 0
+            };
+
+            if (modePanels[index] != null)
+                modePanels[index].SetActive(true);
+        }
     }
 
     private void PerformActive()
@@ -259,6 +377,103 @@ public class Multitool : MonoBehaviour
         }
     }
 
+    private void UnsubscribeFromCurrentRock()
+    {
+        if (currentTargetRock != null)
+        {
+            // reset health when losing focus/contact
+            currentTargetRock.ResetHealth();
+            currentTargetRock.OnMined.RemoveListener(OnRockMined);
+            currentTargetRock = null;
+
+            if (miningResetCoroutine != null)
+            {
+                StopCoroutine(miningResetCoroutine);
+                miningResetCoroutine = null;
+            }
+        }
+    }
+
+    private void OnRockMined()
+    {
+        // start coroutine to animate slider back to zero
+        if (miningProgressSlider != null)
+        {
+            if (miningResetCoroutine != null) StopCoroutine(miningResetCoroutine);
+            miningResetCoroutine = StartCoroutine(AnimateSliderToZero(miningProgressSlider, 2f));
+        }
+        // clear current target reference
+        currentTargetRock = null;
+    }
+
+    private System.Collections.IEnumerator AnimateSliderToZero(UnityEngine.UI.Slider s, float duration)
+    {
+        if (s == null) yield break;
+        float start = s.value;
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            s.value = Mathf.Lerp(start, 0f, elapsed / duration);
+            yield return null;
+        }
+        s.value = 0f;
+    }
+
+    private void UnsubscribeFromCurrentRepairable()
+    {
+        if (currentTargetRepairable != null)
+        {
+            currentTargetRepairable.OnRepaired.RemoveListener(OnRepairComplete);
+            currentTargetRepairable = null;
+        }
+    }
+
+    private void OnRepairComplete()
+    {
+        // animate slider back to zero when repair completes
+        if (repairProgressSlider != null)
+        {
+            StartCoroutine(AnimateSliderToZero(repairProgressSlider, 1.5f));
+        }
+        if (trackedRepairable != null)
+        {
+            trackedRepairable.OnRepaired.RemoveListener(OnRepairComplete);
+            trackedRepairable = null;
+        }
+    }
+
+    // Called to begin a smooth decay of the repair slider and progress when contact is lost
+    private void StartRepairDecay()
+    {
+        if (trackedRepairable == null || repairProgressSlider == null) return;
+        if (repairDecayCoroutine != null) StopCoroutine(repairDecayCoroutine);
+        repairDecayCoroutine = StartCoroutine(RepairDecayCoroutine(trackedRepairable, repairProgressSlider, 2f));
+    }
+
+    private System.Collections.IEnumerator RepairDecayCoroutine(RepairableObject obj, UnityEngine.UI.Slider s, float duration)
+    {
+        if (obj == null || s == null) yield break;
+        float elapsed = 0f;
+        float startVal = s.value;
+        while (elapsed < duration && s.value > 0f)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            float target = Mathf.Lerp(startVal, 0f, t);
+            // determine how much normalized progress to remove this frame
+            float currentNorm = obj.GetRepairProgressNormalized();
+            float deltaNorm = currentNorm - target;
+            // convert normalized delta to repair time and remove a portion per second
+            float deltaTime = deltaNorm * obj.GetMaxRepairTime();
+            obj.ModifyRepairProgress(-deltaTime * Time.deltaTime);
+            s.value = obj.GetRepairProgressNormalized();
+            yield return null;
+        }
+        if (s != null) s.value = 0f;
+        repairDecayCoroutine = null;
+    }
+
     private void CheckSnapSocket()
     {
         TransportObjective transportObj = heldRigidbody.GetComponent<TransportObjective>();
@@ -290,13 +505,28 @@ public class Multitool : MonoBehaviour
             RepairableObject repairObj = hit.collider.GetComponent<RepairableObject>();
             if (repairObj != null)
             {
+                // apply repair
                 repairObj.Repair(repairPerSecond * Time.deltaTime);
+
+                // ensure slider is assigned and updated
+                if (repairProgressSlider != null)
+                {
+                    repairProgressSlider.value = repairObj.GetRepairProgressNormalized();
+                }
+
+                // set tracked repairable so decay can continue when we lose aim
+                trackedRepairable = repairObj;
             }
         }
         else
         {
             DrawBeamToRange(maxRange);
             StopEffects();
+            // start a smooth decay when we lose aim
+            if (trackedRepairable != null)
+            {
+                StartRepairDecay();
+            }
         }
     }
 
@@ -321,7 +551,7 @@ public class Multitool : MonoBehaviour
         Debug.Log("Picked up: " + col.name);
     }
 
-    public void StopActive()  // ← Made public
+    public void StopActive()
     {
         beamRenderer.enabled = false;
         StopEffects();
@@ -333,6 +563,26 @@ public class Multitool : MonoBehaviour
             heldRigidbody.linearVelocity = releaseVelocity;
             heldRigidbody.angularVelocity = Vector3.zero;
             heldRigidbody = null;
+        }
+
+        // If we stop using the tool while mining, reset the current rock
+        if (currentMode == ToolMode.Mining && currentTargetRock != null)
+        {
+            UnsubscribeFromCurrentRock();
+        }
+
+        // If we stop using the tool while repairing, start decaying the repair progress
+        if (currentMode == ToolMode.Repair && currentTargetRepairable != null)
+        {
+            // nothing special here — decay will be handled in PerformRepair when we exit raycast
+            // but ensure slider exists
+            if (repairProgressSlider != null)
+                repairProgressSlider.value = currentTargetRepairable.GetRepairProgressNormalized();
+        }
+
+        if (currentMode == ToolMode.Repair && trackedRepairable != null)
+        {
+            StartRepairDecay();
         }
     }
 

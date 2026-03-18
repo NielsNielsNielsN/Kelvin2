@@ -62,5 +62,13 @@ public class RepairableObject : MonoBehaviour
     }
 
     // For visual feedback (optional): change color or scale slightly during repair
-    public float GetRepairProgressNormalized() => currentRepairProgress / maxRepairTime;
+    public float GetRepairProgressNormalized() => currentRepairProgress / GetMaxRepairTime();
+
+    public float GetMaxRepairTime() => Mathf.Max(0.0001f, maxRepairTime);
+
+    // Allows external systems to modify repair progress (positive to add, negative to remove)
+    public void ModifyRepairProgress(float delta)
+    {
+        currentRepairProgress = Mathf.Clamp(currentRepairProgress + delta, 0f, maxRepairTime);
+    }
 }

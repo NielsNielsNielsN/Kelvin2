@@ -68,15 +68,17 @@ public class MenuUI : MonoBehaviour
 
     private void PauseMenuOn()
     {
+        // ESC now toggles pause fully (open or close)
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePause();
         }
 
+        // Back button now also toggles pause (same as ESC)
         if (backButtonPressed)
         {
             backButtonPressed = false;
-            Resume();  
+            TogglePause();  // ← Changed: uses TogglePause instead of Resume
         }
     }
 
@@ -84,7 +86,7 @@ public class MenuUI : MonoBehaviour
     {
         visible = !visible;
         pauseMenu.gameObject.SetActive(visible);
-        
+
         if (visible)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -95,18 +97,27 @@ public class MenuUI : MonoBehaviour
         else
         {
             CursorLockModeOn();
+            ingameUI.SetActive(true);
         }
+
+        Debug.Log("TogglePause - visible now: " + visible + ", ingameUI active: " + ingameUI.activeSelf);
     }
 
     public void Resume()
     {
+        // Force close if open (same as ESC when pause is on)
         if (visible)
         {
-            visible = false;
-            pauseMenu.gameObject.SetActive(false);
-            ingameUI.SetActive(true);
-            CursorLockModeOn();
+            TogglePause();
         }
+        // Optional extra resume actions
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        startMenu.SetActive(false);
+        pauseMenu.gameObject.SetActive(false);
+        ingameUI.SetActive(true);
+        Unfreeze();
     }
 
     public void Quit()

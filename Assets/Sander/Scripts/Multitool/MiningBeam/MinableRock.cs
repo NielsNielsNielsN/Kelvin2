@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class MinableRock : MonoBehaviour
@@ -8,6 +8,8 @@ public class MinableRock : MonoBehaviour
     [SerializeField] private ParticleSystem breakParticlesPrefab;
     [SerializeField] private AudioClip breakSound;
     public UnityEvent OnMined = new UnityEvent();
+
+    [SerializeField] public UnityEngine.UI.Slider miningProgressSlider;
 
     private float currentHealth;
 
@@ -19,6 +21,13 @@ public class MinableRock : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+
+        // Update slider if we have one
+        if (miningProgressSlider != null)
+        {
+            miningProgressSlider.value = 1f - (currentHealth / maxHealth); // 0 → full health, 1 → dead
+        }
+
         if (currentHealth <= 0)
         {
             BreakRock();
@@ -47,5 +56,16 @@ public class MinableRock : MonoBehaviour
         OnMined.Invoke();
 
         Destroy(gameObject);
+    }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+
+        // Reset slider too
+        if (miningProgressSlider != null)
+        {
+            miningProgressSlider.value = 0f;
+        }
     }
 }
