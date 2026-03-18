@@ -8,4 +8,772 @@ AvatarMask:
   m_PrefabAsset: {fileID: 0}
   m_Name: Test
   m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-  m_Elements: []
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Player
+    m_Weight: 0
+  - m_Path: player.rig
+    m_Weight: 0
+  - m_Path: player.rig/MCH-hand_ik.parent.L
+    m_Weight: 0
+  - m_Path: player.rig/MCH-hand_ik.parent.L/hand_ik.L
+    m_Weight: 0
+  - m_Path: player.rig/MCH-hand_ik.parent.L/hand_ik.L/MCH-upper_arm_ik_target.L
+    m_Weight: 0
+  - m_Path: player.rig/MCH-hand_ik.parent.L/hand_ik.L/MCH-upper_arm_ik_target.L/MCH-upper_arm_ik_target.L_end
+    m_Weight: 0
+  - m_Path: player.rig/MCH-hand_ik.parent.R
+    m_Weight: 0
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R
+    m_Weight: 0
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone/Cables
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone/Canister
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone/Details
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone/Modules
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone/Multitool
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone/Muzzle
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone/Power_converter
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone/Screen
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone/Switch
+      bone
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone/Switch
+      bone/Switch bone_end
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone/Switch
+      bone/Switch box
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone/Trigger
+      bone
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone/Trigger
+      bone/Trigger
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone/Trigger
+      bone/Trigger bone_end
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/Gun armature/Handle bone/Zip_Ties
+    m_Weight: 1
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/MCH-upper_arm_ik_target.R
+    m_Weight: 0
+  - m_Path: player.rig/MCH-hand_ik.parent.R/hand_ik.R/MCH-upper_arm_ik_target.R/MCH-upper_arm_ik_target.R_end
+    m_Weight: 0
+  - m_Path: player.rig/MCH-upper_arm_ik_target.parent.L
+    m_Weight: 0
+  - m_Path: player.rig/MCH-upper_arm_ik_target.parent.L/upper_arm_ik_target.L
+    m_Weight: 0
+  - m_Path: player.rig/MCH-upper_arm_ik_target.parent.L/upper_arm_ik_target.L/upper_arm_ik_target.L_end
+    m_Weight: 0
+  - m_Path: player.rig/MCH-upper_arm_ik_target.parent.R
+    m_Weight: 0
+  - m_Path: player.rig/MCH-upper_arm_ik_target.parent.R/upper_arm_ik_target.R
+    m_Weight: 0
+  - m_Path: player.rig/MCH-upper_arm_ik_target.parent.R/upper_arm_ik_target.R/upper_arm_ik_target.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/DEF-f_index.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/DEF-f_index.01.L/DEF-f_index.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/DEF-f_index.01.L/DEF-f_index.02.L/DEF-f_index.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/DEF-f_index.01.L/DEF-f_index.02.L/DEF-f_index.03.L/DEF-f_index.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/DEF-palm.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/DEF-palm.01.L/DEF-palm.01.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/DEF-thumb.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/DEF-thumb.01.L/DEF-thumb.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/DEF-thumb.01.L/DEF-thumb.02.L/DEF-thumb.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/DEF-thumb.01.L/DEF-thumb.02.L/DEF-thumb.03.L/DEF-thumb.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/f_index.01_master.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/f_index.01_master.L/f_index.01_master.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-f_index.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-f_index.01.L/MCH-f_index.01.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-f_index.01_drv.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-f_index.01_drv.L/f_index.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-f_index.01_drv.L/f_index.01.L/MCH-f_index.02_drv.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-f_index.01_drv.L/f_index.01.L/MCH-f_index.02_drv.L/f_index.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-f_index.01_drv.L/f_index.01.L/MCH-f_index.02_drv.L/f_index.02.L/MCH-f_index.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-f_index.01_drv.L/f_index.01.L/MCH-f_index.02_drv.L/f_index.02.L/MCH-f_index.02.L/MCH-f_index.02.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-f_index.01_drv.L/f_index.01.L/MCH-f_index.02_drv.L/f_index.02.L/MCH-f_index.03_drv.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-f_index.01_drv.L/f_index.01.L/MCH-f_index.02_drv.L/f_index.02.L/MCH-f_index.03_drv.L/f_index.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-f_index.01_drv.L/f_index.01.L/MCH-f_index.02_drv.L/f_index.02.L/MCH-f_index.03_drv.L/f_index.03.L/f_index.01.L.001
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-f_index.01_drv.L/f_index.01.L/MCH-f_index.02_drv.L/f_index.02.L/MCH-f_index.03_drv.L/f_index.03.L/f_index.01.L.001/f_index.01.L.001_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-f_index.01_drv.L/f_index.01.L/MCH-f_index.02_drv.L/f_index.02.L/MCH-f_index.03_drv.L/f_index.03.L/MCH-f_index.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-f_index.01_drv.L/f_index.01.L/MCH-f_index.02_drv.L/f_index.02.L/MCH-f_index.03_drv.L/f_index.03.L/MCH-f_index.03.L/MCH-f_index.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-thumb.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-thumb.01.L/MCH-thumb.01.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-thumb.01_drv.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-thumb.01_drv.L/thumb.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-thumb.01_drv.L/thumb.01.L/MCH-thumb.02_drv.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-thumb.01_drv.L/thumb.01.L/MCH-thumb.02_drv.L/thumb.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-thumb.01_drv.L/thumb.01.L/MCH-thumb.02_drv.L/thumb.02.L/MCH-thumb.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-thumb.01_drv.L/thumb.01.L/MCH-thumb.02_drv.L/thumb.02.L/MCH-thumb.02.L/MCH-thumb.02.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-thumb.01_drv.L/thumb.01.L/MCH-thumb.02_drv.L/thumb.02.L/MCH-thumb.03_drv.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-thumb.01_drv.L/thumb.01.L/MCH-thumb.02_drv.L/thumb.02.L/MCH-thumb.03_drv.L/thumb.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-thumb.01_drv.L/thumb.01.L/MCH-thumb.02_drv.L/thumb.02.L/MCH-thumb.03_drv.L/thumb.03.L/MCH-thumb.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-thumb.01_drv.L/thumb.01.L/MCH-thumb.02_drv.L/thumb.02.L/MCH-thumb.03_drv.L/thumb.03.L/MCH-thumb.03.L/MCH-thumb.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-thumb.01_drv.L/thumb.01.L/MCH-thumb.02_drv.L/thumb.02.L/MCH-thumb.03_drv.L/thumb.03.L/thumb.01.L.001
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/MCH-thumb.01_drv.L/thumb.01.L/MCH-thumb.02_drv.L/thumb.02.L/MCH-thumb.03_drv.L/thumb.03.L/thumb.01.L.001/thumb.01.L.001_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/ORG-f_index.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/ORG-f_index.01.L/ORG-f_index.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/ORG-f_index.01.L/ORG-f_index.02.L/ORG-f_index.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/ORG-f_index.01.L/ORG-f_index.02.L/ORG-f_index.03.L/ORG-f_index.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/ORG-thumb.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/ORG-thumb.01.L/ORG-thumb.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/ORG-thumb.01.L/ORG-thumb.02.L/ORG-thumb.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/ORG-thumb.01.L/ORG-thumb.02.L/ORG-thumb.03.L/ORG-thumb.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/thumb.01_master.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.01.L/thumb.01_master.L/thumb.01_master.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/DEF-f_middle.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/DEF-f_middle.01.L/DEF-f_middle.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/DEF-f_middle.01.L/DEF-f_middle.02.L/DEF-f_middle.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/DEF-f_middle.01.L/DEF-f_middle.02.L/DEF-f_middle.03.L/DEF-f_middle.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/DEF-palm.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/DEF-palm.02.L/DEF-palm.02.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/f_middle.01_master.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/f_middle.01_master.L/f_middle.01_master.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/MCH-f_middle.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/MCH-f_middle.01.L/MCH-f_middle.01.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/MCH-f_middle.01_drv.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/MCH-f_middle.01_drv.L/f_middle.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/MCH-f_middle.01_drv.L/f_middle.01.L/MCH-f_middle.02_drv.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/MCH-f_middle.01_drv.L/f_middle.01.L/MCH-f_middle.02_drv.L/f_middle.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/MCH-f_middle.01_drv.L/f_middle.01.L/MCH-f_middle.02_drv.L/f_middle.02.L/MCH-f_middle.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/MCH-f_middle.01_drv.L/f_middle.01.L/MCH-f_middle.02_drv.L/f_middle.02.L/MCH-f_middle.02.L/MCH-f_middle.02.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/MCH-f_middle.01_drv.L/f_middle.01.L/MCH-f_middle.02_drv.L/f_middle.02.L/MCH-f_middle.03_drv.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/MCH-f_middle.01_drv.L/f_middle.01.L/MCH-f_middle.02_drv.L/f_middle.02.L/MCH-f_middle.03_drv.L/f_middle.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/MCH-f_middle.01_drv.L/f_middle.01.L/MCH-f_middle.02_drv.L/f_middle.02.L/MCH-f_middle.03_drv.L/f_middle.03.L/f_middle.01.L.001
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/MCH-f_middle.01_drv.L/f_middle.01.L/MCH-f_middle.02_drv.L/f_middle.02.L/MCH-f_middle.03_drv.L/f_middle.03.L/f_middle.01.L.001/f_middle.01.L.001_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/MCH-f_middle.01_drv.L/f_middle.01.L/MCH-f_middle.02_drv.L/f_middle.02.L/MCH-f_middle.03_drv.L/f_middle.03.L/MCH-f_middle.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/MCH-f_middle.01_drv.L/f_middle.01.L/MCH-f_middle.02_drv.L/f_middle.02.L/MCH-f_middle.03_drv.L/f_middle.03.L/MCH-f_middle.03.L/MCH-f_middle.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/ORG-f_middle.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/ORG-f_middle.01.L/ORG-f_middle.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/ORG-f_middle.01.L/ORG-f_middle.02.L/ORG-f_middle.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.02.L/ORG-f_middle.01.L/ORG-f_middle.02.L/ORG-f_middle.03.L/ORG-f_middle.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/DEF-f_ring.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/DEF-f_ring.01.L/DEF-f_ring.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/DEF-f_ring.01.L/DEF-f_ring.02.L/DEF-f_ring.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/DEF-f_ring.01.L/DEF-f_ring.02.L/DEF-f_ring.03.L/DEF-f_ring.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/DEF-palm.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/DEF-palm.03.L/DEF-palm.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/f_ring.01_master.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/f_ring.01_master.L/f_ring.01_master.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/MCH-f_ring.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/MCH-f_ring.01.L/MCH-f_ring.01.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/MCH-f_ring.01_drv.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/MCH-f_ring.01_drv.L/f_ring.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/MCH-f_ring.01_drv.L/f_ring.01.L/MCH-f_ring.02_drv.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/MCH-f_ring.01_drv.L/f_ring.01.L/MCH-f_ring.02_drv.L/f_ring.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/MCH-f_ring.01_drv.L/f_ring.01.L/MCH-f_ring.02_drv.L/f_ring.02.L/MCH-f_ring.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/MCH-f_ring.01_drv.L/f_ring.01.L/MCH-f_ring.02_drv.L/f_ring.02.L/MCH-f_ring.02.L/MCH-f_ring.02.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/MCH-f_ring.01_drv.L/f_ring.01.L/MCH-f_ring.02_drv.L/f_ring.02.L/MCH-f_ring.03_drv.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/MCH-f_ring.01_drv.L/f_ring.01.L/MCH-f_ring.02_drv.L/f_ring.02.L/MCH-f_ring.03_drv.L/f_ring.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/MCH-f_ring.01_drv.L/f_ring.01.L/MCH-f_ring.02_drv.L/f_ring.02.L/MCH-f_ring.03_drv.L/f_ring.03.L/f_ring.01.L.001
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/MCH-f_ring.01_drv.L/f_ring.01.L/MCH-f_ring.02_drv.L/f_ring.02.L/MCH-f_ring.03_drv.L/f_ring.03.L/f_ring.01.L.001/f_ring.01.L.001_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/MCH-f_ring.01_drv.L/f_ring.01.L/MCH-f_ring.02_drv.L/f_ring.02.L/MCH-f_ring.03_drv.L/f_ring.03.L/MCH-f_ring.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/MCH-f_ring.01_drv.L/f_ring.01.L/MCH-f_ring.02_drv.L/f_ring.02.L/MCH-f_ring.03_drv.L/f_ring.03.L/MCH-f_ring.03.L/MCH-f_ring.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/ORG-f_ring.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/ORG-f_ring.01.L/ORG-f_ring.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/ORG-f_ring.01.L/ORG-f_ring.02.L/ORG-f_ring.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.03.L/ORG-f_ring.01.L/ORG-f_ring.02.L/ORG-f_ring.03.L/ORG-f_ring.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/DEF-f_pinky.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/DEF-f_pinky.01.L/DEF-f_pinky.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/DEF-f_pinky.01.L/DEF-f_pinky.02.L/DEF-f_pinky.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/DEF-f_pinky.01.L/DEF-f_pinky.02.L/DEF-f_pinky.03.L/DEF-f_pinky.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/DEF-palm.04.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/DEF-palm.04.L/DEF-palm.04.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/f_pinky.01_master.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/f_pinky.01_master.L/f_pinky.01_master.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/MCH-f_pinky.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/MCH-f_pinky.01.L/MCH-f_pinky.01.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/MCH-f_pinky.01_drv.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/MCH-f_pinky.01_drv.L/f_pinky.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/MCH-f_pinky.01_drv.L/f_pinky.01.L/MCH-f_pinky.02_drv.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/MCH-f_pinky.01_drv.L/f_pinky.01.L/MCH-f_pinky.02_drv.L/f_pinky.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/MCH-f_pinky.01_drv.L/f_pinky.01.L/MCH-f_pinky.02_drv.L/f_pinky.02.L/MCH-f_pinky.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/MCH-f_pinky.01_drv.L/f_pinky.01.L/MCH-f_pinky.02_drv.L/f_pinky.02.L/MCH-f_pinky.02.L/MCH-f_pinky.02.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/MCH-f_pinky.01_drv.L/f_pinky.01.L/MCH-f_pinky.02_drv.L/f_pinky.02.L/MCH-f_pinky.03_drv.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/MCH-f_pinky.01_drv.L/f_pinky.01.L/MCH-f_pinky.02_drv.L/f_pinky.02.L/MCH-f_pinky.03_drv.L/f_pinky.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/MCH-f_pinky.01_drv.L/f_pinky.01.L/MCH-f_pinky.02_drv.L/f_pinky.02.L/MCH-f_pinky.03_drv.L/f_pinky.03.L/f_pinky.01.L.001
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/MCH-f_pinky.01_drv.L/f_pinky.01.L/MCH-f_pinky.02_drv.L/f_pinky.02.L/MCH-f_pinky.03_drv.L/f_pinky.03.L/f_pinky.01.L.001/f_pinky.01.L.001_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/MCH-f_pinky.01_drv.L/f_pinky.01.L/MCH-f_pinky.02_drv.L/f_pinky.02.L/MCH-f_pinky.03_drv.L/f_pinky.03.L/MCH-f_pinky.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/MCH-f_pinky.01_drv.L/f_pinky.01.L/MCH-f_pinky.02_drv.L/f_pinky.02.L/MCH-f_pinky.03_drv.L/f_pinky.03.L/MCH-f_pinky.03.L/MCH-f_pinky.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/ORG-f_pinky.01.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/ORG-f_pinky.01.L/ORG-f_pinky.02.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/ORG-f_pinky.01.L/ORG-f_pinky.02.L/ORG-f_pinky.03.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/ORG-palm.04.L/ORG-f_pinky.01.L/ORG-f_pinky.02.L/ORG-f_pinky.03.L/ORG-f_pinky.03.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/palm.L
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.L/DEF-upper_arm.L.001/DEF-forearm.L/DEF-forearm.L.001/DEF-hand.L/palm.L/palm.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/DEF-f_index.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/DEF-f_index.01.R/DEF-f_index.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/DEF-f_index.01.R/DEF-f_index.02.R/DEF-f_index.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/DEF-f_index.01.R/DEF-f_index.02.R/DEF-f_index.03.R/DEF-f_index.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/DEF-palm.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/DEF-palm.01.R/DEF-palm.01.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/DEF-thumb.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/DEF-thumb.01.R/DEF-thumb.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/DEF-thumb.01.R/DEF-thumb.02.R/DEF-thumb.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/DEF-thumb.01.R/DEF-thumb.02.R/DEF-thumb.03.R/DEF-thumb.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/f_index.01_master.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/f_index.01_master.R/f_index.01_master.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-f_index.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-f_index.01.R/MCH-f_index.01.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-f_index.01_drv.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-f_index.01_drv.R/f_index.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-f_index.01_drv.R/f_index.01.R/MCH-f_index.02_drv.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-f_index.01_drv.R/f_index.01.R/MCH-f_index.02_drv.R/f_index.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-f_index.01_drv.R/f_index.01.R/MCH-f_index.02_drv.R/f_index.02.R/MCH-f_index.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-f_index.01_drv.R/f_index.01.R/MCH-f_index.02_drv.R/f_index.02.R/MCH-f_index.02.R/MCH-f_index.02.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-f_index.01_drv.R/f_index.01.R/MCH-f_index.02_drv.R/f_index.02.R/MCH-f_index.03_drv.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-f_index.01_drv.R/f_index.01.R/MCH-f_index.02_drv.R/f_index.02.R/MCH-f_index.03_drv.R/f_index.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-f_index.01_drv.R/f_index.01.R/MCH-f_index.02_drv.R/f_index.02.R/MCH-f_index.03_drv.R/f_index.03.R/f_index.01.R.001
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-f_index.01_drv.R/f_index.01.R/MCH-f_index.02_drv.R/f_index.02.R/MCH-f_index.03_drv.R/f_index.03.R/f_index.01.R.001/f_index.01.R.001_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-f_index.01_drv.R/f_index.01.R/MCH-f_index.02_drv.R/f_index.02.R/MCH-f_index.03_drv.R/f_index.03.R/MCH-f_index.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-f_index.01_drv.R/f_index.01.R/MCH-f_index.02_drv.R/f_index.02.R/MCH-f_index.03_drv.R/f_index.03.R/MCH-f_index.03.R/MCH-f_index.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-thumb.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-thumb.01.R/MCH-thumb.01.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-thumb.01_drv.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-thumb.01_drv.R/thumb.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-thumb.01_drv.R/thumb.01.R/MCH-thumb.02_drv.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-thumb.01_drv.R/thumb.01.R/MCH-thumb.02_drv.R/thumb.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-thumb.01_drv.R/thumb.01.R/MCH-thumb.02_drv.R/thumb.02.R/MCH-thumb.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-thumb.01_drv.R/thumb.01.R/MCH-thumb.02_drv.R/thumb.02.R/MCH-thumb.02.R/MCH-thumb.02.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-thumb.01_drv.R/thumb.01.R/MCH-thumb.02_drv.R/thumb.02.R/MCH-thumb.03_drv.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-thumb.01_drv.R/thumb.01.R/MCH-thumb.02_drv.R/thumb.02.R/MCH-thumb.03_drv.R/thumb.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-thumb.01_drv.R/thumb.01.R/MCH-thumb.02_drv.R/thumb.02.R/MCH-thumb.03_drv.R/thumb.03.R/MCH-thumb.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-thumb.01_drv.R/thumb.01.R/MCH-thumb.02_drv.R/thumb.02.R/MCH-thumb.03_drv.R/thumb.03.R/MCH-thumb.03.R/MCH-thumb.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-thumb.01_drv.R/thumb.01.R/MCH-thumb.02_drv.R/thumb.02.R/MCH-thumb.03_drv.R/thumb.03.R/thumb.01.R.001
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/MCH-thumb.01_drv.R/thumb.01.R/MCH-thumb.02_drv.R/thumb.02.R/MCH-thumb.03_drv.R/thumb.03.R/thumb.01.R.001/thumb.01.R.001_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/ORG-f_index.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/ORG-f_index.01.R/ORG-f_index.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/ORG-f_index.01.R/ORG-f_index.02.R/ORG-f_index.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/ORG-f_index.01.R/ORG-f_index.02.R/ORG-f_index.03.R/ORG-f_index.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/ORG-thumb.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/ORG-thumb.01.R/ORG-thumb.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/ORG-thumb.01.R/ORG-thumb.02.R/ORG-thumb.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/ORG-thumb.01.R/ORG-thumb.02.R/ORG-thumb.03.R/ORG-thumb.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/thumb.01_master.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.01.R/thumb.01_master.R/thumb.01_master.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/DEF-f_middle.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/DEF-f_middle.01.R/DEF-f_middle.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/DEF-f_middle.01.R/DEF-f_middle.02.R/DEF-f_middle.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/DEF-f_middle.01.R/DEF-f_middle.02.R/DEF-f_middle.03.R/DEF-f_middle.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/DEF-palm.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/DEF-palm.02.R/DEF-palm.02.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/f_middle.01_master.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/f_middle.01_master.R/f_middle.01_master.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/MCH-f_middle.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/MCH-f_middle.01.R/MCH-f_middle.01.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/MCH-f_middle.01_drv.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/MCH-f_middle.01_drv.R/f_middle.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/MCH-f_middle.01_drv.R/f_middle.01.R/MCH-f_middle.02_drv.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/MCH-f_middle.01_drv.R/f_middle.01.R/MCH-f_middle.02_drv.R/f_middle.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/MCH-f_middle.01_drv.R/f_middle.01.R/MCH-f_middle.02_drv.R/f_middle.02.R/MCH-f_middle.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/MCH-f_middle.01_drv.R/f_middle.01.R/MCH-f_middle.02_drv.R/f_middle.02.R/MCH-f_middle.02.R/MCH-f_middle.02.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/MCH-f_middle.01_drv.R/f_middle.01.R/MCH-f_middle.02_drv.R/f_middle.02.R/MCH-f_middle.03_drv.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/MCH-f_middle.01_drv.R/f_middle.01.R/MCH-f_middle.02_drv.R/f_middle.02.R/MCH-f_middle.03_drv.R/f_middle.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/MCH-f_middle.01_drv.R/f_middle.01.R/MCH-f_middle.02_drv.R/f_middle.02.R/MCH-f_middle.03_drv.R/f_middle.03.R/f_middle.01.R.001
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/MCH-f_middle.01_drv.R/f_middle.01.R/MCH-f_middle.02_drv.R/f_middle.02.R/MCH-f_middle.03_drv.R/f_middle.03.R/f_middle.01.R.001/f_middle.01.R.001_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/MCH-f_middle.01_drv.R/f_middle.01.R/MCH-f_middle.02_drv.R/f_middle.02.R/MCH-f_middle.03_drv.R/f_middle.03.R/MCH-f_middle.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/MCH-f_middle.01_drv.R/f_middle.01.R/MCH-f_middle.02_drv.R/f_middle.02.R/MCH-f_middle.03_drv.R/f_middle.03.R/MCH-f_middle.03.R/MCH-f_middle.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/ORG-f_middle.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/ORG-f_middle.01.R/ORG-f_middle.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/ORG-f_middle.01.R/ORG-f_middle.02.R/ORG-f_middle.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.02.R/ORG-f_middle.01.R/ORG-f_middle.02.R/ORG-f_middle.03.R/ORG-f_middle.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/DEF-f_ring.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/DEF-f_ring.01.R/DEF-f_ring.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/DEF-f_ring.01.R/DEF-f_ring.02.R/DEF-f_ring.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/DEF-f_ring.01.R/DEF-f_ring.02.R/DEF-f_ring.03.R/DEF-f_ring.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/DEF-palm.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/DEF-palm.03.R/DEF-palm.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/f_ring.01_master.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/f_ring.01_master.R/f_ring.01_master.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/MCH-f_ring.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/MCH-f_ring.01.R/MCH-f_ring.01.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/MCH-f_ring.01_drv.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/MCH-f_ring.01_drv.R/f_ring.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/MCH-f_ring.01_drv.R/f_ring.01.R/MCH-f_ring.02_drv.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/MCH-f_ring.01_drv.R/f_ring.01.R/MCH-f_ring.02_drv.R/f_ring.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/MCH-f_ring.01_drv.R/f_ring.01.R/MCH-f_ring.02_drv.R/f_ring.02.R/MCH-f_ring.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/MCH-f_ring.01_drv.R/f_ring.01.R/MCH-f_ring.02_drv.R/f_ring.02.R/MCH-f_ring.02.R/MCH-f_ring.02.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/MCH-f_ring.01_drv.R/f_ring.01.R/MCH-f_ring.02_drv.R/f_ring.02.R/MCH-f_ring.03_drv.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/MCH-f_ring.01_drv.R/f_ring.01.R/MCH-f_ring.02_drv.R/f_ring.02.R/MCH-f_ring.03_drv.R/f_ring.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/MCH-f_ring.01_drv.R/f_ring.01.R/MCH-f_ring.02_drv.R/f_ring.02.R/MCH-f_ring.03_drv.R/f_ring.03.R/f_ring.01.R.001
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/MCH-f_ring.01_drv.R/f_ring.01.R/MCH-f_ring.02_drv.R/f_ring.02.R/MCH-f_ring.03_drv.R/f_ring.03.R/f_ring.01.R.001/f_ring.01.R.001_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/MCH-f_ring.01_drv.R/f_ring.01.R/MCH-f_ring.02_drv.R/f_ring.02.R/MCH-f_ring.03_drv.R/f_ring.03.R/MCH-f_ring.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/MCH-f_ring.01_drv.R/f_ring.01.R/MCH-f_ring.02_drv.R/f_ring.02.R/MCH-f_ring.03_drv.R/f_ring.03.R/MCH-f_ring.03.R/MCH-f_ring.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/ORG-f_ring.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/ORG-f_ring.01.R/ORG-f_ring.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/ORG-f_ring.01.R/ORG-f_ring.02.R/ORG-f_ring.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.03.R/ORG-f_ring.01.R/ORG-f_ring.02.R/ORG-f_ring.03.R/ORG-f_ring.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/DEF-f_pinky.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/DEF-f_pinky.01.R/DEF-f_pinky.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/DEF-f_pinky.01.R/DEF-f_pinky.02.R/DEF-f_pinky.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/DEF-f_pinky.01.R/DEF-f_pinky.02.R/DEF-f_pinky.03.R/DEF-f_pinky.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/DEF-palm.04.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/DEF-palm.04.R/DEF-palm.04.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/f_pinky.01_master.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/f_pinky.01_master.R/f_pinky.01_master.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/MCH-f_pinky.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/MCH-f_pinky.01.R/MCH-f_pinky.01.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/MCH-f_pinky.01_drv.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/MCH-f_pinky.01_drv.R/f_pinky.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/MCH-f_pinky.01_drv.R/f_pinky.01.R/MCH-f_pinky.02_drv.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/MCH-f_pinky.01_drv.R/f_pinky.01.R/MCH-f_pinky.02_drv.R/f_pinky.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/MCH-f_pinky.01_drv.R/f_pinky.01.R/MCH-f_pinky.02_drv.R/f_pinky.02.R/MCH-f_pinky.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/MCH-f_pinky.01_drv.R/f_pinky.01.R/MCH-f_pinky.02_drv.R/f_pinky.02.R/MCH-f_pinky.02.R/MCH-f_pinky.02.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/MCH-f_pinky.01_drv.R/f_pinky.01.R/MCH-f_pinky.02_drv.R/f_pinky.02.R/MCH-f_pinky.03_drv.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/MCH-f_pinky.01_drv.R/f_pinky.01.R/MCH-f_pinky.02_drv.R/f_pinky.02.R/MCH-f_pinky.03_drv.R/f_pinky.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/MCH-f_pinky.01_drv.R/f_pinky.01.R/MCH-f_pinky.02_drv.R/f_pinky.02.R/MCH-f_pinky.03_drv.R/f_pinky.03.R/f_pinky.01.R.001
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/MCH-f_pinky.01_drv.R/f_pinky.01.R/MCH-f_pinky.02_drv.R/f_pinky.02.R/MCH-f_pinky.03_drv.R/f_pinky.03.R/f_pinky.01.R.001/f_pinky.01.R.001_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/MCH-f_pinky.01_drv.R/f_pinky.01.R/MCH-f_pinky.02_drv.R/f_pinky.02.R/MCH-f_pinky.03_drv.R/f_pinky.03.R/MCH-f_pinky.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/MCH-f_pinky.01_drv.R/f_pinky.01.R/MCH-f_pinky.02_drv.R/f_pinky.02.R/MCH-f_pinky.03_drv.R/f_pinky.03.R/MCH-f_pinky.03.R/MCH-f_pinky.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/ORG-f_pinky.01.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/ORG-f_pinky.01.R/ORG-f_pinky.02.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/ORG-f_pinky.01.R/ORG-f_pinky.02.R/ORG-f_pinky.03.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/ORG-palm.04.R/ORG-f_pinky.01.R/ORG-f_pinky.02.R/ORG-f_pinky.03.R/ORG-f_pinky.03.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/palm.R
+    m_Weight: 0
+  - m_Path: player.rig/root/DEF-upper_arm.R/DEF-upper_arm.R.001/DEF-forearm.R/DEF-forearm.R.001/DEF-hand.R/palm.R/palm.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.L
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.L/MCH-upper_arm_ik_swing.L
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.L/MCH-upper_arm_ik_swing.L/upper_arm_ik.L
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.L/MCH-upper_arm_ik_swing.L/upper_arm_ik.L/MCH-forearm_ik.L
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.L/MCH-upper_arm_ik_swing.L/upper_arm_ik.L/MCH-forearm_ik.L/MCH-forearm_ik.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.L/upper_arm_fk.L
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.L/upper_arm_fk.L/forearm_fk.L
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.L/upper_arm_fk.L/forearm_fk.L/MCH-hand_fk.L
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.L/upper_arm_fk.L/forearm_fk.L/MCH-hand_fk.L/hand_fk.L
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.L/upper_arm_fk.L/forearm_fk.L/MCH-hand_fk.L/hand_fk.L/hand_fk.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.R
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.R/MCH-upper_arm_ik_swing.R
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.R/MCH-upper_arm_ik_swing.R/upper_arm_ik.R
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.R/MCH-upper_arm_ik_swing.R/upper_arm_ik.R/MCH-forearm_ik.R
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.R/MCH-upper_arm_ik_swing.R/upper_arm_ik.R/MCH-forearm_ik.R/MCH-forearm_ik.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.R/upper_arm_fk.R
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.R/upper_arm_fk.R/forearm_fk.R
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.R/upper_arm_fk.R/forearm_fk.R/MCH-hand_fk.R
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.R/upper_arm_fk.R/forearm_fk.R/MCH-hand_fk.R/hand_fk.R
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_parent.R/upper_arm_fk.R/forearm_fk.R/MCH-hand_fk.R/hand_fk.R/hand_fk.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_tweak.L
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_tweak.L/upper_arm_tweak.L
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_tweak.L/upper_arm_tweak.L/upper_arm_tweak.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_tweak.R
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_tweak.R/upper_arm_tweak.R
+    m_Weight: 0
+  - m_Path: player.rig/root/MCH-upper_arm_tweak.R/upper_arm_tweak.R/upper_arm_tweak.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/MCH-upper_arm_parent_widget.L
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/MCH-upper_arm_parent_widget.L/MCH-upper_arm_parent_widget.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/MCH-upper_arm_tweak.L.001
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/MCH-upper_arm_tweak.L.001/upper_arm_tweak.L.001
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/MCH-upper_arm_tweak.L.001/upper_arm_tweak.L.001/upper_arm_tweak.L.001_end
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/ORG-forearm.L
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/ORG-forearm.L/MCH-forearm_tweak.L
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/ORG-forearm.L/MCH-forearm_tweak.L/forearm_tweak.L
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/ORG-forearm.L/MCH-forearm_tweak.L/forearm_tweak.L/forearm_tweak.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/ORG-forearm.L/MCH-forearm_tweak.L.001
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/ORG-forearm.L/MCH-forearm_tweak.L.001/forearm_tweak.L.001
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/ORG-forearm.L/MCH-forearm_tweak.L.001/forearm_tweak.L.001/forearm_tweak.L.001_end
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/ORG-forearm.L/ORG-hand.L
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/ORG-forearm.L/ORG-hand.L/MCH-hand_tweak.L
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/ORG-forearm.L/ORG-hand.L/MCH-hand_tweak.L/hand_tweak.L
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.L/ORG-forearm.L/ORG-hand.L/MCH-hand_tweak.L/hand_tweak.L/hand_tweak.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/MCH-upper_arm_parent_widget.R
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/MCH-upper_arm_parent_widget.R/MCH-upper_arm_parent_widget.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/MCH-upper_arm_tweak.R.001
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/MCH-upper_arm_tweak.R.001/upper_arm_tweak.R.001
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/MCH-upper_arm_tweak.R.001/upper_arm_tweak.R.001/upper_arm_tweak.R.001_end
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/ORG-forearm.R
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/ORG-forearm.R/MCH-forearm_tweak.R
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/ORG-forearm.R/MCH-forearm_tweak.R/forearm_tweak.R
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/ORG-forearm.R/MCH-forearm_tweak.R/forearm_tweak.R/forearm_tweak.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/ORG-forearm.R/MCH-forearm_tweak.R.001
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/ORG-forearm.R/MCH-forearm_tweak.R.001/forearm_tweak.R.001
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/ORG-forearm.R/MCH-forearm_tweak.R.001/forearm_tweak.R.001/forearm_tweak.R.001_end
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/ORG-forearm.R/ORG-hand.R
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/ORG-forearm.R/ORG-hand.R/MCH-hand_tweak.R
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/ORG-forearm.R/ORG-hand.R/MCH-hand_tweak.R/hand_tweak.R
+    m_Weight: 0
+  - m_Path: player.rig/root/ORG-upper_arm.R/ORG-forearm.R/ORG-hand.R/MCH-hand_tweak.R/hand_tweak.R/hand_tweak.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/upper_arm_parent.L
+    m_Weight: 0
+  - m_Path: player.rig/root/upper_arm_parent.L/upper_arm_parent.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/upper_arm_parent.R
+    m_Weight: 0
+  - m_Path: player.rig/root/upper_arm_parent.R/upper_arm_parent.R_end
+    m_Weight: 0
+  - m_Path: player.rig/root/VIS_upper_arm_ik_pole.L
+    m_Weight: 0
+  - m_Path: player.rig/root/VIS_upper_arm_ik_pole.L/VIS_upper_arm_ik_pole.L_end
+    m_Weight: 0
+  - m_Path: player.rig/root/VIS_upper_arm_ik_pole.R
+    m_Weight: 0
+  - m_Path: player.rig/root/VIS_upper_arm_ik_pole.R/VIS_upper_arm_ik_pole.R_end
+    m_Weight: 0
