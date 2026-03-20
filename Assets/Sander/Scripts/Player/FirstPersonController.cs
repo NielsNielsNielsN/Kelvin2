@@ -39,6 +39,10 @@ public class FirstPersonController : MonoBehaviour
     [Header("Animation Settings")]
     [SerializeField] private float animationBlendSpeed = 10f;
 
+    [Header("Runtime Animation Names")]
+    [Tooltip("Name of the base idle state to return to after Arms_Switch finishes")]
+    [SerializeField] private string baseIdleStateName = "Idle";
+
     private bool multitoolActive = false;
 
     void Start()
@@ -61,12 +65,41 @@ public class FirstPersonController : MonoBehaviour
 
         if (playerInputHandler.ToggleModeTriggered)
         {
-            // Trigger both upper-body arms and gun animations simultaneously.
-            // Use triggers so the clips can play without changing base locomotion.
-            animator.SetTrigger(PlayArmsHash);
-            animator.SetTrigger(PlayGunHash);
+            Debug.Log("FirstPersonController: ToggleModeTriggered detected");
+            // Trigger both switch animations (Arms in Base layer, Gun in masked Gun layer)
+            // Verify parameters exist to avoid runtime errors when animator is missing them
+            if (HasAnimatorParameter("PlayArms"))
+            {
+                animator.SetTrigger(PlayArmsHash);
+            }
+            else
+            {
+                Debug.LogWarning("Animator is missing parameter 'PlayArms'. Add a Trigger parameter named 'PlayArms' to the Animator.");
+            }
+
+            if (HasAnimatorParameter("PlayGun"))
+            {
+                animator.SetTrigger(PlayGunHash);
+            }
+            else
+            {
+                Debug.LogWarning("Animator is missing parameter 'PlayGun'. Add a Trigger parameter named 'PlayGun' to the Animator.");
+            }
         }
     }
+
+    private bool HasAnimatorParameter(string name)
+    {
+        if (animator == null) return false;
+        var pars = animator.parameters;
+        for (int i = 0; i < pars.Length; i++)
+        {
+            if (pars[i].name == name) return true;
+        }
+        return false;
+    }
+
+    // Removed EnsurePlayOnce helper — rely on Animator trigger + non-looping clip settings.
 
     private void UpdateAnimation()
     {
