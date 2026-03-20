@@ -20,7 +20,9 @@ public class MinableRock : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        if (currentHealth <= 0f) return;
+
+        currentHealth = Mathf.Clamp(currentHealth - damage, 0f, maxHealth);
 
         // Update slider if we have one
         if (miningProgressSlider != null)
@@ -28,11 +30,29 @@ public class MinableRock : MonoBehaviour
             miningProgressSlider.value = 1f - (currentHealth / maxHealth); // 0 → full health, 1 → dead
         }
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0f)
         {
             BreakRock();
         }
     }
+
+    // Allows external modification of health (positive to heal, negative to damage)
+    public void ModifyHealth(float delta)
+    {
+        if (currentHealth <= 0f) return;
+        currentHealth = Mathf.Clamp(currentHealth + delta, 0f, maxHealth);
+        if (miningProgressSlider != null)
+        {
+            miningProgressSlider.value = 1f - (currentHealth / maxHealth);
+        }
+        if (currentHealth <= 0f)
+        {
+            BreakRock();
+        }
+    }
+
+    public float GetMaxHealth() => maxHealth;
+    public float GetCurrentHealth() => currentHealth;
 
     private void BreakRock()
     {
@@ -61,11 +81,8 @@ public class MinableRock : MonoBehaviour
     public void ResetHealth()
     {
         currentHealth = maxHealth;
-
         // Reset slider too
         if (miningProgressSlider != null)
-        {
             miningProgressSlider.value = 0f;
-        }
     }
 }

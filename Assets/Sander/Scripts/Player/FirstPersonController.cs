@@ -31,6 +31,15 @@ public class FirstPersonController : MonoBehaviour
     // Animator parameter hashes (faster than string lookup)
     private static readonly int SpeedHash = Animator.StringToHash("Speed");
     private static readonly int IsSprintingHash = Animator.StringToHash("IsSprinting"); // optional bool
+    private static readonly int MultitoolAHash = Animator.StringToHash("MultitoolA");
+    private static readonly int MultitoolBHash = Animator.StringToHash("MultitoolB");
+    private static readonly int PlayArmsHash = Animator.StringToHash("PlayArms");
+    private static readonly int PlayGunHash = Animator.StringToHash("PlayGun");
+
+    [Header("Animation Settings")]
+    [SerializeField] private float animationBlendSpeed = 10f;
+
+    private bool multitoolActive = false;
 
     void Start()
     {
@@ -42,21 +51,37 @@ public class FirstPersonController : MonoBehaviour
     {
         HandleMovement();
         HandleRotation();
+        HandleMultitoolToggle();
         UpdateAnimation();
+    }
+
+    private void HandleMultitoolToggle()
+    {
+        if (playerInputHandler == null || animator == null) return;
+
+        if (playerInputHandler.ToggleModeTriggered)
+        {
+            // Trigger both upper-body arms and gun animations simultaneously.
+            // Use triggers so the clips can play without changing base locomotion.
+            animator.SetTrigger(PlayArmsHash);
+            animator.SetTrigger(PlayGunHash);
+        }
     }
 
     private void UpdateAnimation()
     {
         if (animator == null) return;
 
+        if (playerInputHandler == null) return;
+
         float moveMagnitude = new Vector2(playerInputHandler.MovementInput.x, playerInputHandler.MovementInput.y).magnitude;
         float targetSpeed = Mathf.Clamp01(moveMagnitude);
 
         // Smooth the value so it doesn't snap to 0 instantly
-        float current = animator.GetFloat("Speed");
-        float smoothed = Mathf.Lerp(current, targetSpeed, 10f * Time.deltaTime); // 10f = blend speed
+        float current = animator.GetFloat(SpeedHash);
+        float smoothed = Mathf.Lerp(current, targetSpeed, animationBlendSpeed * Time.deltaTime);
 
-        animator.SetFloat("Speed", smoothed);
+        animator.SetFloat(SpeedHash, smoothed);
     }
 
     private Vector3 CalculateWorldDirection()
