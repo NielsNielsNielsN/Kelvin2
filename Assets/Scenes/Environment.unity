@@ -678,7 +678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7005138708623991889, guid: 468508c79e4772e499439077eb33ff46, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.01
+      value: 1.99
       objectReference: {fileID: 0}
     - target: {fileID: 7005138708623991889, guid: 468508c79e4772e499439077eb33ff46, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1848,6 +1848,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 708187071444623540, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
+      propertyPath: maxDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1476912421487652374, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.2813313
@@ -1923,14 +1927,6 @@ PrefabInstance:
     - target: {fileID: 8323404228479055882, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201304900284102844, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
-      propertyPath: beamVFX
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201304900284102844, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
-      propertyPath: impactVFX
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
