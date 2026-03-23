@@ -5262,6 +5262,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3450617360345538619, guid: 550a61fa8475d284a806bd77a15b14e7, type: 3}
+      propertyPath: m_Name
+      value: Repair Lights
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581781799461741069, guid: 550a61fa8475d284a806bd77a15b14e7, type: 3}
+      propertyPath: m_Name
+      value: Tractor Lights
+      objectReference: {fileID: 0}
     - target: {fileID: 4928554552887383550, guid: 550a61fa8475d284a806bd77a15b14e7, type: 3}
       propertyPath: m_Name
       value: Terminal
@@ -5297,6 +5305,10 @@ PrefabInstance:
     - target: {fileID: 6780936902724182284, guid: 550a61fa8475d284a806bd77a15b14e7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995454519100653541, guid: 550a61fa8475d284a806bd77a15b14e7, type: 3}
+      propertyPath: m_Name
+      value: Mining Lights
       objectReference: {fileID: 0}
     - target: {fileID: 8300757336805947611, guid: 550a61fa8475d284a806bd77a15b14e7, type: 3}
       propertyPath: m_AnchorMax.y
