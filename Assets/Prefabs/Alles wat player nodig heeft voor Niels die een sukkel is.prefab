@@ -399,6 +399,7 @@ MonoBehaviour:
   - {fileID: 1869782262524427149}
   - {fileID: 1329061444556491993}
   currentMode: 0
+  modePanelDelay: 0.5
 --- !u!1 &8759825645062441870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,9 +1060,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 8428501612749947187}
     m_Modifications:
     - target: {fileID: 643952887911626821, guid: a0ed768c2aa32264e928f759c888ec62, type: 3}
+      propertyPath: multitool
+      value: 
+      objectReference: {fileID: 7498263873611950548}
+    - target: {fileID: 643952887911626821, guid: a0ed768c2aa32264e928f759c888ec62, type: 3}
+      propertyPath: inspectIdleTimeout
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 643952887911626821, guid: a0ed768c2aa32264e928f759c888ec62, type: 3}
       propertyPath: playerInputHandler
       value: 
       objectReference: {fileID: 5444526709620801714}
+    - target: {fileID: 643952887911626821, guid: a0ed768c2aa32264e928f759c888ec62, type: 3}
+      propertyPath: inspectCancelCrossfadeDuration
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 1529145825365169842, guid: a0ed768c2aa32264e928f759c888ec62, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -1086,6 +1099,10 @@ PrefabInstance:
       propertyPath: modeIconImage
       value: 
       objectReference: {fileID: 5483321131269693789}
+    - target: {fileID: 2886635684102186191, guid: a0ed768c2aa32264e928f759c888ec62, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 36c394e6b9a9e5441abac5c461d66978, type: 2}
     - target: {fileID: 3113298755214567971, guid: a0ed768c2aa32264e928f759c888ec62, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9999048
@@ -1173,11 +1190,24 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2602109522781411634, guid: a0ed768c2aa32264e928f759c888ec62, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6946113934618871095}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7088522740430166257, guid: a0ed768c2aa32264e928f759c888ec62, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8404627023910914910}
   m_SourcePrefab: {fileID: 100100000, guid: a0ed768c2aa32264e928f759c888ec62, type: 3}
 --- !u!1 &501445009461204659 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2153086838335065341, guid: a0ed768c2aa32264e928f759c888ec62, type: 3}
+  m_PrefabInstance: {fileID: 1951237891293452878}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &955047308102185812 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 1609248453895629082, guid: a0ed768c2aa32264e928f759c888ec62, type: 3}
+  m_PrefabInstance: {fileID: 1951237891293452878}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1021383084118740220 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1529145825365169842, guid: a0ed768c2aa32264e928f759c888ec62, type: 3}
   m_PrefabInstance: {fileID: 1951237891293452878}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1329061444556491993 stripped
@@ -1238,6 +1268,40 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 8165644304694218926, guid: a0ed768c2aa32264e928f759c888ec62, type: 3}
   m_PrefabInstance: {fileID: 1951237891293452878}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8740164602648216255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7088522740430166257, guid: a0ed768c2aa32264e928f759c888ec62, type: 3}
+  m_PrefabInstance: {fileID: 1951237891293452878}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8404627023910914910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740164602648216255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e07597ef35df79468ad21270da269e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponSwayAndBob
+  rigTransform: {fileID: 1021383084118740220}
+  inputHandler: {fileID: 5444526709620801714}
+  characterController: {fileID: 955047308102185812}
+  step: 0.005
+  maxStepDistance: 0.03
+  rotationStep: 0.05
+  maxRotationStep: 0.1
+  smooth: 10
+  smoothRot: 12
+  speedCurve: 0
+  travelLimit: {x: 0.025, y: 0.025, z: 0.025}
+  bobLimit: {x: 0.01, y: 0.01, z: 0.01}
+  bobExaggeration: 1
+  multiplier: {x: 1, y: 1, z: 1}
+  createSwayPivot: 1
+  mainCamera: {fileID: 7657811228934900448}
+  orientationEulerOffset: {x: 90, y: 0, z: 0}
 --- !u!1001 &2734774765433260019
 PrefabInstance:
   m_ObjectHideFlags: 0
