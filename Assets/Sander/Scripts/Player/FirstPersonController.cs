@@ -66,11 +66,13 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private float inspectIdleTimeout = 10f;
     [Tooltip("Seconds used to crossfade back to idle when cancelling inspect")]
     [SerializeField] private float inspectCancelCrossfadeDuration = 0.12f;
+    [Tooltip("Fallback duration (s) to consider the inspect animation finished if state detection fails")]
+    [SerializeField] private float inspectPlayDuration = 2.0f;
 
     private float idleTimer = 0f;
     private bool isPlayingInspect = false;
     private Coroutine inspectWatcherCoroutine;
-    private float inspectCooldownRemaining = 0f;
+    private float inspectEndTime = 0f;
 
     private bool multitoolActive = false;
 
@@ -81,6 +83,23 @@ public class FirstPersonController : MonoBehaviour
         if (mainCamera != null)
         {
             originalCameraLocalPos = mainCamera.transform.localPosition;
+        }
+        
+    }
+
+    private void CancelInspect()
+    {
+        if (!isPlayingInspect) return;
+        isPlayingInspect = false;
+        inspectEndTime = 0f;
+        if (inspectWatcherCoroutine != null)
+        {
+            StopCoroutine(inspectWatcherCoroutine);
+            inspectWatcherCoroutine = null;
+        }
+        if (animator != null && !string.IsNullOrEmpty(baseIdleStateName))
+        {
+            animator.CrossFade(baseIdleStateName, inspectCancelCrossfadeDuration, 0, 0f);
         }
     }
 
@@ -152,9 +171,7 @@ public class FirstPersonController : MonoBehaviour
         else
         {
             idleTimer += Time.deltaTime;
-            // decrease cooldown so auto-inspect won't immediately retrigger
-            inspectCooldownRemaining = Mathf.Max(0f, inspectCooldownRemaining - Time.deltaTime);
-            if (idleTimer >= inspectIdleTimeout && !isPlayingInspect && inspectCooldownRemaining <= 0f)
+            if (idleTimer >= inspectIdleTimeout && !isPlayingInspect)
             {
                 TriggerInspect();
             }
@@ -171,13 +188,10 @@ public class FirstPersonController : MonoBehaviour
         // Reset trigger then set to ensure single-shot
         animator.ResetTrigger(PlayInspectHash);
         animator.SetTrigger(PlayInspectHash);
-        // prevent immediate re-trigger from idle timer
-        idleTimer = 0f;
-        // set a cooldown so auto-inspect won't retrigger while the animation loops
-        inspectCooldownRemaining = inspectIdleTimeout;
         isPlayingInspect = true;
         if (inspectWatcherCoroutine != null) StopCoroutine(inspectWatcherCoroutine);
         inspectWatcherCoroutine = StartCoroutine(WatchInspectState(inspectStateName, 0));
+        inspectEndTime = Time.time + inspectPlayDuration;
     }
 
     private System.Collections.IEnumerator WatchInspectState(string stateName, int layerIndex)
@@ -202,9 +216,22 @@ public class FirstPersonController : MonoBehaviour
             if (!s.IsName(stateName)) break;
             // normalizedTime may be >1 for looping; consider finished when it reaches >=1
             if (s.normalizedTime >= 1f) break;
+            // fallback: if we've been playing longer than inspectEndTime, consider finished
+            if (inspectEndTime > 0f && Time.time >= inspectEndTime) break;
             yield return null;
         }
+        // ensure animator is returned to base idle so subsequent switch triggers work
+        if (animator != null)
+        {
+            // clear the trigger in case it lingers
+            animator.ResetTrigger(PlayInspectHash);
+            if (!string.IsNullOrEmpty(baseIdleStateName))
+            {
+                animator.CrossFade(baseIdleStateName, inspectCancelCrossfadeDuration, 0, 0f);
+            }
+        }
         isPlayingInspect = false;
+        inspectEndTime = 0f;
     }
 
     private void HandleMultitoolToggle()
@@ -214,6 +241,11 @@ public class FirstPersonController : MonoBehaviour
         if (playerInputHandler.ToggleModeTriggered)
         {
             Debug.Log("FirstPersonController: ToggleModeTriggered detected");
+            // If inspect is playing, cancel it so switch animations can interrupt
+            if (isPlayingInspect)
+            {
+                CancelInspect();
+            }
             // Request multitool mode switch (this sets Multitool.isSwitching and blocks firing)
             if (multitool != null)
             {
