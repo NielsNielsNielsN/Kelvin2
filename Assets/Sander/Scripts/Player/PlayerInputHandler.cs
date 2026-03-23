@@ -68,7 +68,22 @@ public class PlayerInputHandler : MonoBehaviour
         toggleModeAction.performed += _ => ToggleModeTriggered = true;
         toggleModeAction.performed += _ => Debug.Log("PlayerInputHandler: ToggleMode action performed (RMB)");
 
-        scrollDistanceAction.performed += inputInfo => ScrollInput = inputInfo.ReadValue<float>();
+        scrollDistanceAction.performed += inputInfo =>
+        {
+            float val = 0f;
+            // support actions bound as float or Vector2 (mouse scroll often is Vector2)
+            if (inputInfo.control != null && inputInfo.control.valueType == typeof(UnityEngine.Vector2))
+            {
+                var v2 = inputInfo.ReadValue<UnityEngine.Vector2>();
+                val = v2.y; // use vertical scroll
+            }
+            else
+            {
+                val = inputInfo.ReadValue<float>();
+            }
+            ScrollInput = val;
+            Debug.Log("PlayerInputHandler: Scroll performed value=" + val);
+        };
         scrollDistanceAction.canceled += inputInfo => ScrollInput = 0f;
     }
 
@@ -86,7 +101,6 @@ public class PlayerInputHandler : MonoBehaviour
     {
         // Intentionally do not clear ToggleModeTriggered here so other scripts
         // reading it in Update() will observe a press in the same frame.
-        ScrollInput = 0f;
     }
 
     private void LateUpdate()

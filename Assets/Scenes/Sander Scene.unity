@@ -2455,10 +2455,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 21333737985936892, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 44979710863496945, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
       propertyPath: 'mineObjectives.Array.data[0]'
       value: 
@@ -2471,37 +2467,13 @@ PrefabInstance:
       propertyPath: 'transportObjectives.Array.data[0]'
       value: 
       objectReference: {fileID: 203079680}
-    - target: {fileID: 418411784326760114, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
-      propertyPath: damagePerSecond
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3777699559553778563, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
       propertyPath: m_Name
       value: Alles wat player nodig heeft voor Niels die een sukkel is
       objectReference: {fileID: 0}
-    - target: {fileID: 5432767224323044573, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 5432767224323044573, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5432767224323044573, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -6.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 5721240749269790596, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7498263873611950548, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
-      propertyPath: damagePerSecond
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574187045064588950, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
-      propertyPath: m_Value
-      value: 1
+    - target: {fileID: 4177364444361907521, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8428501612749947187, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2542,30 +2514,6 @@ PrefabInstance:
     - target: {fileID: 8428501612749947187, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9149577898720917260, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9149577898720917260, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.53735095
-      objectReference: {fileID: 0}
-    - target: {fileID: 9149577898720917260, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.84335876
-      objectReference: {fileID: 0}
-    - target: {fileID: 9149577898720917260, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -22.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 9149577898720917260, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9149577898720917260, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 114.993
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
