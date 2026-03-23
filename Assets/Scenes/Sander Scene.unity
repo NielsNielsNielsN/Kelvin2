@@ -2471,10 +2471,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alles wat player nodig heeft voor Niels die een sukkel is
       objectReference: {fileID: 0}
-    - target: {fileID: 4177364444361907521, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8428501612749947187, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.04064

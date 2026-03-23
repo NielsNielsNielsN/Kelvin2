@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class FirstPersonController : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class FirstPersonController : MonoBehaviour
     // NEW: Animation
     [Header("Animation")]
     [SerializeField] private Animator animator;  // Drag your Animator component here (on player or child model)
+    [SerializeField] private Multitool multitool; // reference to the multitool to request mode switches
+    private Coroutine switchWatcherCoroutine;
 
     private Vector3 currentMovement;
     private float verticalRotation;
@@ -36,12 +39,38 @@ public class FirstPersonController : MonoBehaviour
     private static readonly int PlayArmsHash = Animator.StringToHash("PlayArms");
     private static readonly int PlayGunHash = Animator.StringToHash("PlayGun");
 
+    private static readonly int PlayInspectHash = Animator.StringToHash("PlayInspect");
+
     [Header("Animation Settings")]
     [SerializeField] private float animationBlendSpeed = 10f;
+
+    [Header("Camera Sway")]
+    [Tooltip("Maximum backward camera offset when moving forward")]
+    [SerializeField] private float swayBackwardAmount = 0.08f;
+    [Tooltip("Maximum lateral camera offset when strafing")]
+    [SerializeField] private float swayLateralAmount = 0.04f;
+    [Tooltip("Smoothing time for camera movement (lower = snappier)")]
+    [SerializeField] private float swaySmoothTime = 0.12f;
+
+    private Vector3 originalCameraLocalPos;
+    private Vector3 cameraSwayVelocity;
+    // Rig/gun sway moved to separate `WeaponRigSway` component
 
     [Header("Runtime Animation Names")]
     [Tooltip("Name of the base idle state to return to after Arms_Switch finishes")]
     [SerializeField] private string baseIdleStateName = "Idle";
+    [Header("Inspect / Idle Action")]
+    [Tooltip("Trigger state name (base layer) for the inspect/idle action animation")]
+    [SerializeField] private string inspectStateName = "PlayerInspect";
+    [Tooltip("Seconds of no input before auto-playing the inspect animation")]
+    [SerializeField] private float inspectIdleTimeout = 10f;
+    [Tooltip("Seconds used to crossfade back to idle when cancelling inspect")]
+    [SerializeField] private float inspectCancelCrossfadeDuration = 0.12f;
+
+    private float idleTimer = 0f;
+    private bool isPlayingInspect = false;
+    private Coroutine inspectWatcherCoroutine;
+    private float inspectCooldownRemaining = 0f;
 
     private bool multitoolActive = false;
 
@@ -49,6 +78,10 @@ public class FirstPersonController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        if (mainCamera != null)
+        {
+            originalCameraLocalPos = mainCamera.transform.localPosition;
+        }
     }
 
     void Update()
@@ -56,7 +89,122 @@ public class FirstPersonController : MonoBehaviour
         HandleMovement();
         HandleRotation();
         HandleMultitoolToggle();
+        HandleInspectInputs();
         UpdateAnimation();
+    }
+
+    void LateUpdate()
+    {
+        // Apply camera / rig sway after Animator updates so it isn't overwritten by animation
+        UpdateCameraSway();
+    }
+
+    private void UpdateCameraSway()
+    {
+        if (mainCamera == null || playerInputHandler == null) return;
+
+        // Desired sway based on movement input in local space
+        Vector3 input = new Vector3(playerInputHandler.MovementInput.x, 0f, playerInputHandler.MovementInput.y);
+        // forward/backward sway pulls camera slightly backward when moving forward
+        float forward = -input.z * swayBackwardAmount;
+        float lateral = -input.x * swayLateralAmount;
+
+        Vector3 targetLocal = originalCameraLocalPos + new Vector3(lateral, 0f, forward);
+
+        mainCamera.transform.localPosition = Vector3.SmoothDamp(mainCamera.transform.localPosition, targetLocal, ref cameraSwayVelocity, swaySmoothTime);
+
+        // rig sway is handled by separate WeaponRigSway component
+    }
+
+    private void HandleInspectInputs()
+    {
+        if (animator == null || playerInputHandler == null) return;
+
+        // manual inspect trigger (I key) — we rely on input handler or raw key depending on setup
+        if (Input.GetKeyDown(KeyCode.I) && !isPlayingInspect)
+        {
+            TriggerInspect();
+            return;
+        }
+
+        // idle timer: reset when any movement/jump/mine/sprint input (exclude camera movement)
+        // We intentionally ignore RotationInput so looking around doesn't cancel the inspect animation
+        bool hasActivity = playerInputHandler.MovementInput.sqrMagnitude > 0f || playerInputHandler.IsMining || playerInputHandler.JumpTriggered || playerInputHandler.SprintTriggered;
+        // also treat multitool switching as activity
+        if (multitool != null && multitool.IsSwitching) hasActivity = true;
+        if (hasActivity)
+        {
+            idleTimer = 0f;
+            // cancel inspect if it's playing
+            if (isPlayingInspect)
+            {
+                // Smoothly return to base idle state instead of snapping instantly
+                if (!string.IsNullOrEmpty(baseIdleStateName))
+                    animator.CrossFade(baseIdleStateName, inspectCancelCrossfadeDuration, 0, 0f);
+                isPlayingInspect = false;
+                if (inspectWatcherCoroutine != null)
+                {
+                    StopCoroutine(inspectWatcherCoroutine);
+                    inspectWatcherCoroutine = null;
+                }
+            }
+        }
+        else
+        {
+            idleTimer += Time.deltaTime;
+            // decrease cooldown so auto-inspect won't immediately retrigger
+            inspectCooldownRemaining = Mathf.Max(0f, inspectCooldownRemaining - Time.deltaTime);
+            if (idleTimer >= inspectIdleTimeout && !isPlayingInspect && inspectCooldownRemaining <= 0f)
+            {
+                TriggerInspect();
+            }
+        }
+    }
+
+    private void TriggerInspect()
+    {
+        if (!HasAnimatorParameter("PlayInspect"))
+        {
+            Debug.LogWarning("Animator missing 'PlayInspect' trigger parameter");
+            return;
+        }
+        // Reset trigger then set to ensure single-shot
+        animator.ResetTrigger(PlayInspectHash);
+        animator.SetTrigger(PlayInspectHash);
+        // prevent immediate re-trigger from idle timer
+        idleTimer = 0f;
+        // set a cooldown so auto-inspect won't retrigger while the animation loops
+        inspectCooldownRemaining = inspectIdleTimeout;
+        isPlayingInspect = true;
+        if (inspectWatcherCoroutine != null) StopCoroutine(inspectWatcherCoroutine);
+        inspectWatcherCoroutine = StartCoroutine(WatchInspectState(inspectStateName, 0));
+    }
+
+    private System.Collections.IEnumerator WatchInspectState(string stateName, int layerIndex)
+    {
+        float timeout = 0.5f;
+        float elapsed = 0f;
+        bool entered = false;
+        while (elapsed < timeout)
+        {
+            var s = animator.GetCurrentAnimatorStateInfo(layerIndex);
+            if (s.IsName(stateName)) { entered = true; break; }
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        if (!entered) { isPlayingInspect = false; yield break; }
+
+        // wait until completes one cycle
+        // If the clip is looping, normalizedTime will keep increasing; detect loops by checking >=1f
+        while (true)
+        {
+            var s = animator.GetCurrentAnimatorStateInfo(layerIndex);
+            if (!s.IsName(stateName)) break;
+            // normalizedTime may be >1 for looping; consider finished when it reaches >=1
+            if (s.normalizedTime >= 1f) break;
+            yield return null;
+        }
+        isPlayingInspect = false;
     }
 
     private void HandleMultitoolToggle()
@@ -66,6 +214,12 @@ public class FirstPersonController : MonoBehaviour
         if (playerInputHandler.ToggleModeTriggered)
         {
             Debug.Log("FirstPersonController: ToggleModeTriggered detected");
+            // Request multitool mode switch (this sets Multitool.isSwitching and blocks firing)
+            if (multitool != null)
+            {
+                multitool.RequestToggleMode();
+            }
+
             // Trigger both switch animations (Arms in Base layer, Gun in masked Gun layer)
             // Verify parameters exist to avoid runtime errors when animator is missing them
             if (HasAnimatorParameter("PlayArms"))
@@ -85,7 +239,71 @@ public class FirstPersonController : MonoBehaviour
             {
                 Debug.LogWarning("Animator is missing parameter 'PlayGun'. Add a Trigger parameter named 'PlayGun' to the Animator.");
             }
+
+            // start watcher to end switching when animations complete
+            if (multitool != null && switchWatcherCoroutine == null)
+            {
+                switchWatcherCoroutine = StartCoroutine(WatchSwitchAnimations("Arms_Switch", "Gun_Switch", 1));
+            }
         }
+    }
+
+    private System.Collections.IEnumerator WatchSwitchAnimations(string armsStateName, string gunStateName, int gunLayerIndex)
+    {
+        bool armsEntered = false;
+        bool gunEntered = false;
+        bool armsDone = false;
+        bool gunDone = false;
+
+        float timeout = 0.5f;
+        float elapsed = 0f;
+
+        // wait for either to enter (or timeout)
+        while (elapsed < timeout && !(armsEntered || gunEntered))
+        {
+            var s0 = animator.GetCurrentAnimatorStateInfo(0);
+            if (s0.IsName(armsStateName)) armsEntered = true;
+            var s1 = animator.GetCurrentAnimatorStateInfo(gunLayerIndex);
+            if (s1.IsName(gunStateName)) gunEntered = true;
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // now wait until both are finished (or not entered)
+        while (!armsDone || !gunDone)
+        {
+            // check arms
+            var s0 = animator.GetCurrentAnimatorStateInfo(0);
+            if (!armsEntered)
+            {
+                // never entered -> consider done
+                armsDone = true;
+            }
+            else
+            {
+                if (!s0.IsName(armsStateName)) armsDone = true; // left already
+                else if (s0.normalizedTime >= 1f) armsDone = true; // completed
+            }
+
+            // check gun
+            var s1 = animator.GetCurrentAnimatorStateInfo(gunLayerIndex);
+            if (!gunEntered)
+            {
+                gunDone = true;
+            }
+            else
+            {
+                if (!s1.IsName(gunStateName)) gunDone = true;
+                else if (s1.normalizedTime >= 1f) gunDone = true;
+            }
+
+            yield return null;
+        }
+
+        // Notify multitool that switching finished
+        multitool?.EndSwitching();
+
+        switchWatcherCoroutine = null;
     }
 
     private bool HasAnimatorParameter(string name)

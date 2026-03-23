@@ -58,6 +58,10 @@ public class Multitool : MonoBehaviour
 
     public ToolMode currentMode = ToolMode.Mining;
 
+    [Header("Switching")]
+    [Tooltip("Delay (seconds) before mode panels switch after requesting a mode change")]
+    [SerializeField] private float modePanelDelay = 0.2f;
+
     private bool isActive;
     private RaycastHit hit;
     private ParticleSystem activeImpactParticles;
@@ -78,6 +82,7 @@ public class Multitool : MonoBehaviour
     private Coroutine miningResetCoroutine;
     private Coroutine repairDecayCoroutine;
     private Coroutine rockHealCoroutine;
+    private bool isSwitching = false;
 
     void Start()
     {
@@ -113,15 +118,52 @@ public class Multitool : MonoBehaviour
         UpdateModeIcon(); // Initialize panels + screen icon
     }
 
+    // Called externally to request a mode toggle (e.g., from controller) — will respect current switching state
+    public void RequestToggleMode()
+    {
+        if (isSwitching) return;
+        StartCoroutine(HandleModeToggle());
+    }
+
+    private System.Collections.IEnumerator HandleModeToggle()
+    {
+        if (isSwitching) yield break;
+        isSwitching = true;
+
+        // disable firing/laser by treating tool as inactive during switch
+        isActive = false;
+
+        // wait for a short delay to align panels with animation
+        yield return new WaitForSeconds(modePanelDelay);
+
+        ToggleMode();
+        Debug.Log("Switched to: " + currentMode);
+
+        // Note: do NOT clear isSwitching here — caller (controller) will call EndSwitching() when animations finish
+    }
+
+    // Called by external code (e.g. FirstPersonController) when the switch animations have completed
+    public void EndSwitching()
+    {
+        isSwitching = false;
+        // restore active based on current input
+        isActive = inputHandler != null && inputHandler.IsMining;
+    }
+
+    // Public accessor so other systems can know switching is in progress
+    public bool IsSwitching => isSwitching;
+
     void Update()
     {
-        isActive = inputHandler != null && inputHandler.IsMining;
+        // Respect switching state: when switching, block firing/use
+        isActive = !isSwitching && input_handler_available();
 
-        if (inputHandler.ToggleModeTriggered)
+        bool input_handler_available()
         {
-            ToggleMode();
-            Debug.Log("Switched to: " + currentMode);
+            return inputHandler != null && inputHandler.IsMining;
         }
+
+        // Mode switching is handled externally (FirstPersonController) via RequestToggleMode
 
         if (inputHandler.ScrollInput != 0f && currentMode == ToolMode.Tractor)
         {
