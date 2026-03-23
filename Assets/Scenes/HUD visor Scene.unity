@@ -243,6 +243,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alles wat player nodig heeft voor Niels die een sukkel is
       objectReference: {fileID: 0}
+    - target: {fileID: 5432767224323044573, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -63.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432767224323044573, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 90.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432767224323044573, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -109.75
+      objectReference: {fileID: 0}
     - target: {fileID: 8428501612749947187, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 64.94637
@@ -7232,6 +7244,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1448835917695026842}
   m_LocalEulerAnglesHint: {x: -1.365, y: -233.551, z: -8.765}
+--- !u!33 &4677929143790352379
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8939466024242995940}
+  m_Mesh: {fileID: -5523686442446765771, guid: 4dee8b022a43fb648ab4f026c1c8b327, type: 3}
 --- !u!1001 &4729792491255500002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8544,6 +8564,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1448835917695026842}
   m_LocalEulerAnglesHint: {x: 0, y: -74.566, z: 0}
+--- !u!23 &7426330835558777649
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8939466024242995940}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!4 &7441272817221446829
 Transform:
   m_ObjectHideFlags: 0
@@ -9318,6 +9387,21 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &8594148267411716190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8939466024242995940}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.4887205, y: 89.42153, z: -8.264788}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8613777527681536366
 Transform:
   m_ObjectHideFlags: 0
@@ -9456,6 +9540,24 @@ GameObject:
   - component: {fileID: 7060051540755319371}
   m_Layer: 0
   m_Name: Rock_Low_1 (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &8939466024242995940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8594148267411716190}
+  - component: {fileID: 4677929143790352379}
+  - component: {fileID: 7426330835558777649}
+  m_Layer: 0
+  m_Name: Lamp Post
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9624,3 +9726,4 @@ SceneRoots:
   - {fileID: 1419899208691991216}
   - {fileID: 153507928}
   - {fileID: 3612382303312836820}
+  - {fileID: 8594148267411716190}
