@@ -7,6 +7,7 @@ public class MenuUI : MonoBehaviour
 {
     [Header("UI Canvases / GameObjects")]
     [SerializeField] private GameObject pauseMenu;           // Pause menu canvas
+    [SerializeField] private GameObject crosshairCanvas;     // Crosshair canvas (disabled on pause)
     public GameObject startMenu;                             // Start menu root GO
     public GameObject settingsMenu;                          // Settings menu root GO
     public Button backButton;                                // Back button (in settings/pause)
@@ -19,6 +20,7 @@ public class MenuUI : MonoBehaviour
     [Header("Input & Player References")]
     [SerializeField] private PlayerInputHandler playerInputHandler;
     [SerializeField] private Multitool multitool;
+    [SerializeField] private SharedTimerSliders timerSliders;  // Reference to timer to start countdown on play
 
     [Header("Gameplay Objects to Activate on Play")]
     [SerializeField] private GameObject[] gameplayObjectsToActivate;
@@ -50,6 +52,9 @@ public class MenuUI : MonoBehaviour
         if (multitool == null)
             multitool = FindObjectOfType<Multitool>();
 
+        if (timerSliders == null)
+            timerSliders = FindObjectOfType<SharedTimerSliders>();
+
         ingameUI.SetActive(false);
         pauseMenu.SetActive(false);
 
@@ -68,6 +73,10 @@ public class MenuUI : MonoBehaviour
 
     private void PauseMenuOn()
     {
+        // Don't allow pause if game over canvas is active (game is in death sequence)
+        if (IsGameOverActive())
+            return;
+
         // ESC now toggles pause fully (open or close)
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -82,6 +91,17 @@ public class MenuUI : MonoBehaviour
         }
     }
 
+    private bool IsGameOverActive()
+    {
+        // Check if any game over canvas is active in the scene
+        SharedTimerSliders timerSlider = FindObjectOfType<SharedTimerSliders>();
+        if (timerSlider != null)
+        {
+            return timerSlider.IsDead();
+        }
+        return false;
+    }
+
     public void TogglePause()
     {
         visible = !visible;
@@ -93,11 +113,21 @@ public class MenuUI : MonoBehaviour
             Cursor.visible = true;
             Freeze();
             ingameUI.SetActive(false);
+            if (crosshairCanvas != null)
+                crosshairCanvas.SetActive(false);
+            // Pause the timer when pause menu opens
+            if (timerSliders != null)
+                timerSliders.PauseCountdown();
         }
         else
         {
             CursorLockModeOn();
             ingameUI.SetActive(true);
+            if (crosshairCanvas != null)
+                crosshairCanvas.SetActive(true);
+            // Resume the timer when pause menu closes
+            if (timerSliders != null)
+                timerSliders.StartCountdown();
         }
 
         Debug.Log("TogglePause - visible now: " + visible + ", ingameUI active: " + ingameUI.activeSelf);
@@ -173,6 +203,8 @@ public class MenuUI : MonoBehaviour
         Cursor.visible = false;
         startMenu.SetActive(false);
         ingameUI.SetActive(true);
+        if (crosshairCanvas != null)
+            crosshairCanvas.SetActive(true);
 
         if (gameplayObjectsToActivate != null)
         {
@@ -191,6 +223,10 @@ public class MenuUI : MonoBehaviour
             startCamera.enabled = false;
             mainGameCamera.enabled = true;
         }
+
+        // Start the timer countdown when play button is pressed
+        if (timerSliders != null)
+            timerSliders.StartCountdown();
     }
 
     public void OnQuitButtonPressed()

@@ -209,21 +209,27 @@ public class FirstPersonController : MonoBehaviour
         if (!entered) { isPlayingInspect = false; yield break; }
 
         // wait until completes one cycle
-        // If the clip is looping, normalizedTime will keep increasing; detect loops by checking >=1f
+        // Track if we left naturally (animation finished) or were interrupted
+        bool leftNaturally = false;
         while (true)
         {
             var s = animator.GetCurrentAnimatorStateInfo(layerIndex);
-            if (!s.IsName(stateName)) break;
+            if (!s.IsName(stateName))
+            {
+                // Left the state naturally (animation finished)
+                leftNaturally = true;
+                break;
+            }
             // normalizedTime may be >1 for looping; consider finished when it reaches >=1
             if (s.normalizedTime >= 1f) break;
             // fallback: if we've been playing longer than inspectEndTime, consider finished
             if (inspectEndTime > 0f && Time.time >= inspectEndTime) break;
             yield return null;
         }
-        // ensure animator is returned to base idle so subsequent switch triggers work
-        if (animator != null)
+
+        // only crossfade if we didn't leave naturally (i.e., we were interrupted or timed out)
+        if (!leftNaturally && animator != null)
         {
-            // clear the trigger in case it lingers
             animator.ResetTrigger(PlayInspectHash);
             if (!string.IsNullOrEmpty(baseIdleStateName))
             {
@@ -237,6 +243,9 @@ public class FirstPersonController : MonoBehaviour
     private void HandleMultitoolToggle()
     {
         if (playerInputHandler == null || animator == null) return;
+
+        // Block toggle if already switching (prevents double animation)
+        if (multitool != null && multitool.IsSwitching) return;
 
         if (playerInputHandler.ToggleModeTriggered)
         {

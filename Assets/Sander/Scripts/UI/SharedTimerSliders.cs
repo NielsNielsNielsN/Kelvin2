@@ -9,8 +9,8 @@ public class SharedTimerSliders : MonoBehaviour
     [Tooltip("Total time in seconds")]
     [SerializeField] private float totalTime = 30f;
 
-    [Tooltip("Start counting down automatically on scene load?")]
-    [SerializeField] private bool autoStart = true;
+    [Tooltip("Start counting down automatically on scene load? (Disable this - let MenuUI call StartCountdown when play button is pressed)")]
+    [SerializeField] private bool autoStart = false;
 
     [Header("Sliders (decrease from max to min)")]
     [SerializeField] private Slider slider1;
@@ -32,15 +32,18 @@ public class SharedTimerSliders : MonoBehaviour
     [SerializeField] private Image fadeToBlackImage;       // Full-screen black image (alpha 0 at start)
     [SerializeField] private float fadeDuration = 3f;      // How long to fade to black
     [SerializeField] private GameObject gameOverCanvas;    // "You Died" / Game Over screen
+    [SerializeField] private GameObject crosshairCanvas;   // Crosshair to hide during death
 
     [Header("Player Freeze References")]
     [SerializeField] private PlayerInputHandler playerInputHandler;
     [SerializeField] private Multitool multitool;
+    [SerializeField] private MenuUI menuUI;                // Reference to MenuUI to unlock cursor and prevent pause
 
     // Runtime
     private float remainingTime;
     private bool isRunning;
     private bool isDead = false;
+    private bool gameStarted = false;  // Track if play button has been pressed
     private InputActionMap playerMap;
 
     void Awake()
@@ -68,11 +71,23 @@ public class SharedTimerSliders : MonoBehaviour
         {
             playerMap = playerInputHandler.playerControls.FindActionMap("Player");
         }
+
+        // Auto-find MenuUI if not assigned
+        if (menuUI == null)
+            menuUI = FindObjectOfType<MenuUI>();
+    }
+
+    void Start()
+    {
+        if (autoStart)
+        {
+            StartCountdown();
+        }
     }
 
     void Update()
     {
-        if (isDead || !isRunning) return;
+        if (isDead || !isRunning || !gameStarted) return;
 
         remainingTime -= Time.deltaTime;
 
@@ -81,6 +96,7 @@ public class SharedTimerSliders : MonoBehaviour
             remainingTime = 0f;
             isRunning = false;
             TriggerDeathSequence();
+            return;
         }
 
         UpdateVisuals();
@@ -92,6 +108,7 @@ public class SharedTimerSliders : MonoBehaviour
 
     public void StartCountdown()
     {
+        gameStarted = true;
         isRunning = true;
     }
 
@@ -105,7 +122,7 @@ public class SharedTimerSliders : MonoBehaviour
         remainingTime = totalTime;
         isRunning = false;
         isDead = false;
-        UpdateVisuals();
+        gameStarted = false;
 
         if (startInvisible)
         {
@@ -133,6 +150,7 @@ public class SharedTimerSliders : MonoBehaviour
 
     public void ModifyRemainingTime(float deltaSeconds)
     {
+        if (!gameStarted) return;
         remainingTime += deltaSeconds;
         remainingTime = Mathf.Clamp(remainingTime, 0f, totalTime);
         UpdateVisuals();
@@ -143,6 +161,7 @@ public class SharedTimerSliders : MonoBehaviour
     public float GetTotalTime() => totalTime;
     public bool IsRunning() => isRunning;
     public bool IsFinished() => remainingTime <= 0f && !isRunning;
+    public bool IsDead() => isDead;
 
     // ────────────────────────────────────────────────
     // Internal
@@ -217,6 +236,10 @@ public class SharedTimerSliders : MonoBehaviour
     {
         if (fadeToBlackImage == null) yield break;
 
+        // Hide crosshair immediately when death sequence starts
+        if (crosshairCanvas != null)
+            crosshairCanvas.SetActive(false);
+
         float elapsed = 0f;
         Color startColor = fadeToBlackImage.color;
         Color targetColor = startColor;
@@ -233,7 +256,12 @@ public class SharedTimerSliders : MonoBehaviour
         fadeToBlackImage.color = targetColor;
 
         if (gameOverCanvas != null)
+        {
             gameOverCanvas.SetActive(true);
+            // Unlock cursor so player can click buttons on game over canvas
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     private void OnTimerFinished()
