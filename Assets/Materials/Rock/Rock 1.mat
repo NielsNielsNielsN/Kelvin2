@@ -25,8 +25,8 @@ Material:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
   - TransparentBackface
-  - RayTracingPrepass
   - MOTIONVECTORS
+  - RayTracingPrepass
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -97,6 +97,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_2448e49d7fcb4c7384eb3e60d5d5b47f_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: fac8cc7aa5f9ff540bd048c91e9910bd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SecondNormal_Mesh_Normal:
+        m_Texture: {fileID: 2800000, guid: b78d7d1e834f3854ea2b2d8bf5f93300, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SecondTexture:
