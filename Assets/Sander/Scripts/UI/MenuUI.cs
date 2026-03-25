@@ -171,7 +171,68 @@ public class MenuUI : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1f;
+        
+        // Deactivate win canvas if it's active
+        ObjectiveManager objectiveManager = FindObjectOfType<ObjectiveManager>();
+        if (objectiveManager != null && objectiveManager.GetWinCanvas() != null)
+        {
+            objectiveManager.GetWinCanvas().SetActive(false);
+        }
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Retry()
+    {
+        Time.timeScale = 1f;
+        
+        // Deactivate win canvas if it's active
+        ObjectiveManager objectiveManager = FindObjectOfType<ObjectiveManager>();
+        if (objectiveManager != null && objectiveManager.GetWinCanvas() != null)
+        {
+            objectiveManager.GetWinCanvas().SetActive(false);
+        }
+        
+        // Close pause menu if it's open
+        if (visible)
+        {
+            pauseMenu.gameObject.SetActive(false);
+            visible = false;
+        }
+
+        // Reset timer
+        if (timerSliders != null)
+            timerSliders.ResetTimer();
+
+        // Set up gameplay exactly like OnPlayButtonPressed
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        startMenu.SetActive(false);
+        ingameUI.SetActive(true);
+        if (crosshairCanvas != null)
+            crosshairCanvas.SetActive(true);
+
+        if (gameplayObjectsToActivate != null)
+        {
+            foreach (GameObject go in gameplayObjectsToActivate)
+            {
+                if (go != null)
+                    go.SetActive(true);
+            }
+        }
+
+        if (playerMap != null)
+            playerMap.Enable();
+
+        if (startCamera != null && mainGameCamera != null)
+        {
+            startCamera.enabled = false;
+            mainGameCamera.enabled = true;
+        }
+
+        // Start the timer countdown
+        if (timerSliders != null)
+            timerSliders.StartCountdown();
     }
 
     public void CursorLockModeOn()

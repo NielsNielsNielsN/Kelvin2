@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class ObjectiveManager : MonoBehaviour
 {
@@ -12,14 +14,35 @@ public class ObjectiveManager : MonoBehaviour
     [Header("Win Condition")]
     [SerializeField] private UnityEvent onAllObjectivesCompleted;
 
+    [Header("Win Sequence")]
+    [SerializeField] private Image fadeToBlackImage;       // Full-screen black image for fade effect
+    [SerializeField] private float winFadeDuration = 3f;   // How long to fade to black
+    [SerializeField] private GameObject winCanvas;         // "You Win" canvas to display
+    [SerializeField] private GameObject crosshairCanvas;   // Crosshair to fade with screen
+
     private int totalObjectives;
     private int completedCount;
-    private HashSet<TransportObjective> completedTransports = new HashSet<TransportObjective>();  // Track which transports are done
+    private HashSet<TransportObjective> completedTransports = new HashSet<TransportObjective>();
+    private bool allObjectivesCompleted = false;
+    private bool hasWon = false;
 
     private void Start()
     {
         totalObjectives = mineObjectives.Count + repairObjectives.Count + transportObjectives.Count;
         completedCount = 0;
+        allObjectivesCompleted = false;
+        hasWon = false;
+
+        // Initialize fade to black image
+        if (fadeToBlackImage != null)
+        {
+            Color c = fadeToBlackImage.color;
+            c.a = 0f;
+            fadeToBlackImage.color = c;
+        }
+
+        if (winCanvas != null)
+            winCanvas.SetActive(false);
 
         // Mining & repair (unchanged)
         foreach (var rock in mineObjectives)
@@ -60,11 +83,67 @@ public class ObjectiveManager : MonoBehaviour
 
     private void CheckWin()
     {
-        if (completedCount >= totalObjectives)
+        if (completedCount >= totalObjectives && !allObjectivesCompleted)
         {
-            Debug.Log("★ ALL OBJECTIVES COMPLETED! YOU WIN! ★");
-            onAllObjectivesCompleted.Invoke();
+            allObjectivesCompleted = true;
+            Debug.Log("★ ALL OBJECTIVES COMPLETED! Ready for final win trigger. ★");
         }
+    }
+
+    // Getter to check if all objectives are complete
+    public bool AreAllObjectivesCompleted() => allObjectivesCompleted;
+
+    // Getter for win canvas
+    public GameObject GetWinCanvas() => winCanvas;
+
+    // Method called when win objective is triggered
+    public void TriggerWin()
+    {
+        if (allObjectivesCompleted && !hasWon)
+        {
+            hasWon = true;
+            Debug.Log("★ YOU WIN! ★");
+            StartCoroutine(FadeToWin());
+        }
+        else if (!allObjectivesCompleted)
+        {
+            Debug.LogWarning("Cannot trigger win - not all objectives completed yet!");
+        }
+    }
+
+    private IEnumerator FadeToWin()
+    {
+        if (fadeToBlackImage == null) yield break;
+
+        // Deactivate crosshair immediately when win is triggered
+        if (crosshairCanvas != null)
+            crosshairCanvas.SetActive(false);
+
+        float elapsed = 0f;
+        Color startColor = fadeToBlackImage.color;
+        Color targetColor = startColor;
+        targetColor.a = 1f;
+
+        while (elapsed < winFadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / winFadeDuration;
+            fadeToBlackImage.color = Color.Lerp(startColor, targetColor, t);
+            yield return null;
+        }
+
+        fadeToBlackImage.color = targetColor;
+
+        if (winCanvas != null)
+        {
+            winCanvas.SetActive(true);
+            // Unlock cursor so player can interact with win canvas buttons
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        // Invoke the win event
+        onAllObjectivesCompleted.Invoke();
     }
 
     // Optional: progress getter
