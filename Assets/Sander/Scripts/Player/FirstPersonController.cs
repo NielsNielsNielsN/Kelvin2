@@ -43,6 +43,8 @@ public class FirstPersonController : MonoBehaviour
 
     [Header("Animation Settings")]
     [SerializeField] private float animationBlendSpeed = 10f;
+    [Tooltip("Animator layer index that contains the Gun_Switch state (check your Animator Controller layers tab)")]
+    [SerializeField] private int gunLayerIndex = 1;
 
     [Header("Camera Sway")]
     [Tooltip("Maximum backward camera offset when moving forward")]
@@ -274,7 +276,9 @@ public class FirstPersonController : MonoBehaviour
 
             if (HasAnimatorParameter("PlayGun"))
             {
+                animator.ResetTrigger(PlayGunHash);
                 animator.SetTrigger(PlayGunHash);
+                Debug.Log($"FirstPersonController: PlayGun trigger set on layer {gunLayerIndex}");
             }
             else
             {
@@ -284,7 +288,7 @@ public class FirstPersonController : MonoBehaviour
             // start watcher to end switching when animations complete
             if (multitool != null && switchWatcherCoroutine == null)
             {
-                switchWatcherCoroutine = StartCoroutine(WatchSwitchAnimations("Arms_Switch", "Gun_Switch", 1));
+                switchWatcherCoroutine = StartCoroutine(WatchSwitchAnimations("Arms_Switch", "Gun_Switch", gunLayerIndex));
             }
         }
     }
@@ -362,18 +366,17 @@ public class FirstPersonController : MonoBehaviour
 
     private void UpdateAnimation()
     {
-        if (animator == null) return;
-
-        if (playerInputHandler == null) return;
+        if (animator == null || playerInputHandler == null) return;
 
         float moveMagnitude = new Vector2(playerInputHandler.MovementInput.x, playerInputHandler.MovementInput.y).magnitude;
-        float targetSpeed = Mathf.Clamp01(moveMagnitude);
+        bool isSprinting = playerInputHandler.SprintTriggered && moveMagnitude > 0f;
 
-        // Smooth the value so it doesn't snap to 0 instantly
+        float targetSpeed = Mathf.Clamp01(moveMagnitude);
         float current = animator.GetFloat(SpeedHash);
         float smoothed = Mathf.Lerp(current, targetSpeed, animationBlendSpeed * Time.deltaTime);
 
         animator.SetFloat(SpeedHash, smoothed);
+        animator.SetBool(IsSprintingHash, isSprinting);
     }
 
     private Vector3 CalculateWorldDirection()

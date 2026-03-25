@@ -886,6 +886,7 @@ MonoBehaviour:
   animator: {fileID: 3289758117761502001}
   multitool: {fileID: 2310358989706713935}
   animationBlendSpeed: 10
+  gunLayerIndex: 1
   swayBackwardAmount: 0.08
   swayLateralAmount: 0.04
   swaySmoothTime: 0.12
@@ -4387,7 +4388,7 @@ Transform:
   m_GameObject: {fileID: 1284157918293812184}
   serializedVersion: 2
   m_LocalRotation: {x: 0.03953687, y: -0.019164292, z: 0.0138456095, w: -0.9989384}
-  m_LocalPosition: {x: -0.5447006, y: -1.6856074, z: -18.265474}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4407,8 +4408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f16e25335f8ff94c9aa6c53fc328df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiningBeam
-  coreLifetimeOn: 1
-  coreLifetimeOff: 0
   impactVFX: {fileID: 9181000468697955810}
   beamVFX: {fileID: 6225229125108078555}
   maxDistance: 10
@@ -6587,6 +6586,10 @@ MonoBehaviour:
   tractorColor: {r: 0, g: 0, b: 1, a: 1}
   repairColor: {r: 0, g: 1, b: 0, a: 1}
   beamWidth: 0.05
+  miningBeamEmitterRef: {fileID: 7387348557362831651}
+  tractorBeamEmitterRef: {fileID: 1284157918293812184}
+  repairBeamEmitterRef: {fileID: 5242620217933586077}
+  useVFXVisuals: 1
   damagePerSecond: 1
   impactParticlesPrefab: {fileID: 0}
   laserSound: {fileID: 0}
@@ -22347,7 +22350,7 @@ Transform:
   m_GameObject: {fileID: 5242620217933586077}
   serializedVersion: 2
   m_LocalRotation: {x: 0.03953687, y: -0.019164292, z: 0.0138456095, w: -0.9989384}
-  m_LocalPosition: {x: -0.5447006, y: -1.6856074, z: -18.265474}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22367,8 +22370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f16e25335f8ff94c9aa6c53fc328df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiningBeam
-  coreLifetimeOn: 1
-  coreLifetimeOff: 0
   impactVFX: {fileID: 2763725393645443037}
   beamVFX: {fileID: 226951599427759567}
   maxDistance: 10
@@ -30164,7 +30165,7 @@ Transform:
   m_GameObject: {fileID: 7387348557362831651}
   serializedVersion: 2
   m_LocalRotation: {x: 0.03953687, y: -0.019164292, z: 0.0138456095, w: -0.9989384}
-  m_LocalPosition: {x: -0.5447006, y: -1.6856074, z: -18.265474}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30184,8 +30185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f16e25335f8ff94c9aa6c53fc328df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiningBeam
-  coreLifetimeOn: 1
-  coreLifetimeOff: 0
   impactVFX: {fileID: 4710156739086759098}
   beamVFX: {fileID: 7026177238671100079}
   maxDistance: 10
