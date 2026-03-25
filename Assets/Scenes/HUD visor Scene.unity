@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: inspectPlayDuration
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1657293681489922830, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
+      propertyPath: antialiasing
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3777699559553778563, guid: 6073d88abc9eed44e96c35ddf34afbb9, type: 3}
       propertyPath: m_Name
       value: Alles wat player nodig heeft voor Niels die een sukkel is
@@ -4363,6 +4367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock2Low
       objectReference: {fileID: 0}
+    - target: {fileID: 4957672528477710721, guid: 468508c79e4772e499439077eb33ff46, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b3ac9c4f120d014abbfb471ebd29e96, type: 2}
     - target: {fileID: 7005138708623991889, guid: 468508c79e4772e499439077eb33ff46, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -5455,6 +5463,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1940607589}
+    - target: {fileID: 8889639067631882660, guid: 550a61fa8475d284a806bd77a15b14e7, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889639067631882660, guid: 550a61fa8475d284a806bd77a15b14e7, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6029,6 +6045,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock5Low
       objectReference: {fileID: 0}
+    - target: {fileID: 6131135685007830843, guid: a66ca3c1d4255fe41bcce0fe99cbcc77, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 607bdfca2ba58c24cb3df6d1dc6264ca, type: 2}
     - target: {fileID: 7249647949258958653, guid: a66ca3c1d4255fe41bcce0fe99cbcc77, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -6628,6 +6648,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock1Low
       objectReference: {fileID: 0}
+    - target: {fileID: 7757711086820027555, guid: 2dd58316010cbf84aa238aa2dfde5301, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8fda5c2a1f9db5347aa1a3b1ecfb0297, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7220,6 +7244,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1601557445}
     m_Modifications:
+    - target: {fileID: 4206811299904917040, guid: a273dddb666bafd4a8d374eb1a72e103, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 925d36ee8b4431c4cab434cda5d540ff, type: 2}
     - target: {fileID: 5415835743631250289, guid: a273dddb666bafd4a8d374eb1a72e103, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -7972,6 +8000,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1601557445}
     m_Modifications:
+    - target: {fileID: 605288290370641157, guid: b2ecff72993b1814689f9e24e7984865, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 096bba0742024ae4e997239b3fe10c12, type: 2}
     - target: {fileID: 4801280801686397103, guid: b2ecff72993b1814689f9e24e7984865, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
