@@ -2,8 +2,6 @@
 using UnityEngine.VFX;
 public class MiningBeam : MonoBehaviour
 {
-    public bool coreLifetimeOn = true;   // lifetime when hitting
-    public bool coreLifetimeOff = false;  // lifetime when not hitting
     public VisualEffect impactVFX;
     public VisualEffect beamVFX;
     public float maxDistance = 50f;
@@ -26,8 +24,6 @@ public class MiningBeam : MonoBehaviour
 
             // Optional: enable the effect
             impactVFX.SendEvent("Active");
-
-            impactVFX.SetBool("CoreLifetimeMultiplier", coreLifetimeOn);
         }
         else
         {
@@ -37,8 +33,14 @@ public class MiningBeam : MonoBehaviour
 
             // Disable the impact effect when nothing is hit
             impactVFX.SendEvent("NotActive");
-
-            impactVFX.SetBool("CoreLifetimeMultiplier", coreLifetimeOff);
         }
     }
 }
+
+
+
+
+
+
+
+

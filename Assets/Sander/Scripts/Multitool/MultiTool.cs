@@ -19,6 +19,13 @@ public class Multitool : MonoBehaviour
     [SerializeField] private Color repairColor = Color.green;
     [SerializeField] private float beamWidth = 0.05f;
 
+    [Header("VFX Beam Emitters")]
+    [SerializeField] private GameObject miningBeamEmitterRef;
+    [SerializeField] private GameObject tractorBeamEmitterRef;
+    [SerializeField] private GameObject repairBeamEmitterRef;
+    [Tooltip("When enabled the LineRenderer beam is invisible and VFX emitters are used as visuals")]
+    [SerializeField] private bool useVFXVisuals = true;
+
     [Header("Mining")]
     [SerializeField] private float damagePerSecond = 10f;
     [SerializeField] private ParticleSystem impactParticlesPrefab;
@@ -100,6 +107,11 @@ public class Multitool : MonoBehaviour
         beamRenderer.enabled = false;
 
         if (inputHandler == null) inputHandler = GetComponentInParent<PlayerInputHandler>();
+
+        // Ensure all VFX emitters start inactive
+        if (miningBeamEmitterRef != null) miningBeamEmitterRef.SetActive(false);
+        if (tractorBeamEmitterRef != null) tractorBeamEmitterRef.SetActive(false);
+        if (repairBeamEmitterRef != null) repairBeamEmitterRef.SetActive(false);
 
         tractorTarget = new GameObject("TractorTarget");
         tractorTarget.transform.SetParent(transform);
@@ -371,6 +383,24 @@ public class Multitool : MonoBehaviour
 
         beamRenderer.material.SetFloat("_Emission_Intensity", 10f);
 
+        // Activate the appropriate beam emitter based on current mode
+        ActivateBeamEmitter();
+
+        // Hide LineRenderer when useVFXVisuals is enabled, show it otherwise
+        if (beamRenderer != null)
+        {
+            if (useVFXVisuals)
+            {
+                beamRenderer.startWidth = 0f;
+                beamRenderer.endWidth = 0f;
+            }
+            else
+            {
+                beamRenderer.startWidth = beamWidth;
+                beamRenderer.endWidth = beamWidth;
+            }
+        }
+
         switch (currentMode)
         {
             case ToolMode.Mining:
@@ -383,6 +413,17 @@ public class Multitool : MonoBehaviour
                 PerformRepair();
                 break;
         }
+    }
+
+    private void ActivateBeamEmitter()
+    {
+        // Only activate the current mode's emitter, leave others off
+        if (miningBeamEmitterRef != null)
+            miningBeamEmitterRef.SetActive(currentMode == ToolMode.Mining);
+        if (tractorBeamEmitterRef != null)
+            tractorBeamEmitterRef.SetActive(currentMode == ToolMode.Tractor);
+        if (repairBeamEmitterRef != null)
+            repairBeamEmitterRef.SetActive(currentMode == ToolMode.Repair);
     }
 
     private void PerformMining()
@@ -652,6 +693,11 @@ public class Multitool : MonoBehaviour
     {
         beamRenderer.enabled = false;
         StopEffects();
+
+        // Deactivate all beam emitters
+        if (miningBeamEmitterRef != null) miningBeamEmitterRef.SetActive(false);
+        if (tractorBeamEmitterRef != null) tractorBeamEmitterRef.SetActive(false);
+        if (repairBeamEmitterRef != null) repairBeamEmitterRef.SetActive(false);
 
         // hide preview before releasing/clearing held rigidbody
         if (heldRigidbody != null)
