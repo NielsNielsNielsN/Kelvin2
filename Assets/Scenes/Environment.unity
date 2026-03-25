@@ -2318,7 +2318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1076780114445305786, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1453209322065669413, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
       propertyPath: m_LightDimmer
@@ -2374,7 +2374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1586318554376200020, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1607997371565770203, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2482,7 +2482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3481077958797537264, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3788837420690658935, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
       propertyPath: m_IsActive
@@ -2494,7 +2494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4438848969814992705, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4896768431813390352, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
       propertyPath: m_Name
@@ -2566,11 +2566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7390544609867297595, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7405307709582544746, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7910787156620311073, guid: cd65939dbbb598f42ab5a30f133ada28, type: 3}
       propertyPath: m_PropertySheet.m_Bool.m_Array.Array.data[0].m_Overridden
