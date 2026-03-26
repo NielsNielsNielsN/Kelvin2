@@ -233,7 +233,7 @@ Material:
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
     - _SecondSmoothness: 0.4
-    - _SecondTextureHeight: 75.11
+    - _SecondTextureHeight: 60
     - _SecondTextureThreshhold: 0.331
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1

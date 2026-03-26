@@ -182,7 +182,7 @@ Material:
     - _HeightPoMAmplitude: 2
     - _HeightTessAmplitude: 2
     - _HeightTessCenter: 0.5
-    - _InvTilingScale: 1
+    - _InvTilingScale: 2.5
     - _Ior: 1.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
@@ -208,7 +208,7 @@ Material:
     - _RefractionModel: 0
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
-    - _SmoothnessRemapMin: 0
+    - _SmoothnessRemapMin: 0.27354833
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularOcclusionMode: 1
@@ -224,7 +224,7 @@ Material:
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
     - _SurfaceType: 0
-    - _TexWorldScale: 1
+    - _TexWorldScale: 0.4
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
     - _TransmissionEnable: 1
