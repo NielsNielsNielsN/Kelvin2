@@ -232,7 +232,7 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _SecondSmoothness: 0.5
+    - _SecondSmoothness: 0.9
     - _SecondTextureHeight: 2.68
     - _SecondTextureThreshhold: 0.044
     - _Smoothness: 0.5
