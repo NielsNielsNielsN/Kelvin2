@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 
 public class LightFlicker : MonoBehaviour
 {
@@ -15,7 +16,9 @@ public class LightFlicker : MonoBehaviour
     [Tooltip("Speed at which intensity smoothly lerps to the new target")]
     [SerializeField] private float transitionSpeed = 5f;
 
+    private HDAdditionalLightData hdLight;
     private float targetIntensity;
+    private float currentIntensity;
     private float timer;
 
     void Start()
@@ -23,11 +26,12 @@ public class LightFlicker : MonoBehaviour
         if (targetLight == null)
             targetLight = GetComponent<Light>();
 
-        // Pick an initial target
-        targetIntensity = Random.Range(minIntensity, maxIntensity);
-
         if (targetLight != null)
-            targetLight.intensity = targetIntensity;
+            hdLight = targetLight.GetComponent<HDAdditionalLightData>();
+
+        targetIntensity = Random.Range(minIntensity, maxIntensity);
+        currentIntensity = targetIntensity;
+        ApplyIntensity(currentIntensity);
     }
 
     void Update()
@@ -35,9 +39,10 @@ public class LightFlicker : MonoBehaviour
         if (targetLight == null) return;
 
         // Smoothly move towards the target intensity
-        targetLight.intensity = Mathf.Lerp(targetLight.intensity, targetIntensity, transitionSpeed * Time.deltaTime);
+        currentIntensity = Mathf.Lerp(currentIntensity, targetIntensity, transitionSpeed * Time.deltaTime);
+        ApplyIntensity(currentIntensity);
 
-        // Count up and pick a new random target when the interval is reached
+        // Pick a new random target when the interval is reached
         timer += Time.deltaTime;
         if (timer >= interval)
         {
@@ -45,4 +50,13 @@ public class LightFlicker : MonoBehaviour
             targetIntensity = Random.Range(minIntensity, maxIntensity);
         }
     }
+
+    private void ApplyIntensity(float value)
+    {
+        if (hdLight != null)
+            hdLight.SetIntensity(value);
+        else if (targetLight != null)
+            targetLight.intensity = value;
+    }
 }
+
