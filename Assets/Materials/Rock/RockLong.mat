@@ -234,7 +234,7 @@ Material:
     - _RequireSplitLighting: 0
     - _SecondSmoothness: 0.4
     - _SecondTextureHeight: 0
-    - _SecondTextureThreshhold: 0.331
+    - _SecondTextureThreshhold: 0.16
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0

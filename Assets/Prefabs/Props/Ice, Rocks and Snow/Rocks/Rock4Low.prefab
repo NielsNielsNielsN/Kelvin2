@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4801280801686397103}
   - component: {fileID: 6603630341122048980}
   - component: {fileID: 605288290370641157}
-  - component: {fileID: 4868873548175364599}
   m_Layer: 0
   m_Name: Rock4Low
   m_TagString: Untagged
@@ -91,17 +90,3 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4868873548175364599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7501621011599668547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95ddd0b27f38ca946b1c10c7f7055b44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CustomTextureOverride
-  secondTexture: {fileID: 0}
-  normalTexture: {fileID: 2800000, guid: be3bfc94c64842f45bd893076cc77af2, type: 3}
