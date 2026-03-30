@@ -62,6 +62,10 @@ public class ObjectiveManager : MonoBehaviour
             completedCount++;
             CheckWin();
             Debug.Log("Transport objective completed: " + transportedObject.name);
+
+            // Notify the image tracker hook on this object so its canvas image updates
+            ObjectiveImageTransportHook hook = transportedObject.GetComponent<ObjectiveImageTransportHook>();
+            if (hook != null) hook.NotifyCompleted();
         }
     }
 

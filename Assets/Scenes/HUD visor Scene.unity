@@ -3301,9 +3301,89 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3773360880195718066, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3773360880195718066, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3773360880195718066, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045169597999143434, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045169597999143434, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4705001035275773900, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4705001035275773900, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710554931665746168, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710554931665746168, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710554931665746168, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865426765081101684, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865426765081101684, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865426765081101684, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163573956044634526, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163573956044634526, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163573956044634526, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402664662984852753, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402664662984852753, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8236400196018974975, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
       propertyPath: m_Name
       value: Alles wat player nodig heeft voor Niels die een sukkel is
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747894638356493355, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747894638356493355, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

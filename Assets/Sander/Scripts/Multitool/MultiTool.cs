@@ -39,8 +39,9 @@ public class Multitool : MonoBehaviour
     [SerializeField] private float minHoldDistance = 1f;
     [SerializeField] private float maxHoldDistance = 10f;
     [SerializeField] private float scrollSensitivity = 2f;
-    [SerializeField] private float followSpeed = 10f;
-    [SerializeField] private float maxVelocity = 20f;
+    [SerializeField] private float springStiffness = 120f;
+    [SerializeField] private float springDamping = 18f;
+    [SerializeField] private float maxHoldVelocity = 25f;
     [SerializeField] private AudioSource tractorSound;
     [SerializeField] private UnityEngine.UI.Slider tractorDistanceSlider;
 
@@ -50,6 +51,9 @@ public class Multitool : MonoBehaviour
     [SerializeField] private AudioSource repairSound;
     [SerializeField] private UnityEngine.UI.Slider repairProgressSlider;
     [SerializeField] private float repairDecayDuration = 2f;
+
+    [Header("Camera")]
+    [SerializeField] private Camera aimCamera;
 
     [Header("Input")]
     [SerializeField] private PlayerInputHandler inputHandler;
@@ -76,6 +80,7 @@ public class Multitool : MonoBehaviour
     private Vector3 releaseVelocity;
     private bool originalUseGravity;
     private bool originalIsKinematic;
+    private RigidbodyInterpolation originalInterpolation;
     private GameObject tractorTarget;
     private Rigidbody tractorTargetRb;
     private float targetHoldDistance;
@@ -90,6 +95,7 @@ public class Multitool : MonoBehaviour
     private Coroutine repairDecayCoroutine;
     private Coroutine rockHealCoroutine;
     private bool isSwitching = false;
+    private MiningBeam tractorBeamScript;
 
     void Start()
     {
@@ -107,10 +113,15 @@ public class Multitool : MonoBehaviour
         beamRenderer.enabled = false;
 
         if (inputHandler == null) inputHandler = GetComponentInParent<PlayerInputHandler>();
+        if (aimCamera == null) aimCamera = Camera.main;
 
         // Ensure all VFX emitters start inactive
         if (miningBeamEmitterRef != null) miningBeamEmitterRef.SetActive(false);
-        if (tractorBeamEmitterRef != null) tractorBeamEmitterRef.SetActive(false);
+        if (tractorBeamEmitterRef != null)
+        {
+            tractorBeamEmitterRef.SetActive(false);
+            tractorBeamScript = tractorBeamEmitterRef.GetComponentInChildren<MiningBeam>();
+        }
         if (repairBeamEmitterRef != null) repairBeamEmitterRef.SetActive(false);
 
         tractorTarget = new GameObject("TractorTarget");
@@ -164,6 +175,9 @@ public class Multitool : MonoBehaviour
 
     // Public accessor so other systems can know switching is in progress
     public bool IsSwitching => isSwitching;
+
+    // Public accessor so other systems (e.g. WeaponRigSway) can read whether the beam is actively firing
+    public bool IsFiring => isActive;
 
     void Update()
     {
@@ -274,9 +288,17 @@ public class Multitool : MonoBehaviour
         }
     }
 
+    private Ray GetAimRay()
+    {
+        if (aimCamera != null)
+            return new Ray(aimCamera.transform.position, aimCamera.transform.forward);
+        return new Ray(transform.position, transform.forward);
+    }
+
     private RepairableObject GetAimedRepairable()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, maxRange, repairableLayer))
+        Ray ray = GetAimRay();
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, maxRange, repairableLayer))
         {
             return hitInfo.collider.GetComponent<RepairableObject>();
         }
@@ -285,7 +307,8 @@ public class Multitool : MonoBehaviour
 
     private MinableRock GetAimedMinableRock()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, maxRange, minableLayer))
+        Ray ray = GetAimRay();
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, maxRange, minableLayer))
         {
             return hitInfo.collider.GetComponent<MinableRock>();
         }
@@ -428,7 +451,8 @@ public class Multitool : MonoBehaviour
 
     private void PerformMining()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out hit, maxRange, minableLayer))
+        Ray aimRay = GetAimRay();
+        if (Physics.Raycast(aimRay, out hit, maxRange, minableLayer))
         {
             beamRenderer.enabled = true;
             beamRenderer.SetPosition(0, transform.position);
@@ -475,24 +499,30 @@ public class Multitool : MonoBehaviour
 
     private void PerformTractor()
     {
-        bool hitLiftable = Physics.Raycast(transform.position, transform.forward, out hit, maxRange, liftableLayer);
+        Ray aimRay = GetAimRay();
+        bool hitLiftable = Physics.Raycast(aimRay, out hit, maxRange, liftableLayer);
 
         if (heldRigidbody != null)
         {
+            Collider heldCollider = heldRigidbody.GetComponent<Collider>();
+            Vector3 beamEndPoint = heldCollider != null
+                ? heldCollider.ClosestPoint(transform.position)
+                : heldRigidbody.transform.position;
+
             beamRenderer.enabled = true;
             beamRenderer.SetPosition(0, transform.position);
-            beamRenderer.SetPosition(1, heldRigidbody.transform.position);
+            beamRenderer.SetPosition(1, beamEndPoint);
 
-            Vector3 targetPos = transform.position + transform.forward * targetHoldDistance;
-            Vector3 direction = targetPos - heldRigidbody.transform.position;
-            Vector3 desiredVelocity = direction * followSpeed;
-
-            if (desiredVelocity.magnitude > maxVelocity)
-            {
-                desiredVelocity = desiredVelocity.normalized * maxVelocity;
-            }
-
-            heldRigidbody.linearVelocity = desiredVelocity;
+            // Spring-velocity towards the aim hold point (runs in LateUpdate at visual frame rate;
+            // the rigidbody is non-kinematic + Interpolate so Unity smooths between physics steps)
+            Vector3 targetPos = aimRay.origin + aimRay.direction * targetHoldDistance;
+            Vector3 delta = targetPos - heldRigidbody.transform.position;
+            Vector3 springForce = delta * springStiffness - heldRigidbody.linearVelocity * springDamping;
+            Vector3 desired = heldRigidbody.linearVelocity + springForce * Time.deltaTime;
+            if (desired.magnitude > maxHoldVelocity)
+                desired = desired.normalized * maxHoldVelocity;
+            heldRigidbody.linearVelocity = desired;
+            heldRigidbody.angularVelocity = Vector3.zero;
             releaseVelocity = heldRigidbody.linearVelocity;
 
             CheckSnapSocket();
@@ -505,6 +535,9 @@ public class Multitool : MonoBehaviour
             beamRenderer.SetPosition(0, transform.position);
             beamRenderer.SetPosition(1, hit.point);
             PickupObject(hit.collider);
+            // Lock tractor beam visuals to the picked-up object so they follow it
+            if (tractorBeamScript != null && heldRigidbody != null)
+                tractorBeamScript.LockTarget(heldRigidbody.transform, hit.normal);
         }
         else
         {
@@ -620,12 +653,15 @@ public class Multitool : MonoBehaviour
             FindObjectOfType<ObjectiveManager>()?.OnTransportObjectiveCompleted(heldRigidbody.gameObject);
 
             heldRigidbody = null;
+            if (tractorBeamScript != null)
+                tractorBeamScript.ClearTarget();
         }
     }
 
     private void PerformRepair()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out hit, maxRange, repairableLayer))
+        Ray aimRay = GetAimRay();
+        if (Physics.Raycast(aimRay, out hit, maxRange, repairableLayer))
         {
             beamRenderer.enabled = true;
             beamRenderer.SetPosition(0, transform.position);
@@ -680,10 +716,12 @@ public class Multitool : MonoBehaviour
         }
         originalUseGravity = rb.useGravity;
         originalIsKinematic = rb.isKinematic;
+        originalInterpolation = rb.interpolation;
 
         rb.useGravity = false;
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
         releaseVelocity = Vector3.zero;
 
         Debug.Log("Picked up: " + col.name);
@@ -710,9 +748,17 @@ public class Multitool : MonoBehaviour
 
             heldRigidbody.isKinematic = originalIsKinematic;
             heldRigidbody.useGravity = originalUseGravity;
-            heldRigidbody.linearVelocity = releaseVelocity;
+            heldRigidbody.interpolation = originalInterpolation;
+            if (!originalIsKinematic)
+            {
+                heldRigidbody.linearVelocity = releaseVelocity;
+            }
             heldRigidbody.angularVelocity = Vector3.zero;
             heldRigidbody = null;
+
+            // Release the locked beam visual target
+            if (tractorBeamScript != null)
+                tractorBeamScript.ClearTarget();
         }
 
         // If we stop using the tool while mining, reset the current rock
@@ -743,9 +789,10 @@ public class Multitool : MonoBehaviour
 
     private void DrawBeamToRange(float range)
     {
+        Ray aimRay = GetAimRay();
         beamRenderer.enabled = true;
         beamRenderer.SetPosition(0, transform.position);
-        beamRenderer.SetPosition(1, transform.position + transform.forward * range);
+        beamRenderer.SetPosition(1, aimRay.origin + aimRay.direction * range);
     }
 
     private void PlaySound(AudioSource sound)

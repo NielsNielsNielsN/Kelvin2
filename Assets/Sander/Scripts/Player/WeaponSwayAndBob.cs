@@ -10,6 +10,8 @@ public class WeaponSwayAndBob : MonoBehaviour
     public PlayerInputHandler inputHandler;
     [Tooltip("Optional character controller used to determine grounded state")]
     public CharacterController characterController;
+    [Tooltip("Reference to the Multitool to read firing state for kickback and camera shake")]
+    public Multitool multitool;
 
     [Header("Sway")]
     public float step = 0.01f;
@@ -53,11 +55,28 @@ public class WeaponSwayAndBob : MonoBehaviour
     private Transform swayPivot;
     private Vector3 originalPivotLocalPos;
     private Quaternion initialRigToCameraRot = Quaternion.identity;
+    private Vector3 kickbackVelocity;
+    private Vector3 currentKickback;
+    private float shakeNoiseOffset;
     [Tooltip("Optional reference to main camera; if null Camera.main will be used")]
     public Camera mainCamera;
     [Header("Orientation Correction")]
     [Tooltip("Euler offset applied to final rig orientation (use to correct 90deg mismatches)")]
     public Vector3 orientationEulerOffset = Vector3.zero;
+
+    [Header("Weapon Kickback")]
+    [Tooltip("How far back the weapon is pushed along local Z when firing")]
+    public float kickbackDistance = 0.04f;
+    [Tooltip("How quickly the weapon kicks back (lower = snappier kick)")]
+    public float kickbackSmoothTime = 0.04f;
+    [Tooltip("How quickly the weapon returns to rest after firing stops")]
+    public float kickbackReturnSmoothTime = 0.12f;
+
+    [Header("Camera Shake")]
+    [Tooltip("Maximum positional offset applied to the camera while firing")]
+    public float cameraShakeIntensity = 0.004f;
+    [Tooltip("Speed at which the shake noise scrolls (higher = more rapid shake)")]
+    public float cameraShakeSpeed = 22f;
 
     void Reset()
     {
@@ -77,6 +96,8 @@ public class WeaponSwayAndBob : MonoBehaviour
     {
         if (inputHandler == null) inputHandler = GetComponentInParent<PlayerInputHandler>();
         if (characterController == null) characterController = GetComponentInParent<CharacterController>();
+        if (multitool == null) multitool = GetComponentInParent<Multitool>();
+        shakeNoiseOffset = Random.Range(0f, 100f);
 
         // If rigTransform not assigned, try to find a likely child on this object
         if (rigTransform == null)
@@ -143,8 +164,10 @@ public class WeaponSwayAndBob : MonoBehaviour
         SwayRotation();
         BobOffset();
         BobRotation();
+        UpdateKickback();
 
         CompositePositionRotation();
+        ApplyCameraShake();
     }
 
     void GetInput()
@@ -180,7 +203,7 @@ public class WeaponSwayAndBob : MonoBehaviour
     {
         if (rigTransform == null) return;
 
-        Vector3 targetPos = swayPos + bobPosition; // applied relative to pivot
+        Vector3 targetPos = swayPos + bobPosition + currentKickback; // applied relative to pivot
 
         if (swayPivot != null)
         {
@@ -234,5 +257,25 @@ public class WeaponSwayAndBob : MonoBehaviour
         bobEulerRotation.x = (moving ? multiplier.x * (Mathf.Sin(2f * speedCurve)) : multiplier.x * (Mathf.Sin(2f * speedCurve) / 2f));
         bobEulerRotation.y = (moving ? multiplier.y * CurveCos : 0f);
         bobEulerRotation.z = (moving ? multiplier.z * CurveCos * walkInput.x : 0f);
+    }
+
+    void UpdateKickback()
+    {
+        bool firing = multitool != null && multitool.IsFiring && multitool.currentMode == ToolMode.Mining;
+        Vector3 targetKickback = firing ? new Vector3(0f, 0f, -kickbackDistance) : Vector3.zero;
+        float smoothT = firing ? kickbackSmoothTime : kickbackReturnSmoothTime;
+        currentKickback = Vector3.SmoothDamp(currentKickback, targetKickback, ref kickbackVelocity, smoothT);
+    }
+
+    void ApplyCameraShake()
+    {
+        if (mainCamera == null) return;
+        bool firing = multitool != null && multitool.IsFiring && multitool.currentMode == ToolMode.Mining;
+        if (!firing) return;
+
+        shakeNoiseOffset += Time.deltaTime * cameraShakeSpeed;
+        float shakeX = (Mathf.PerlinNoise(shakeNoiseOffset, 0f) - 0.5f) * 2f * cameraShakeIntensity;
+        float shakeY = (Mathf.PerlinNoise(0f, shakeNoiseOffset) - 0.5f) * 2f * cameraShakeIntensity;
+        mainCamera.transform.localPosition += new Vector3(shakeX, shakeY, 0f);
     }
 }
