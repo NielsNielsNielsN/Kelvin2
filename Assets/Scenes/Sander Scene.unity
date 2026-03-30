@@ -1649,6 +1649,11 @@ MonoBehaviour:
   activationKey: 101
   interactionRange: 5
   activationPrompt: {fileID: 0}
+--- !u!20 &1442077794 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3740276482473384149, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+  m_PrefabInstance: {fileID: 4597234175569823881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1610324852
 GameObject:
   m_ObjectHideFlags: 0
@@ -5777,6 +5782,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1751890044835914684, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: maxDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.04064
@@ -5815,6 +5824,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310358989706713935, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: maxRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310358989706713935, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: aimCamera
+      value: 
+      objectReference: {fileID: 1442077794}
+    - target: {fileID: 2906684652501898004, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_Parameters.alignment
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3180927172563291790, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
