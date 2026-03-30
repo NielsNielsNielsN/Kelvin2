@@ -221,63 +221,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1001 &55753799
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 29.63819
-      objectReference: {fileID: 0}
-    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 89.91883
-      objectReference: {fileID: 0}
-    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.5616
-      objectReference: {fileID: 0}
-    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8236400196018974975, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
-      propertyPath: m_Name
-      value: Alles wat player nodig heeft voor Niels die een sukkel is
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
 --- !u!4 &97730800 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4348c29f41599c343b63b5a871939732, type: 3}
@@ -3192,6 +3135,63 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1927767008}
   m_SourcePrefab: {fileID: 100100000, guid: b2aa4f07ed8a53a44b59880db5bc2f7b, type: 3}
+--- !u!1001 &1950604940
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26.77367
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 89.81886
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.25889
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894448408953189909, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236400196018974975, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_Name
+      value: Alles wat player nodig heeft voor Niels die een sukkel is
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
 --- !u!1 &1964004939
 GameObject:
   m_ObjectHideFlags: 0
@@ -9274,4 +9274,4 @@ SceneRoots:
   - {fileID: 5977823921984731587}
   - {fileID: 1419899208691991216}
   - {fileID: 448836612446684653}
-  - {fileID: 55753799}
+  - {fileID: 1950604940}
