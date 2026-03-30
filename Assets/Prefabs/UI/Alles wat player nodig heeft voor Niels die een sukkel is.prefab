@@ -910,6 +910,7 @@ MonoBehaviour:
   rigTransform: {fileID: 3711500735716338802}
   inputHandler: {fileID: 641066465852533365}
   characterController: {fileID: 1914944707913193591}
+  multitool: {fileID: 2310358989706713935}
   step: 0.005
   maxStepDistance: 0.03
   rotationStep: 0.05
@@ -924,6 +925,11 @@ MonoBehaviour:
   createSwayPivot: 1
   mainCamera: {fileID: 3740276482473384149}
   orientationEulerOffset: {x: 90, y: 0, z: 0}
+  kickbackDistance: 0.04
+  kickbackSmoothTime: 0.04
+  kickbackReturnSmoothTime: 0.12
+  cameraShakeIntensity: 0.012
+  cameraShakeSpeed: 22
 --- !u!1 &183687428946408227
 GameObject:
   m_ObjectHideFlags: 0
@@ -6573,7 +6579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f27ac9593936a742a275bdf4428d5e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Multitool
-  maxRange: 5
+  maxRange: 10
   minableLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -6602,8 +6608,9 @@ MonoBehaviour:
   minHoldDistance: 1
   maxHoldDistance: 10
   scrollSensitivity: 2
-  followSpeed: 10
-  maxVelocity: 20
+  springStiffness: 120
+  springDamping: 18
+  maxHoldVelocity: 25
   tractorSound: {fileID: 0}
   tractorDistanceSlider: {fileID: 118081945484199742}
   repairPerSecond: 1
@@ -6611,6 +6618,7 @@ MonoBehaviour:
   repairSound: {fileID: 0}
   repairProgressSlider: {fileID: 3661466271501205999}
   repairDecayDuration: 2
+  aimCamera: {fileID: 3740276482473384149}
   inputHandler: {fileID: 641066465852533365}
   modeIconImage: {fileID: 7161295865466158892}
   miningIconSprite: {fileID: 21300000, guid: d91f542b1ff88bd40be505ce86f2450c, type: 3}
