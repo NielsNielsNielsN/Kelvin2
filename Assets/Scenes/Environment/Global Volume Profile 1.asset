@@ -174,7 +174,7 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: -0.04499817
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -182,8 +182,8 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1
-        value: 0
+        time: 0.95
+        value: 0.02999878
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
     m_Value: 0.86
   erosionOcclusion:
     m_OverrideState: 1
-    m_Value: 0.42
+    m_Value: 1
   globalWindSpeed:
     m_OverrideState: 1
     m_Value:
