@@ -8777,7 +8777,7 @@ Transform:
   m_GameObject: {fileID: 313809788}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 18.607, z: 0}
+  m_LocalPosition: {x: 0, y: 19.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8807,7 +8807,7 @@ MonoBehaviour:
   m_ShapeHeight: -1
   m_AspectRatio: -1
   m_SpotIESCutoffPercent: 100
-  m_LightDimmer: 1
+  m_LightDimmer: 12.2
   m_VolumetricDimmer: 16
   m_FadeDistance: 10000
   m_VolumetricFadeDistance: 10000
@@ -8936,8 +8936,8 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 0.7660377, g: 0, b: 0, a: 1}
-  m_Intensity: 11863283
-  m_Range: 8.459808
+  m_Intensity: 3406835.2
+  m_Range: 7.902649
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 0.5, y: 0.5}
@@ -8987,7 +8987,7 @@ Light:
   m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 4
+  m_LightUnit: 0
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
 --- !u!114 &313809792
@@ -9003,10 +9003,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightFlicker
   targetLight: {fileID: 313809791}
-  minIntensity: 24.5
-  maxIntensity: 29
-  interval: 2
-  transitionSpeed: 2
+  lowIntensity: 3226404
+  highIntensity: 42811560
+  blinkSpeed: 2
 --- !u!1001 &314733571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9715,6 +9714,7 @@ MonoBehaviour:
   m_Script: {fileID: 759329569}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.SceneObjectIDMapSceneAsset
+  m_Entries: []
 --- !u!4 &370168025
 Transform:
   m_ObjectHideFlags: 19
@@ -10162,7 +10162,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 16.4
+  MinDistance: 14.746185
   MaxDistance: 31.947144
   Pan2D: 0
   rolloffMode: 0
@@ -10198,7 +10198,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -13024,6 +13024,7 @@ MonoBehaviour:
   m_Script: {fileID: 1077393063}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.SceneObjectIDMapSceneAsset
+  m_Entries: []
 --- !u!4 &511831695
 Transform:
   m_ObjectHideFlags: 19
@@ -26088,6 +26089,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b933cb2f51971fb4ba4ad103a3128bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveImageTracker
+  mineEntries: []
+  repairEntries: []
+  transportEntries: []
 --- !u!1001 &996577088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41501,7 +41505,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
