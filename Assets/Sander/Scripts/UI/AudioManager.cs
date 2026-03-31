@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
     //  Audio Mixer
     // ?????????????????????????????????????????????????????????????
     [Header("Audio Mixer")]
-    [Tooltip("The main AudioMixer asset. Must expose parameters: MasterVolume, MusicVolume, VoiceOverVolume")]
+    [Tooltip("Optional. Only needed if you still want mixer-level routing. Volume scaling is handled per-source.")]
     [SerializeField] private AudioMixer audioMixer;
 
     // ?????????????????????????????????????????????????????????????
@@ -61,11 +61,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private PlayerInputHandler playerInputHandler;
     [SerializeField] private Multitool multitool;
 
-    // Exposed mixer parameter names
-    private const string MixerMaster    = "MasterVolume";
-    private const string MixerMusic     = "MusicVolume";
-    private const string MixerVoiceOver = "VoiceOverVolume";
-
     // Runtime state flags
     private bool fiveMinPlayed  = false;
     private bool twoMinPlayed   = false;
@@ -76,12 +71,52 @@ public class AudioManager : MonoBehaviour
     private GameObject winCanvas;
     private GameObject loseCanvas;
 
+    // Current slider values (0-1), defaulting to full volume
+    private float masterVolume   = 1f;
+    private float musicVolume    = 1f;
+    private float voiceOverVolume = 1f;
+
+    // Base volumes captured from the Inspector before any slider applies
+    private float baseFootsteps;
+    private float baseMissionAccomplished;
+    private float baseMissionFailed;
+    private float baseFiveMinLeft;
+    private float baseTwoMinLeft;
+    private float baseMissionBriefing;
+    private float baseMiningBeam;
+    private float baseTractorBeam;
+    private float baseRepairBeam;
+    private float baseBatteryNoise;
+    private float baseMusic;
+    private float baseWind;
+
     // ?????????????????????????????????????????????????????????????
     //  Unity lifecycle
     // ?????????????????????????????????????????????????????????????
 
     private void Awake()
     {
+        // Capture Inspector volumes as baselines before anything modifies them
+        baseFootsteps          = GetBaseVolume(footstepsSource);
+        baseMissionAccomplished = GetBaseVolume(missionAccomplishedSource);
+        baseMissionFailed      = GetBaseVolume(missionFailedSource);
+        baseFiveMinLeft        = GetBaseVolume(fiveMinLeftSource);
+        baseTwoMinLeft         = GetBaseVolume(twoMinLeftSource);
+        baseMissionBriefing    = GetBaseVolume(missionBriefingSource);
+        baseMiningBeam         = GetBaseVolume(miningBeamSource);
+        baseTractorBeam        = GetBaseVolume(tractorBeamSource);
+        baseRepairBeam         = GetBaseVolume(repairBeamSource);
+        baseBatteryNoise       = GetBaseVolume(batteryNoiseSource);
+        baseMusic              = GetBaseVolume(musicSource);
+        baseWind               = GetBaseVolume(windSource);
+
+        // Silence all voice-over sources immediately in case Play On Awake is enabled in the Inspector
+        StopAndDisablePlayOnAwake(missionAccomplishedSource);
+        StopAndDisablePlayOnAwake(missionFailedSource);
+        StopAndDisablePlayOnAwake(fiveMinLeftSource);
+        StopAndDisablePlayOnAwake(twoMinLeftSource);
+        StopAndDisablePlayOnAwake(missionBriefingSource);
+
         // Auto-find scene references when not assigned
         if (timerSliders == null)
             timerSliders = FindObjectOfType<SharedTimerSliders>();
@@ -89,6 +124,18 @@ public class AudioManager : MonoBehaviour
             playerInputHandler = FindObjectOfType<PlayerInputHandler>();
         if (multitool == null)
             multitool = FindObjectOfType<Multitool>();
+    }
+
+    private float GetBaseVolume(AudioSource source)
+    {
+        return source != null ? source.volume : 1f;
+    }
+
+    private void StopAndDisablePlayOnAwake(AudioSource source)
+    {
+        if (source == null) return;
+        source.playOnAwake = false;
+        source.Stop();
     }
 
     private void Start()
@@ -101,22 +148,25 @@ public class AudioManager : MonoBehaviour
         if (timerSliders != null)
             loseCanvas = timerSliders.GetGameOverCanvas();
 
-        // Hook up volume sliders
+        // Hook up volume sliders — read their current Inspector value as the starting volume
         if (masterVolumeSlider != null)
         {
+            masterVolume = masterVolumeSlider.value;
             masterVolumeSlider.onValueChanged.AddListener(SetMasterVolume);
-            masterVolumeSlider.value = masterVolumeSlider.value; // trigger initial update
         }
         if (musicVolumeSlider != null)
         {
+            musicVolume = musicVolumeSlider.value;
             musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
-            musicVolumeSlider.value = musicVolumeSlider.value;
         }
         if (voiceOverVolumeSlider != null)
         {
+            voiceOverVolume = voiceOverVolumeSlider.value;
             voiceOverVolumeSlider.onValueChanged.AddListener(SetVoiceOverVolume);
-            voiceOverVolumeSlider.value = voiceOverVolumeSlider.value;
         }
+
+        // Apply initial slider values to all sources
+        ApplyAllVolumes();
 
         // Looping ambient sounds start immediately
         StartLoopingSource(musicSource);
@@ -151,36 +201,115 @@ public class AudioManager : MonoBehaviour
         losePlayed    = false;
     }
 
+    /// <summary>Pauses all active audio sources at their current position.</summary>
+    public void PauseAudio()
+    {
+        PauseSource(footstepsSource);
+        PauseSource(miningBeamSource);
+        PauseSource(tractorBeamSource);
+        PauseSource(repairBeamSource);
+        PauseSource(batteryNoiseSource);
+        PauseSource(musicSource);
+        PauseSource(windSource);
+        PauseSource(missionAccomplishedSource);
+        PauseSource(missionFailedSource);
+        PauseSource(fiveMinLeftSource);
+        PauseSource(twoMinLeftSource);
+        PauseSource(missionBriefingSource);
+    }
+
+    /// <summary>Resumes all audio sources that were paused.</summary>
+    public void ResumeAudio()
+    {
+        UnPauseSource(footstepsSource);
+        UnPauseSource(miningBeamSource);
+        UnPauseSource(tractorBeamSource);
+        UnPauseSource(repairBeamSource);
+        UnPauseSource(batteryNoiseSource);
+        UnPauseSource(musicSource);
+        UnPauseSource(windSource);
+        UnPauseSource(missionAccomplishedSource);
+        UnPauseSource(missionFailedSource);
+        UnPauseSource(fiveMinLeftSource);
+        UnPauseSource(twoMinLeftSource);
+        UnPauseSource(missionBriefingSource);
+    }
+
+    private void PauseSource(AudioSource source)
+    {
+        if (source != null && source.isPlaying)
+            source.Pause();
+    }
+
+    private void UnPauseSource(AudioSource source)
+    {
+        if (source != null)
+            source.UnPause();
+    }
+
     // ?????????????????????????????????????????????????????????????
-    //  Volume control (mixer-based, logarithmic conversion)
+    //  Volume control (per-source scaling against Inspector baseline)
     // ?????????????????????????????????????????????????????????????
 
     public void SetMasterVolume(float sliderValue)
     {
-        SetMixerVolume(MixerMaster, sliderValue);
+        masterVolume = sliderValue;
+        ApplyAllVolumes();
     }
 
     public void SetMusicVolume(float sliderValue)
     {
-        SetMixerVolume(MixerMusic, sliderValue);
+        musicVolume = sliderValue;
+        ApplyMusicVolumes();
     }
 
     public void SetVoiceOverVolume(float sliderValue)
     {
-        SetMixerVolume(MixerVoiceOver, sliderValue);
+        voiceOverVolume = sliderValue;
+        ApplyVoiceOverVolumes();
     }
 
-    // ?????????????????????????????????????????????????????????????
-    //  Private helpers
-    // ?????????????????????????????????????????????????????????????
-
-    private void SetMixerVolume(string parameter, float sliderValue)
+    /// <summary>
+    /// Applies slider values to every source.
+    /// Each source's final volume = baseVolume * groupSlider * masterSlider.
+    /// </summary>
+    private void ApplyAllVolumes()
     {
-        if (audioMixer == null) return;
-        // Sliders should be configured with a range of 0.0001 to 1.
-        // Convert to decibels: 0.0001 ? -80 dB, 1 ? 0 dB
-        float dB = Mathf.Log10(Mathf.Max(sliderValue, 0.0001f)) * 20f;
-        audioMixer.SetFloat(parameter, dB);
+        ApplySfxVolumes();
+        ApplyMusicVolumes();
+        ApplyVoiceOverVolumes();
+    }
+
+    private void ApplySfxVolumes()
+    {
+        SetSourceVolume(footstepsSource,  baseFootsteps,  masterVolume);
+        SetSourceVolume(miningBeamSource, baseMiningBeam, masterVolume);
+        SetSourceVolume(tractorBeamSource, baseTractorBeam, masterVolume);
+        SetSourceVolume(repairBeamSource, baseRepairBeam, masterVolume);
+        SetSourceVolume(batteryNoiseSource, baseBatteryNoise, masterVolume);
+        SetSourceVolume(windSource, baseWind, masterVolume);
+    }
+
+    private void ApplyMusicVolumes()
+    {
+        SetSourceVolume(musicSource, baseMusic, musicVolume * masterVolume);
+    }
+
+    private void ApplyVoiceOverVolumes()
+    {
+        float combined = voiceOverVolume * masterVolume;
+        SetSourceVolume(missionAccomplishedSource, baseMissionAccomplished, combined);
+        SetSourceVolume(missionFailedSource,       baseMissionFailed,       combined);
+        SetSourceVolume(fiveMinLeftSource,         baseFiveMinLeft,         combined);
+        SetSourceVolume(twoMinLeftSource,          baseTwoMinLeft,          combined);
+        SetSourceVolume(missionBriefingSource,     baseMissionBriefing,     combined);
+    }
+
+    /// <summary>Sets a source's volume to baseVolume * multiplier, clamped to [0, baseVolume].</summary>
+    private void SetSourceVolume(AudioSource source, float baseVolume, float multiplier)
+    {
+        if (source == null) return;
+        source.volume = baseVolume * Mathf.Clamp01(multiplier);
     }
 
     private void StartLoopingSource(AudioSource source)
@@ -286,7 +415,7 @@ public class AudioManager : MonoBehaviour
 
     private IEnumerator PlayBriefingAfterDelay()
     {
-        yield return new WaitForSeconds(missionBriefingDelay);
+        yield return new WaitForSecondsRealtime(missionBriefingDelay);
         PlayOneShot(missionBriefingSource);
     }
 }

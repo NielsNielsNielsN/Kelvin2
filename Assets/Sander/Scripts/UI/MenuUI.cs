@@ -122,6 +122,8 @@ public class MenuUI : MonoBehaviour
             // Pause the timer when pause menu opens
             if (timerSliders != null)
                 timerSliders.PauseCountdown();
+            if (audioManager != null)
+                audioManager.PauseAudio();
         }
         else
         {
@@ -132,6 +134,8 @@ public class MenuUI : MonoBehaviour
             // Resume the timer when pause menu closes
             if (timerSliders != null)
                 timerSliders.StartCountdown();
+            if (audioManager != null)
+                audioManager.ResumeAudio();
         }
 
         Debug.Log("TogglePause - visible now: " + visible + ", ingameUI active: " + ingameUI.activeSelf);
