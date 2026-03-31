@@ -47265,6 +47265,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8724776106429333610, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
       insertIndex: -1
       addedObject: {fileID: 995021019}
+    - targetCorrespondingSourceObject: {fileID: 1652128376367175338, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1693377636}
   m_SourcePrefab: {fileID: 100100000, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
 --- !u!4 &1693377631 stripped
 Transform:
@@ -47295,6 +47298,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1514727443194028419, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
   m_PrefabInstance: {fileID: 1693377630}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1693377635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1652128376367175338, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+  m_PrefabInstance: {fileID: 1693377630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1693377636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693377635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27dad8e35126aa04b8b3e180be59fbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  audioMixer: {fileID: 24100000, guid: 29e1e780d2be96c44a436c0c30f18b98, type: 2}
+  footstepsSource: {fileID: 1201560691}
+  walkPitch: 1
+  sprintPitch: 1.4
+  missionAccomplishedSource: {fileID: 1090770992}
+  missionFailedSource: {fileID: 504143013}
+  fiveMinLeftSource: {fileID: 1319305759}
+  twoMinLeftSource: {fileID: 547674090}
+  missionBriefingSource: {fileID: 153800541}
+  missionBriefingDelay: 3
+  miningBeamSource: {fileID: 0}
+  tractorBeamSource: {fileID: 0}
+  repairBeamSource: {fileID: 0}
+  batteryNoiseSource: {fileID: 1522564619}
+  musicSource: {fileID: 0}
+  windSource: {fileID: 0}
+  masterVolumeSlider: {fileID: 0}
+  musicVolumeSlider: {fileID: 0}
+  voiceOverVolumeSlider: {fileID: 0}
+  timerSliders: {fileID: 0}
+  playerInputHandler: {fileID: 0}
+  multitool: {fileID: 0}
 --- !u!1001 &1694553198
 PrefabInstance:
   m_ObjectHideFlags: 0
