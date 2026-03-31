@@ -24,10 +24,10 @@ MonoBehaviour:
     m_Value: {x: 0, y: 0}
   bottomAltitude:
     m_OverrideState: 1
-    m_Value: 1000
+    m_Value: 1500
   altitudeRange:
     m_OverrideState: 1
-    m_Value: 5000
+    m_Value: 2500
   fadeInMode:
     m_OverrideState: 1
     m_Value: 0
@@ -56,10 +56,10 @@ MonoBehaviour:
     m_Value: 0
   cloudSimpleMode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   m_CloudPreset:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 4
   cumulusMap:
     m_OverrideState: 1
     m_Value: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.037
+        time: 0.05
         value: 1
         inSlope: 0
         outSlope: 0
@@ -112,8 +112,8 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.6
-        value: 1
+        time: 0.9
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -147,35 +147,8 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.05
-        value: 0.8
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.2438
-        value: 0.9498
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.5
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.93
-        value: 0.9268
+        time: 0.1
+        value: 0.9
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -209,15 +182,6 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.1
-        value: 0.4
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
         time: 1
         value: 0
         inSlope: 0
@@ -240,22 +204,22 @@ MonoBehaviour:
     m_Value: 0.86
   densityMultiplier:
     m_OverrideState: 1
-    m_Value: 0.35
+    m_Value: 0.546
   shapeFactor:
     m_OverrideState: 1
-    m_Value: 0.85
+    m_Value: 0.625
   shapeScale:
     m_OverrideState: 1
-    m_Value: 5
+    m_Value: 5.03
   shapeOffset:
     m_OverrideState: 1
-    m_Value: {x: 0, y: 0, z: 0}
+    m_Value: {x: -10.64, y: 0.6, z: 3.09}
   erosionFactor:
     m_OverrideState: 1
-    m_Value: 0.75
+    m_Value: 1
   erosionScale:
     m_OverrideState: 1
-    m_Value: 107
+    m_Value: 153
   erosionNoiseType:
     m_OverrideState: 1
     m_Value: 1
@@ -264,7 +228,7 @@ MonoBehaviour:
     m_Value: 0
   microErosionFactor:
     m_OverrideState: 1
-    m_Value: 0.65
+    m_Value: 0.5
   microErosionScale:
     m_OverrideState: 1
     m_Value: 300
@@ -281,7 +245,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value:
       mode: 1
-      customValue: 100
+      customValue: 0
       additiveValue: 0
       multiplyValue: 1
   orientation:
@@ -311,7 +275,7 @@ MonoBehaviour:
     m_Value: 0
   temporalAccumulationFactor:
     m_OverrideState: 1
-    m_Value: 0.95
+    m_Value: 1
   ghostingReduction:
     m_OverrideState: 1
     m_Value: 1
@@ -476,7 +440,7 @@ MonoBehaviour:
     m_Value: 0.01192826
   aerosolTint:
     m_OverrideState: 1
-    m_Value: {r: 0.54905653, g: 0.83634305, b: 1, a: 1}
+    m_Value: {r: 0.6972516, g: 0.8367321, b: 0.9169811, a: 1}
   aerosolMaximumAltitude:
     m_OverrideState: 1
     m_Value: 8289.296
@@ -527,10 +491,10 @@ MonoBehaviour:
     m_Value: 1
   horizonTint:
     m_OverrideState: 1
-    m_Value: {r: 0.8660377, g: 0.9595522, b: 1, a: 1}
+    m_Value: {r: 0.21362048, g: 0.25728014, b: 0.2754717, a: 1}
   zenithTint:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 0.6754716, g: 0.6754716, b: 0.6754716, a: 1}
   horizonZenithShift:
     m_OverrideState: 1
     m_Value: 0
