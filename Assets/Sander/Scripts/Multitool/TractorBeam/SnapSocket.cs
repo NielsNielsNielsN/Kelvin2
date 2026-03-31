@@ -20,21 +20,15 @@ public class SnapSocket : MonoBehaviour
     private GameObject previewInstance;
     private Coroutine previewPulseCoroutine;
 
-    // Called by tractor when object snaps here
     public void SnapObject(Transform objTransform)
     {
-        // Hide preview immediately on snap
         HidePreview();
 
         objTransform.SetParent(transform);
         objTransform.localPosition = Vector3.zero;
         objTransform.localRotation = Quaternion.Euler(objTransform.GetComponent<TransportObjective>().SnapRotationOffset);
-
-        // Optional: add effects/sound
-        Debug.Log(objTransform.name + " snapped to socket!");
     }
 
-    // Public: create a preview mesh based on the source object's mesh/renderer
     public void ShowPreview(GameObject sourceObject)
     {
         HidePreview();

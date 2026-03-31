@@ -61,9 +61,6 @@ public class ObjectiveManager : MonoBehaviour
             transportObjectives.Remove(transportedObject); // optional: clean up list
             completedCount++;
             CheckWin();
-            Debug.Log("Transport objective completed: " + transportedObject.name);
-
-            // Notify the image tracker hook on this object so its canvas image updates
             ObjectiveImageTransportHook hook = transportedObject.GetComponent<ObjectiveImageTransportHook>();
             if (hook != null) hook.NotifyCompleted();
         }
@@ -90,7 +87,6 @@ public class ObjectiveManager : MonoBehaviour
         if (completedCount >= totalObjectives && !allObjectivesCompleted)
         {
             allObjectivesCompleted = true;
-            Debug.Log("★ ALL OBJECTIVES COMPLETED! Ready for final win trigger. ★");
         }
     }
 
@@ -106,12 +102,7 @@ public class ObjectiveManager : MonoBehaviour
         if (allObjectivesCompleted && !hasWon)
         {
             hasWon = true;
-            Debug.Log("★ YOU WIN! ★");
             StartCoroutine(FadeToWin());
-        }
-        else if (!allObjectivesCompleted)
-        {
-            Debug.LogWarning("Cannot trigger win - not all objectives completed yet!");
         }
     }
 

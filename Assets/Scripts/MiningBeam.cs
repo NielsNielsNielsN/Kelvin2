@@ -6,18 +6,15 @@ public class MiningBeam : MonoBehaviour
     public VisualEffect beamVFX;
     public float maxDistance = 50f;
 
-    // When set, the beam endpoint is locked to this transform instead of raycasting
     private Transform lockedTarget;
     private Vector3 lockedHitNormal;
 
-    // Called by Multitool when an object is picked up with the tractor beam
     public void LockTarget(Transform target, Vector3 hitNormal)
     {
         lockedTarget = target;
         lockedHitNormal = hitNormal;
     }
 
-    // Called by Multitool when the tractor beam releases the object
     public void ClearTarget()
     {
         lockedTarget = null;
@@ -27,7 +24,6 @@ public class MiningBeam : MonoBehaviour
     {
         if (lockedTarget != null)
         {
-            // Point beam at the held object's current position
             Vector3 localEnd = beamVFX.transform.InverseTransformPoint(lockedTarget.position);
             beamVFX.SetVector3("endPointLocal", localEnd);
 
@@ -47,11 +43,7 @@ public class MiningBeam : MonoBehaviour
 
             // Move the impact VFX to the hit point
             impactVFX.transform.position = hit.point;
-
-            // Optional: orient it to face the surface normal
             impactVFX.transform.rotation = Quaternion.LookRotation(hit.normal);
-
-            // Optional: enable the effect
             impactVFX.SendEvent("Active");
         }
         else
@@ -60,7 +52,6 @@ public class MiningBeam : MonoBehaviour
             Vector3 localEnd = beamVFX.transform.InverseTransformPoint(worldEnd);
             beamVFX.SetVector3("endPointLocal", localEnd);
 
-            // Disable the impact effect when nothing is hit
             impactVFX.SendEvent("NotActive");
         }
     }

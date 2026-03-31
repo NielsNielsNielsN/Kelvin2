@@ -21,7 +21,7 @@ public class WinObjective : MonoBehaviour
         mainCamera = Camera.main;
 
         if (objectiveManager == null)
-            objectiveManager = FindObjectOfType<ObjectiveManager>();
+            objectiveManager = Object.FindFirstObjectByType<ObjectiveManager>();
 
         if (activationPrompt != null)
             activationPrompt.SetActive(false);
@@ -71,7 +71,6 @@ public class WinObjective : MonoBehaviour
         objectiveManager.TriggerWin();
     }
 
-    // Optional: Visual feedback for debugging
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

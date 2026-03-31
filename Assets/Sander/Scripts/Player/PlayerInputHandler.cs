@@ -66,7 +66,7 @@ public class PlayerInputHandler : MonoBehaviour
         mineAction.canceled += _ => IsMining = false;
 
         toggleModeAction.performed += _ => ToggleModeTriggered = true;
-        toggleModeAction.performed += _ => Debug.Log("PlayerInputHandler: ToggleMode action performed (RMB)");
+
 
         scrollDistanceAction.performed += inputInfo =>
         {
@@ -82,7 +82,6 @@ public class PlayerInputHandler : MonoBehaviour
                 val = inputInfo.ReadValue<float>();
             }
             ScrollInput = val;
-            Debug.Log("PlayerInputHandler: Scroll performed value=" + val);
         };
         scrollDistanceAction.canceled += inputInfo => ScrollInput = 0f;
     }
@@ -99,8 +98,6 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Update()
     {
-        // Intentionally do not clear ToggleModeTriggered here so other scripts
-        // reading it in Update() will observe a press in the same frame.
     }
 
     private void LateUpdate()

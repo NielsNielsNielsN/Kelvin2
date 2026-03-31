@@ -24,10 +24,9 @@ public class MinableRock : MonoBehaviour
 
         currentHealth = Mathf.Clamp(currentHealth - damage, 0f, maxHealth);
 
-        // Update slider if we have one
         if (miningProgressSlider != null)
         {
-            miningProgressSlider.value = 1f - (currentHealth / maxHealth); // 0 → full health, 1 → dead
+            miningProgressSlider.value = 1f - (currentHealth / maxHealth);
         }
 
         if (currentHealth <= 0f)
@@ -36,7 +35,6 @@ public class MinableRock : MonoBehaviour
         }
     }
 
-    // Allows external modification of health (positive to heal, negative to damage)
     public void ModifyHealth(float delta)
     {
         if (currentHealth <= 0f) return;
@@ -81,7 +79,6 @@ public class MinableRock : MonoBehaviour
     public void ResetHealth()
     {
         currentHealth = maxHealth;
-        // Reset slider too
         if (miningProgressSlider != null)
             miningProgressSlider.value = 0f;
     }

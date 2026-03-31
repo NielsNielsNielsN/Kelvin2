@@ -29,21 +29,20 @@ public class SharedTimerSliders : MonoBehaviour
     [SerializeField] private bool startInvisible = true;
 
     [Header("Death Sequence")]
-    [SerializeField] private Image fadeToBlackImage;       // Full-screen black image (alpha 0 at start)
-    [SerializeField] private float fadeDuration = 3f;      // How long to fade to black
-    [SerializeField] private GameObject gameOverCanvas;    // "You Died" / Game Over screen
-    [SerializeField] private GameObject crosshairCanvas;   // Crosshair to hide during death
+    [SerializeField] private Image fadeToBlackImage;
+    [SerializeField] private float fadeDuration = 3f;
+    [SerializeField] private GameObject gameOverCanvas;
+    [SerializeField] private GameObject crosshairCanvas;
 
     [Header("Player Freeze References")]
     [SerializeField] private PlayerInputHandler playerInputHandler;
     [SerializeField] private Multitool multitool;
-    [SerializeField] private MenuUI menuUI;                // Reference to MenuUI to unlock cursor and prevent pause
+    [SerializeField] private MenuUI menuUI;
 
-    // Runtime
     private float remainingTime;
     private bool isRunning;
     private bool isDead = false;
-    private bool gameStarted = false;  // Track if play button has been pressed
+    private bool gameStarted = false;
     private InputActionMap playerMap;
 
     void Awake()
@@ -66,15 +65,13 @@ public class SharedTimerSliders : MonoBehaviour
         if (gameOverCanvas != null)
             gameOverCanvas.SetActive(false);
 
-        // Cache player input map
         if (playerInputHandler != null && playerInputHandler.playerControls != null)
         {
             playerMap = playerInputHandler.playerControls.FindActionMap("Player");
         }
 
-        // Auto-find MenuUI if not assigned
         if (menuUI == null)
-            menuUI = FindObjectOfType<MenuUI>();
+            menuUI = Object.FindFirstObjectByType<MenuUI>();
     }
 
     void Start()
@@ -101,10 +98,6 @@ public class SharedTimerSliders : MonoBehaviour
 
         UpdateVisuals();
     }
-
-    // ────────────────────────────────────────────────
-    // Public control methods
-    // ────────────────────────────────────────────────
 
     public void StartCountdown()
     {
@@ -163,10 +156,6 @@ public class SharedTimerSliders : MonoBehaviour
     public bool IsFinished() => remainingTime <= 0f && !isRunning;
     public bool IsDead() => isDead;
     public GameObject GetGameOverCanvas() => gameOverCanvas;
-
-    // ────────────────────────────────────────────────
-    // Internal
-    // ────────────────────────────────────────────────
 
     private void UpdateVisuals()
     {
@@ -237,7 +226,6 @@ public class SharedTimerSliders : MonoBehaviour
     {
         if (fadeToBlackImage == null) yield break;
 
-        // Hide crosshair immediately when death sequence starts
         if (crosshairCanvas != null)
             crosshairCanvas.SetActive(false);
 
@@ -259,15 +247,9 @@ public class SharedTimerSliders : MonoBehaviour
         if (gameOverCanvas != null)
         {
             gameOverCanvas.SetActive(true);
-            // Unlock cursor so player can click buttons on game over canvas
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-    }
-
-    private void OnTimerFinished()
-    {
-        // Empty — TriggerDeathSequence handles everything
     }
 
     // Editor helpers

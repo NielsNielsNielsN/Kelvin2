@@ -51,13 +51,13 @@ public class MenuUI : MonoBehaviour
         }
 
         if (multitool == null)
-            multitool = FindObjectOfType<Multitool>();
+            multitool = Object.FindFirstObjectByType<Multitool>();
 
         if (timerSliders == null)
-            timerSliders = FindObjectOfType<SharedTimerSliders>();
+            timerSliders = Object.FindFirstObjectByType<SharedTimerSliders>();
 
         if (audioManager == null)
-            audioManager = FindObjectOfType<AudioManager>();
+            audioManager = Object.FindFirstObjectByType<AudioManager>();
 
         ingameUI.SetActive(false);
         pauseMenu.SetActive(false);
@@ -77,6 +77,10 @@ public class MenuUI : MonoBehaviour
 
     private void PauseMenuOn()
     {
+        // Don't allow pause while the start menu is visible
+        if (startMenu != null && startMenu.activeSelf)
+            return;
+
         // Don't allow pause if game over canvas is active (game is in death sequence)
         if (IsGameOverActive())
             return;
@@ -98,7 +102,7 @@ public class MenuUI : MonoBehaviour
     private bool IsGameOverActive()
     {
         // Check if any game over canvas is active in the scene
-        SharedTimerSliders timerSlider = FindObjectOfType<SharedTimerSliders>();
+        SharedTimerSliders timerSlider = Object.FindFirstObjectByType<SharedTimerSliders>();
         if (timerSlider != null)
         {
             return timerSlider.IsDead();
@@ -108,6 +112,9 @@ public class MenuUI : MonoBehaviour
 
     public void TogglePause()
     {
+        if (startMenu != null && startMenu.activeSelf)
+            return;
+
         visible = !visible;
         pauseMenu.gameObject.SetActive(visible);
 
@@ -138,7 +145,6 @@ public class MenuUI : MonoBehaviour
                 audioManager.ResumeAudio();
         }
 
-        Debug.Log("TogglePause - visible now: " + visible + ", ingameUI active: " + ingameUI.activeSelf);
     }
 
     public void Resume()
@@ -181,7 +187,7 @@ public class MenuUI : MonoBehaviour
         Time.timeScale = 1f;
         
         // Deactivate win canvas if it's active
-        ObjectiveManager objectiveManager = FindObjectOfType<ObjectiveManager>();
+        ObjectiveManager objectiveManager = Object.FindFirstObjectByType<ObjectiveManager>();
         if (objectiveManager != null && objectiveManager.GetWinCanvas() != null)
         {
             objectiveManager.GetWinCanvas().SetActive(false);
@@ -195,7 +201,7 @@ public class MenuUI : MonoBehaviour
         Time.timeScale = 1f;
         
         // Deactivate win canvas if it's active
-        ObjectiveManager objectiveManager = FindObjectOfType<ObjectiveManager>();
+        ObjectiveManager objectiveManager = Object.FindFirstObjectByType<ObjectiveManager>();
         if (objectiveManager != null && objectiveManager.GetWinCanvas() != null)
         {
             objectiveManager.GetWinCanvas().SetActive(false);

@@ -31,7 +31,6 @@ public class FirstPersonController : MonoBehaviour
 
     private float CurrentSpeed => walkSpeed * (playerInputHandler.SprintTriggered ? sprintMultiplier : 1.0f);
 
-    // Animator parameter hashes (faster than string lookup)
     private static readonly int SpeedHash = Animator.StringToHash("Speed");
     private static readonly int IsSprintingHash = Animator.StringToHash("IsSprinting"); // optional bool
     private static readonly int MultitoolAHash = Animator.StringToHash("MultitoolA");
@@ -75,8 +74,6 @@ public class FirstPersonController : MonoBehaviour
     private bool isPlayingInspect = false;
     private Coroutine inspectWatcherCoroutine;
     private float inspectEndTime = 0f;
-
-    private bool multitoolActive = false;
 
     void Start()
     {
@@ -133,8 +130,6 @@ public class FirstPersonController : MonoBehaviour
         Vector3 targetLocal = originalCameraLocalPos + new Vector3(lateral, 0f, forward);
 
         mainCamera.transform.localPosition = Vector3.SmoothDamp(mainCamera.transform.localPosition, targetLocal, ref cameraSwayVelocity, swaySmoothTime);
-
-        // rig sway is handled by separate WeaponRigSway component
     }
 
     private void HandleInspectInputs()
@@ -151,7 +146,6 @@ public class FirstPersonController : MonoBehaviour
         // idle timer: reset when any movement/jump/mine/sprint input (exclude camera movement)
         // We intentionally ignore RotationInput so looking around doesn't cancel the inspect animation
         bool hasActivity = playerInputHandler.MovementInput.sqrMagnitude > 0f || playerInputHandler.IsMining || playerInputHandler.JumpTriggered || playerInputHandler.SprintTriggered;
-        // also treat multitool switching as activity
         if (multitool != null && multitool.IsSwitching) hasActivity = true;
         if (hasActivity)
         {
@@ -184,7 +178,6 @@ public class FirstPersonController : MonoBehaviour
     {
         if (!HasAnimatorParameter("PlayInspect"))
         {
-            Debug.LogWarning("Animator missing 'PlayInspect' trigger parameter");
             return;
         }
         // Reset trigger then set to ensure single-shot
@@ -251,7 +244,6 @@ public class FirstPersonController : MonoBehaviour
 
         if (playerInputHandler.ToggleModeTriggered)
         {
-            Debug.Log("FirstPersonController: ToggleModeTriggered detected");
             // If inspect is playing, cancel it so switch animations can interrupt
             if (isPlayingInspect)
             {
@@ -269,20 +261,11 @@ public class FirstPersonController : MonoBehaviour
             {
                 animator.SetTrigger(PlayArmsHash);
             }
-            else
-            {
-                Debug.LogWarning("Animator is missing parameter 'PlayArms'. Add a Trigger parameter named 'PlayArms' to the Animator.");
-            }
 
             if (HasAnimatorParameter("PlayGun"))
             {
                 animator.ResetTrigger(PlayGunHash);
                 animator.SetTrigger(PlayGunHash);
-                Debug.Log($"FirstPersonController: PlayGun trigger set on layer {gunLayerIndex}");
-            }
-            else
-            {
-                Debug.LogWarning("Animator is missing parameter 'PlayGun'. Add a Trigger parameter named 'PlayGun' to the Animator.");
             }
 
             // start watcher to end switching when animations complete
@@ -361,8 +344,6 @@ public class FirstPersonController : MonoBehaviour
         }
         return false;
     }
-
-    // Removed EnsurePlayOnce helper — rely on Animator trigger + non-looping clip settings.
 
     private void UpdateAnimation()
     {

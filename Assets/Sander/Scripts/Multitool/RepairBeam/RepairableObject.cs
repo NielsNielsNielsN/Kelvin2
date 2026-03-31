@@ -55,13 +55,11 @@ public class RepairableObject : MonoBehaviour
             AudioSource.PlayClipAtPoint(repairCompleteSound, transform.position);
         }
 
-        // Optional: disable script after repair
         enabled = false;
 
         OnRepaired.Invoke();
     }
 
-    // For visual feedback (optional): change color or scale slightly during repair
     public float GetRepairProgressNormalized() => currentRepairProgress / GetMaxRepairTime();
 
     public float GetMaxRepairTime() => Mathf.Max(0.0001f, maxRepairTime);

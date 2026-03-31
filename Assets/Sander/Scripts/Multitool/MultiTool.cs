@@ -38,7 +38,6 @@ public class Multitool : MonoBehaviour
     [SerializeField] private float holdDistance = 3f;
     [SerializeField] private float minHoldDistance = 1f;
     [SerializeField] private float maxHoldDistance = 10f;
-    [SerializeField] private float scrollSensitivity = 2f;
     [Tooltip("Distance added/subtracted per scroll notch")]
     [SerializeField] private float scrollStepSize = 0.25f;
     [SerializeField] private float springStiffness = 120f;
@@ -87,12 +86,10 @@ public class Multitool : MonoBehaviour
     private Rigidbody tractorTargetRb;
     private float targetHoldDistance;
     private ToolMode lastMode;
-    // Runtime targets for repair mode
-    private RepairableObject currentTargetRepairable; // currently aimed
-    private RepairableObject trackedRepairable; // last targeted, used to decay when contact lost
-    private MinableRock trackedRock; // last targeted rock when losing aim
+    private RepairableObject currentTargetRepairable;
+    private RepairableObject trackedRepairable;
+    private MinableRock trackedRock;
 
-    // Coroutine handles
     private Coroutine miningResetCoroutine;
     private Coroutine repairDecayCoroutine;
     private Coroutine rockHealCoroutine;
@@ -117,7 +114,6 @@ public class Multitool : MonoBehaviour
         if (inputHandler == null) inputHandler = GetComponentInParent<PlayerInputHandler>();
         if (aimCamera == null) aimCamera = Camera.main;
 
-        // Ensure all VFX emitters start inactive
         if (miningBeamEmitterRef != null) miningBeamEmitterRef.SetActive(false);
         if (tractorBeamEmitterRef != null)
         {
@@ -140,10 +136,9 @@ public class Multitool : MonoBehaviour
         targetHoldDistance = holdDistance;
 
         lastMode = currentMode;
-        UpdateModeIcon(); // Initialize panels + screen icon
+        UpdateModeIcon();
     }
 
-    // Called externally to request a mode toggle (e.g., from controller) — will respect current switching state
     public void RequestToggleMode()
     {
         if (isSwitching) return;
@@ -155,30 +150,22 @@ public class Multitool : MonoBehaviour
         if (isSwitching) yield break;
         isSwitching = true;
 
-        // disable firing/laser by treating tool as inactive during switch
         isActive = false;
 
-        // wait for a short delay to align panels with animation
         yield return new WaitForSeconds(modePanelDelay);
 
         ToggleMode();
-        Debug.Log("Switched to: " + currentMode);
-
-        // Note: do NOT clear isSwitching here — caller (controller) will call EndSwitching() when animations finish
     }
 
     // Called by external code (e.g. FirstPersonController) when the switch animations have completed
     public void EndSwitching()
     {
         isSwitching = false;
-        // restore active based on current input
         isActive = inputHandler != null && inputHandler.IsMining;
     }
 
-    // Public accessor so other systems can know switching is in progress
     public bool IsSwitching => isSwitching;
 
-    // Public accessor so other systems (e.g. WeaponRigSway) can read whether the beam is actively firing
     public bool IsFiring => isActive;
 
     void Update()
@@ -190,8 +177,6 @@ public class Multitool : MonoBehaviour
         {
             return inputHandler != null && inputHandler.IsMining;
         }
-
-        // Mode switching is handled externally (FirstPersonController) via RequestToggleMode
 
         if (inputHandler.ScrollInput != 0f && currentMode == ToolMode.Tractor)
         {
@@ -220,21 +205,16 @@ public class Multitool : MonoBehaviour
                 rockHealCoroutine = null;
             }
 
-            // If we lost aim entirely (aimedRock == null) start healing the previous rock
             if (aimedRock == null && currentTargetRock != null)
             {
-                // set tracked rock and start smooth restore
                 trackedRock = currentTargetRock;
-                // remove listener to avoid mined callback during heal
                 trackedRock.OnMined.RemoveListener(OnRockMined);
-                // clear current target so PerformMining knows we're not targeting it
                 currentTargetRock = null;
                 if (rockHealCoroutine == null)
                     rockHealCoroutine = StartCoroutine(RestoreRockHealthOverTime(trackedRock, miningDecayDuration));
             }
             else
             {
-                // switching directly to another rock (or first acquire)
                 UnsubscribeFromCurrentRock();
 
                 currentTargetRock = aimedRock;
@@ -243,7 +223,6 @@ public class Multitool : MonoBehaviour
                 {
                     currentTargetRock.miningProgressSlider = miningProgressSlider;
                     miningProgressSlider.value = 0f;
-                    // subscribe to mined event so we can animate the slider back to zero
                     currentTargetRock.OnMined.AddListener(OnRockMined);
                 }
             }
@@ -264,7 +243,6 @@ public class Multitool : MonoBehaviour
             currentTargetRepairable = aimedRepair;
             if (currentTargetRepairable != null)
             {
-                // start tracking this repairable (for decay when we lose aim)
                 if (trackedRepairable != null && trackedRepairable != currentTargetRepairable)
                 {
                     trackedRepairable.OnRepaired.RemoveListener(OnRepairComplete);
@@ -273,7 +251,6 @@ public class Multitool : MonoBehaviour
                 if (repairProgressSlider != null)
                     repairProgressSlider.value = trackedRepairable.GetRepairProgressNormalized();
                 trackedRepairable.OnRepaired.AddListener(OnRepairComplete);
-                // stop any decay when we regain contact
                 if (repairDecayCoroutine != null)
                 {
                     StopCoroutine(repairDecayCoroutine);
@@ -282,7 +259,6 @@ public class Multitool : MonoBehaviour
             }
             else
             {
-                // we lost aim entirely - start decay of the last tracked repairable
                 if (trackedRepairable != null)
                 {
                     StartRepairDecay();
@@ -354,7 +330,6 @@ public class Multitool : MonoBehaviour
 
     private void UpdateModeIcon()
     {
-        // Update screen-space icon (unchanged)
         if (modeIconImage != null)
         {
             modeIconImage.sprite = currentMode switch
@@ -366,17 +341,14 @@ public class Multitool : MonoBehaviour
             };
         }
 
-        // NEW: Update world-space panels (only one active)
         if (modePanels != null && modePanels.Length == 3)
         {
-            // Deactivate all
             for (int i = 0; i < modePanels.Length; i++)
             {
                 if (modePanels[i] != null)
                     modePanels[i].SetActive(false);
             }
 
-            // Activate the correct one
             int index = currentMode switch
             {
                 ToolMode.Mining => 0,
@@ -409,10 +381,8 @@ public class Multitool : MonoBehaviour
 
         beamRenderer.material.SetFloat("_Emission_Intensity", 10f);
 
-        // Activate the appropriate beam emitter based on current mode
         ActivateBeamEmitter();
 
-        // Hide LineRenderer when useVFXVisuals is enabled, show it otherwise
         if (beamRenderer != null)
         {
             if (useVFXVisuals)
@@ -443,7 +413,6 @@ public class Multitool : MonoBehaviour
 
     private void ActivateBeamEmitter()
     {
-        // Only activate the current mode's emitter, leave others off
         if (miningBeamEmitterRef != null)
             miningBeamEmitterRef.SetActive(currentMode == ToolMode.Mining);
         if (tractorBeamEmitterRef != null)
@@ -472,7 +441,6 @@ public class Multitool : MonoBehaviour
         {
             DrawBeamToRange(maxRange);
             StopEffects();
-            // start healing the last tracked rock gradually instead of instant reset
             if (currentTargetRock != null && rockHealCoroutine == null)
             {
                 rockHealCoroutine = StartCoroutine(RestoreRockHealthOverTime(currentTargetRock, miningDecayDuration));
@@ -492,9 +460,7 @@ public class Multitool : MonoBehaviour
             rock.ModifyHealth(delta);
             yield return null;
         }
-        // ensure full reset
         rock.ModifyHealth(max - rock.GetCurrentHealth());
-        // clear tracked rock
         if (trackedRock == rock)
             trackedRock = null;
         rockHealCoroutine = null;
@@ -516,8 +482,6 @@ public class Multitool : MonoBehaviour
             beamRenderer.SetPosition(0, transform.position);
             beamRenderer.SetPosition(1, beamEndPoint);
 
-            // Spring-velocity towards the aim hold point (runs in LateUpdate at visual frame rate;
-            // the rigidbody is non-kinematic + Interpolate so Unity smooths between physics steps)
             Vector3 targetPos = aimRay.origin + aimRay.direction * targetHoldDistance;
             Vector3 delta = targetPos - heldRigidbody.transform.position;
             Vector3 springForce = delta * springStiffness - heldRigidbody.linearVelocity * springDamping;
@@ -538,7 +502,6 @@ public class Multitool : MonoBehaviour
             beamRenderer.SetPosition(0, transform.position);
             beamRenderer.SetPosition(1, hit.point);
             PickupObject(hit.collider);
-            // Lock tractor beam visuals to the picked-up object so they follow it
             if (tractorBeamScript != null && heldRigidbody != null)
                 tractorBeamScript.LockTarget(heldRigidbody.transform, hit.normal);
         }
@@ -552,7 +515,6 @@ public class Multitool : MonoBehaviour
     {
         if (currentTargetRock != null)
         {
-            // remove event listener and clear current target; do not instantly reset health
             currentTargetRock.OnMined.RemoveListener(OnRockMined);
             currentTargetRock = null;
 
@@ -566,13 +528,11 @@ public class Multitool : MonoBehaviour
 
     private void OnRockMined()
     {
-        // start coroutine to animate slider back to zero
         if (miningProgressSlider != null)
         {
             if (miningResetCoroutine != null) StopCoroutine(miningResetCoroutine);
             miningResetCoroutine = StartCoroutine(AnimateSliderToZero(miningProgressSlider, 2f));
         }
-        // clear current target reference
         currentTargetRock = null;
     }
 
@@ -601,7 +561,6 @@ public class Multitool : MonoBehaviour
 
     private void OnRepairComplete()
     {
-        // animate slider back to zero when repair completes
         if (repairProgressSlider != null)
         {
             StartCoroutine(AnimateSliderToZero(repairProgressSlider, 1.5f));
@@ -613,7 +572,6 @@ public class Multitool : MonoBehaviour
         }
     }
 
-    // Called to begin a smooth decay of the repair slider and progress when contact is lost
     private void StartRepairDecay()
     {
         if (trackedRepairable == null || repairProgressSlider == null) return;
@@ -624,7 +582,6 @@ public class Multitool : MonoBehaviour
     private System.Collections.IEnumerator RepairDecayCoroutine(RepairableObject obj, UnityEngine.UI.Slider s, float duration)
     {
         if (obj == null || s == null) yield break;
-        // compute repair time removed per second so decay is linear and configurable
         float totalRepairTime = obj.GetMaxRepairTime();
         float currentTimeRemaining = obj.GetRepairProgressNormalized() * totalRepairTime;
         float removePerSecond = currentTimeRemaining / Mathf.Max(0.0001f, repairDecayDuration);
@@ -653,7 +610,7 @@ public class Multitool : MonoBehaviour
             socket.SnapObject(heldRigidbody.transform);
             heldRigidbody.isKinematic = true;
 
-            FindObjectOfType<ObjectiveManager>()?.OnTransportObjectiveCompleted(heldRigidbody.gameObject);
+            Object.FindFirstObjectByType<ObjectiveManager>()?.OnTransportObjectiveCompleted(heldRigidbody.gameObject);
 
             heldRigidbody = null;
             if (tractorBeamScript != null)
@@ -674,16 +631,13 @@ public class Multitool : MonoBehaviour
             RepairableObject repairObj = hit.collider.GetComponent<RepairableObject>();
             if (repairObj != null)
             {
-                // apply repair
                 repairObj.Repair(repairPerSecond * Time.deltaTime);
 
-                // ensure slider is assigned and updated
                 if (repairProgressSlider != null)
                 {
                     repairProgressSlider.value = repairObj.GetRepairProgressNormalized();
                 }
 
-                // set tracked repairable so decay can continue when we lose aim
                 trackedRepairable = repairObj;
             }
         }
@@ -691,7 +645,6 @@ public class Multitool : MonoBehaviour
         {
             DrawBeamToRange(maxRange);
             StopEffects();
-            // start a smooth decay when we lose aim
             if (trackedRepairable != null)
             {
                 StartRepairDecay();
@@ -704,7 +657,6 @@ public class Multitool : MonoBehaviour
         Rigidbody rb = col.attachedRigidbody;
         if (rb == null || rb.isKinematic)
         {
-            Debug.LogWarning("No valid non-kinematic Rigidbody on hit object: " + col.name);
             return;
         }
 
@@ -726,8 +678,6 @@ public class Multitool : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         releaseVelocity = Vector3.zero;
-
-        Debug.Log("Picked up: " + col.name);
     }
 
     public void StopActive()
@@ -735,12 +685,10 @@ public class Multitool : MonoBehaviour
         beamRenderer.enabled = false;
         StopEffects();
 
-        // Deactivate all beam emitters
         if (miningBeamEmitterRef != null) miningBeamEmitterRef.SetActive(false);
         if (tractorBeamEmitterRef != null) tractorBeamEmitterRef.SetActive(false);
         if (repairBeamEmitterRef != null) repairBeamEmitterRef.SetActive(false);
 
-        // hide preview before releasing/clearing held rigidbody
         if (heldRigidbody != null)
         {
             TransportObjective transportObj = heldRigidbody.GetComponent<TransportObjective>();
@@ -759,15 +707,12 @@ public class Multitool : MonoBehaviour
             heldRigidbody.angularVelocity = Vector3.zero;
             heldRigidbody = null;
 
-            // Release the locked beam visual target
             if (tractorBeamScript != null)
                 tractorBeamScript.ClearTarget();
         }
 
-        // If we stop using the tool while mining, reset the current rock
         if (currentMode == ToolMode.Mining && currentTargetRock != null)
         {
-            // start smooth heal instead of instant reset
             trackedRock = currentTargetRock;
             trackedRock.OnMined.RemoveListener(OnRockMined);
             currentTargetRock = null;
@@ -775,11 +720,8 @@ public class Multitool : MonoBehaviour
                 rockHealCoroutine = StartCoroutine(RestoreRockHealthOverTime(trackedRock, miningDecayDuration));
         }
 
-        // If we stop using the tool while repairing, start decaying the repair progress
         if (currentMode == ToolMode.Repair && currentTargetRepairable != null)
         {
-            // nothing special here — decay will be handled in PerformRepair when we exit raycast
-            // but ensure slider exists
             if (repairProgressSlider != null)
                 repairProgressSlider.value = currentTargetRepairable.GetRepairProgressNormalized();
         }

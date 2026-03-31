@@ -9,10 +9,7 @@ public class CustomTextureOverride : MonoBehaviour
     {
         Renderer renderer = GetComponent<Renderer>();
         if (renderer == null)
-        {
-            Debug.LogError("No Renderer found on this GameObject!");
             return;
-        }
 
         MaterialPropertyBlock block = new MaterialPropertyBlock();
         if (secondTexture != null)

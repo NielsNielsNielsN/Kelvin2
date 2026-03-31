@@ -70,20 +70,12 @@ public class ObjectiveImageTracker : MonoBehaviour
         foreach (TransportObjectiveImage entry in transportEntries)
         {
             if (entry.objective == null || entry.image == null) continue;
-            TransportObjective transport = entry.objective.GetComponent<TransportObjective>();
-            if (transport == null) continue;
+            if (entry.objective.GetComponent<TransportObjective>() == null) continue;
             TransportObjectiveImage captured = entry;
-            // Hook into the snap socket's snap event via a helper component placed on the transport object
             ObjectiveImageTransportHook hook = entry.objective.GetComponent<ObjectiveImageTransportHook>();
             if (hook == null) hook = entry.objective.AddComponent<ObjectiveImageTransportHook>();
             hook.Register(captured.image, captured.completedMaterial, this);
         }
-    }
-
-    // Called by ObjectiveImageTransportHook when a transport snaps
-    public void OnTransportCompleted(Image image, Material completedMaterial)
-    {
-        OnObjectiveCompleted(image, completedMaterial);
     }
 
     private void OnObjectiveCompleted(Image image, Material completedMaterial)
