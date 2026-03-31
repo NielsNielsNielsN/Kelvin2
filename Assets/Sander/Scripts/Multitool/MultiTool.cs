@@ -39,6 +39,8 @@ public class Multitool : MonoBehaviour
     [SerializeField] private float minHoldDistance = 1f;
     [SerializeField] private float maxHoldDistance = 10f;
     [SerializeField] private float scrollSensitivity = 2f;
+    [Tooltip("Distance added/subtracted per scroll notch")]
+    [SerializeField] private float scrollStepSize = 0.25f;
     [SerializeField] private float springStiffness = 120f;
     [SerializeField] private float springDamping = 18f;
     [SerializeField] private float maxHoldVelocity = 25f;
@@ -193,7 +195,8 @@ public class Multitool : MonoBehaviour
 
         if (inputHandler.ScrollInput != 0f && currentMode == ToolMode.Tractor)
         {
-            targetHoldDistance += inputHandler.ScrollInput * scrollSensitivity;
+            float scrollDir = Mathf.Sign(inputHandler.ScrollInput);
+            targetHoldDistance += scrollDir * scrollStepSize;
             targetHoldDistance = Mathf.Clamp(targetHoldDistance, minHoldDistance, maxHoldDistance);
         }
 
