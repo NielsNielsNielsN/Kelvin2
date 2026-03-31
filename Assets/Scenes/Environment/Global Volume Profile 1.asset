@@ -337,16 +337,16 @@ MonoBehaviour:
     m_Value: 1
   length:
     m_OverrideState: 1
-    m_Value: 0.15
+    m_Value: 1
   opacity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.927
   distanceScaleFactor:
     m_OverrideState: 1
     m_Value: 0.5
   maxDistance:
     m_OverrideState: 1
-    m_Value: 50
+    m_Value: 100
   minDistance:
     m_OverrideState: 1
     m_Value: 0
@@ -365,6 +365,31 @@ MonoBehaviour:
   m_SampleCount:
     m_OverrideState: 1
     m_Value: 10
+--- !u!114 &-4334234426591693783
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598e2d32e2c7b0c418e030c3236d663a, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.ChromaticAberration
+  active: 1
+  quality:
+    m_OverrideState: 1
+    m_Value: 1
+  spectralLut:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.11
+  m_MaxSamples:
+    m_OverrideState: 1
+    m_Value: 6
 --- !u!114 &-4290893757744964104
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -523,7 +548,7 @@ MonoBehaviour:
   active: 1
   screenFadeDistance:
     m_OverrideState: 1
-    m_Value: 0.1
+    m_Value: 0.238
 --- !u!114 &-763989979708495350
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -538,31 +563,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.Vignette
   active: 1
   mode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   color:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 1}
   center:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {x: 0.5, y: 0.5}
   intensity:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.329
   smoothness:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0.2
   roundness:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   rounded:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   mask:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {fileID: 0}
   opacity:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
 --- !u!114 &-504825161295917524
 MonoBehaviour:
@@ -683,6 +708,9 @@ MonoBehaviour:
   - {fileID: -1933339672030230132}
   - {fileID: 7734802581149264530}
   - {fileID: 213238555612982814}
+  - {fileID: 2326746565438517423}
+  - {fileID: 1041040408008062799}
+  - {fileID: -4334234426591693783}
 --- !u!114 &128000421968568339
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1119,6 +1147,40 @@ MonoBehaviour:
     castShadows:
       m_OverrideState: 1
       m_Value: 0
+--- !u!114 &1041040408008062799
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b24b200358312b4fa1004e2431c2f1f, type: 3}
+  m_Name: ShadowsMidtonesHighlights
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.ShadowsMidtonesHighlights
+  active: 1
+  shadows:
+    m_OverrideState: 1
+    m_Value: {x: 0.93927413, y: 0.94300884, z: 1, w: 0.03902439}
+  midtones:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
+  highlights:
+    m_OverrideState: 1
+    m_Value: {x: 0.99475026, y: 1, z: 0.93971455, w: -0.03902439}
+  shadowsStart:
+    m_OverrideState: 1
+    m_Value: 0
+  shadowsEnd:
+    m_OverrideState: 1
+    m_Value: 0.3
+  highlightsStart:
+    m_OverrideState: 1
+    m_Value: 0.55
+  highlightsEnd:
+    m_OverrideState: 1
+    m_Value: 1
 --- !u!114 &1043718373961227626
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1134,16 +1196,16 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 2
   threshold:
     m_OverrideState: 1
-    m_Value: 0.32
+    m_Value: 2.37
   intensity:
     m_OverrideState: 1
-    m_Value: 0.466
+    m_Value: 0.22
   scatter:
     m_OverrideState: 1
-    m_Value: 0.585
+    m_Value: 0.207
   tint:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -1183,7 +1245,32 @@ MonoBehaviour:
     m_Value: 1
   opacity:
     m_OverrideState: 1
-    m_Value: 0.696
+    m_Value: 0.927
+--- !u!114 &2326746565438517423
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6b00fcf518bb94a90b408492e07b44, type: 3}
+  m_Name: FilmGrain
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.FilmGrain
+  active: 1
+  type:
+    m_OverrideState: 1
+    m_Value: 9
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.249
+  response:
+    m_OverrideState: 1
+    m_Value: 0.8
+  texture:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
 --- !u!114 &5534756592406829113
 MonoBehaviour:
   m_ObjectHideFlags: 3
