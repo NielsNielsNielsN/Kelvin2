@@ -162,6 +162,7 @@ public class SharedTimerSliders : MonoBehaviour
     public bool IsRunning() => isRunning;
     public bool IsFinished() => remainingTime <= 0f && !isRunning;
     public bool IsDead() => isDead;
+    public GameObject GetGameOverCanvas() => gameOverCanvas;
 
     // ────────────────────────────────────────────────
     // Internal

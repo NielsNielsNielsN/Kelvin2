@@ -5660,6 +5660,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4660388748859532670}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1652128376367175338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6364436361611689149}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6364436361611689149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652128376367175338}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1894448408953189909}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1669192832775919642
 GameObject:
   m_ObjectHideFlags: 0
@@ -6608,6 +6639,7 @@ MonoBehaviour:
   minHoldDistance: 1
   maxHoldDistance: 10
   scrollSensitivity: 2
+  scrollStepSize: 0.25
   springStiffness: 120
   springDamping: 18
   maxHoldVelocity: 25
@@ -23051,6 +23083,7 @@ MonoBehaviour:
   playerInputHandler: {fileID: 641066465852533365}
   multitool: {fileID: 2310358989706713935}
   timerSliders: {fileID: 2877208723934215343}
+  audioManager: {fileID: 0}
   gameplayObjectsToActivate:
   - {fileID: 6382110340477870408}
   - {fileID: 3419071312316925245}
@@ -33364,6 +33397,7 @@ Transform:
   - {fileID: 1228517592225494882}
   - {fileID: 6937256046178215578}
   - {fileID: 5093392491636528248}
+  - {fileID: 6364436361611689149}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8248670591286471311

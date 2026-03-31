@@ -21,6 +21,7 @@ public class MenuUI : MonoBehaviour
     [SerializeField] private PlayerInputHandler playerInputHandler;
     [SerializeField] private Multitool multitool;
     [SerializeField] private SharedTimerSliders timerSliders;  // Reference to timer to start countdown on play
+    [SerializeField] private AudioManager audioManager;         // Reference to AudioManager
 
     [Header("Gameplay Objects to Activate on Play")]
     [SerializeField] private GameObject[] gameplayObjectsToActivate;
@@ -54,6 +55,9 @@ public class MenuUI : MonoBehaviour
 
         if (timerSliders == null)
             timerSliders = FindObjectOfType<SharedTimerSliders>();
+
+        if (audioManager == null)
+            audioManager = FindObjectOfType<AudioManager>();
 
         ingameUI.SetActive(false);
         pauseMenu.SetActive(false);
@@ -233,6 +237,13 @@ public class MenuUI : MonoBehaviour
         // Start the timer countdown
         if (timerSliders != null)
             timerSliders.StartCountdown();
+
+        // Reset audio state and trigger briefing again
+        if (audioManager != null)
+        {
+            audioManager.ResetAudioState();
+            audioManager.OnPlayPressed();
+        }
     }
 
     public void CursorLockModeOn()
@@ -288,6 +299,10 @@ public class MenuUI : MonoBehaviour
         // Start the timer countdown when play button is pressed
         if (timerSliders != null)
             timerSliders.StartCountdown();
+
+        // Trigger mission briefing audio
+        if (audioManager != null)
+            audioManager.OnPlayPressed();
     }
 
     public void OnQuitButtonPressed()
