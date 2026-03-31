@@ -9262,8 +9262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LightFlicker
   targetLight: {fileID: 313809791}
   lowIntensity: 3226404
-  highIntensity: 42811560
-  blinkSpeed: 2
+  highIntensity: 12811560
+  blinkSpeed: 1
 --- !u!1001 &314733571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9976,7 +9976,6 @@ MonoBehaviour:
   m_Script: {fileID: 759329569}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.SceneObjectIDMapSceneAsset
-  m_Entries: []
 --- !u!4 &370168025
 Transform:
   m_ObjectHideFlags: 19
@@ -13286,7 +13285,6 @@ MonoBehaviour:
   m_Script: {fileID: 1077393063}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.SceneObjectIDMapSceneAsset
-  m_Entries: []
 --- !u!4 &511831695
 Transform:
   m_ObjectHideFlags: 19
@@ -26351,9 +26349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b933cb2f51971fb4ba4ad103a3128bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveImageTracker
-  mineEntries: []
-  repairEntries: []
-  transportEntries: []
 --- !u!1001 &996577088
 PrefabInstance:
   m_ObjectHideFlags: 0
