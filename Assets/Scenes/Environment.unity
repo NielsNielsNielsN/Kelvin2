@@ -878,7 +878,6 @@ MonoBehaviour:
   director: {fileID: 401950383}
   gameplayCamera: {fileID: 1324303507}
   cutsceneCamera: {fileID: 189738499}
-  playerLook: {fileID: 0}
 --- !u!1 &47784507
 GameObject:
   m_ObjectHideFlags: 0
@@ -6312,8 +6311,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189738499}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21860673, y: 0.60791546, z: -0.14691433, w: 0.7490435}
-  m_LocalPosition: {x: -2.1605225, y: 0.08995819, z: -0.24932861}
+  m_LocalRotation: {x: 0.28164828, y: 0.02810269, z: -0.008252858, w: 0.9590706}
+  m_LocalPosition: {x: 12.738464, y: 7.798958, z: -2.6003418}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10481,7 +10480,6 @@ MonoBehaviour:
   m_Script: {fileID: 759329569}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.SceneObjectIDMapSceneAsset
-  m_Entries: []
 --- !u!4 &370168025
 Transform:
   m_ObjectHideFlags: 19
@@ -14056,7 +14054,6 @@ MonoBehaviour:
   m_Script: {fileID: 1077393063}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.SceneObjectIDMapSceneAsset
-  m_Entries: []
 --- !u!4 &511831695
 Transform:
   m_ObjectHideFlags: 19
@@ -27400,9 +27397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b933cb2f51971fb4ba4ad103a3128bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveImageTracker
-  mineEntries: []
-  repairEntries: []
-  transportEntries: []
 --- !u!114 &995021020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48269,6 +48263,10 @@ PrefabInstance:
       propertyPath: m_MaxValue
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 973402154765899357, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1228517592225494882, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.73
@@ -48707,6 +48705,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8747894638356493355, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9193978593480709875, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9193978593480709875, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9193978593480709875, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9193978593480709875, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
