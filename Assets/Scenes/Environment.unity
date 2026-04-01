@@ -10424,7 +10424,6 @@ MonoBehaviour:
   m_Script: {fileID: 759329569}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.SceneObjectIDMapSceneAsset
-  m_Entries: []
 --- !u!4 &370168025
 Transform:
   m_ObjectHideFlags: 19
@@ -13999,7 +13998,6 @@ MonoBehaviour:
   m_Script: {fileID: 1077393063}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.SceneObjectIDMapSceneAsset
-  m_Entries: []
 --- !u!4 &511831695
 Transform:
   m_ObjectHideFlags: 19
@@ -15782,7 +15780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &575312097
 Transform:
   m_ObjectHideFlags: 0
@@ -27342,9 +27340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b933cb2f51971fb4ba4ad103a3128bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveImageTracker
-  mineEntries: []
-  repairEntries: []
-  transportEntries: []
 --- !u!114 &995021020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28021,7 +28016,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1016375351
 Transform:
   m_ObjectHideFlags: 0
@@ -48194,6 +48189,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 874788204699823802, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_IsGlobal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 961158460166081575, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
       propertyPath: m_Value
       value: 1
@@ -48430,6 +48429,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4012649202531205139, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: volumeLayerMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4045169597999143434, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -48465,6 +48468,10 @@ PrefabInstance:
     - target: {fileID: 4785820891547309215, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460168683863621963, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: volumeLayerMask.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5601530472963908335, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
       propertyPath: m_Name
@@ -62054,7 +62061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2122134700
 Transform:
   m_ObjectHideFlags: 0
