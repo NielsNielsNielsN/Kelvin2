@@ -34492,7 +34492,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8413545599300337891}
   - component: {fileID: 3180927172563291790}
+<<<<<<< Updated upstream
   - component: {fileID: 5957718508445941}
+=======
+  - component: {fileID: 4117964068469097319}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Objective Manager
   m_TagString: Untagged
@@ -34545,7 +34549,11 @@ MonoBehaviour:
   winFadeDuration: 3
   winCanvas: {fileID: 6611453961341263556}
   crosshairCanvas: {fileID: 7107585010999421795}
+<<<<<<< Updated upstream
 --- !u!114 &5957718508445941
+=======
+--- !u!114 &4117964068469097319
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
