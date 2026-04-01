@@ -1036,6 +1036,7 @@ GameObject:
   - component: {fileID: 11596060322038800}
   - component: {fileID: 8113441207669790421}
   - component: {fileID: 7329587950963310656}
+  - component: {fileID: 8875301579931422062}
   m_Layer: 0
   m_Name: Terminal
   m_TagString: Untagged
@@ -1141,6 +1142,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6061844636329224531, guid: bb558d8b86de0524b9bcd7e3b9b749e1, type: 3}
+--- !u!114 &8875301579931422062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928554552887383550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6dd41c5dd78b144891a185afb3e4b15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WinObjective
+  objectiveManager: {fileID: 0}
+  activationKey: 101
+  interactionRange: 5
+  activationPrompt: {fileID: 0}
 --- !u!1 &5169863872938618597
 GameObject:
   m_ObjectHideFlags: 0
