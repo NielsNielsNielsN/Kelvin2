@@ -4878,6 +4878,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8655947516476481475, guid: e4340ddb1d05d324c91c46e9e7a2dd42, type: 3}
+--- !u!1 &153677751 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5342929060049279341, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+  m_PrefabInstance: {fileID: 1693377630}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &153800539
 GameObject:
   m_ObjectHideFlags: 0
@@ -10419,6 +10424,7 @@ MonoBehaviour:
   m_Script: {fileID: 759329569}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.SceneObjectIDMapSceneAsset
+  m_Entries: []
 --- !u!4 &370168025
 Transform:
   m_ObjectHideFlags: 19
@@ -13993,6 +13999,7 @@ MonoBehaviour:
   m_Script: {fileID: 1077393063}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.SceneObjectIDMapSceneAsset
+  m_Entries: []
 --- !u!4 &511831695
 Transform:
   m_ObjectHideFlags: 19
@@ -27296,6 +27303,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1854299435}
   m_SourcePrefab: {fileID: 100100000, guid: 056cb6d46600a7446b11d6557d1ea7f5, type: 3}
+--- !u!114 &993115008 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8210421920633146091, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+  m_PrefabInstance: {fileID: 1693377630}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &994674376 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4712396244403484396, guid: 2dd58316010cbf84aa238aa2dfde5301, type: 3}
@@ -27324,6 +27342,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b933cb2f51971fb4ba4ad103a3128bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveImageTracker
+  mineEntries: []
+  repairEntries: []
+  transportEntries: []
 --- !u!114 &995021020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37878,12 +37899,29 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2877208723934215343, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
   m_PrefabInstance: {fileID: 1693377630}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 153677751}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ab6b63d64971e64a8f28a54d1307e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SharedTimerSliders
+--- !u!114 &1328236540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153677751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7fe59329d65c74f873d3568a095b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BrightnessController
+  brightnessSlider: {fileID: 993115008}
+  globalVolume: {fileID: 2086945962}
+  minExposure: -3
+  maxExposure: 3
+  defaultBrightness: 0.5
 --- !u!1001 &1330412433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48528,6 +48566,14 @@ PrefabInstance:
       propertyPath: taaSharpenMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8210421920633146091, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210421920633146091, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      propertyPath: m_MaxValue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8236400196018974975, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
       propertyPath: m_Name
       value: Player
@@ -48561,6 +48607,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 177221144225693836, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1693377633}
+    - targetCorrespondingSourceObject: {fileID: 5342929060049279341, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1328236540}
     - targetCorrespondingSourceObject: {fileID: 8724776106429333610, guid: 6e60ea53dbc7ef64b8ae5cd5e3214f05, type: 3}
       insertIndex: -1
       addedObject: {fileID: 995021019}

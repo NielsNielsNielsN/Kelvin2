@@ -30,6 +30,8 @@ public class MenuUI : MonoBehaviour
     private bool backButtonPressed = false;
     private InputActionMap playerMap;
 
+    private static bool skipStartMenuOnLoad = false;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -67,6 +69,13 @@ public class MenuUI : MonoBehaviour
         {
             startCamera.enabled = true;
             mainGameCamera.enabled = false;
+        }
+
+        if (skipStartMenuOnLoad)
+        {
+            skipStartMenuOnLoad = false;
+            startMenu.SetActive(false);
+            OnPlayButtonPressed();
         }
     }
 
@@ -199,61 +208,8 @@ public class MenuUI : MonoBehaviour
     public void Retry()
     {
         Time.timeScale = 1f;
-        
-        // Deactivate win canvas if it's active
-        ObjectiveManager objectiveManager = Object.FindFirstObjectByType<ObjectiveManager>();
-        if (objectiveManager != null && objectiveManager.GetWinCanvas() != null)
-        {
-            objectiveManager.GetWinCanvas().SetActive(false);
-        }
-        
-        // Close pause menu if it's open
-        if (visible)
-        {
-            pauseMenu.gameObject.SetActive(false);
-            visible = false;
-        }
-
-        // Reset timer
-        if (timerSliders != null)
-            timerSliders.ResetTimer();
-
-        // Set up gameplay exactly like OnPlayButtonPressed
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        startMenu.SetActive(false);
-        ingameUI.SetActive(true);
-        if (crosshairCanvas != null)
-            crosshairCanvas.SetActive(true);
-
-        if (gameplayObjectsToActivate != null)
-        {
-            foreach (GameObject go in gameplayObjectsToActivate)
-            {
-                if (go != null)
-                    go.SetActive(true);
-            }
-        }
-
-        if (playerMap != null)
-            playerMap.Enable();
-
-        if (startCamera != null && mainGameCamera != null)
-        {
-            startCamera.enabled = false;
-            mainGameCamera.enabled = true;
-        }
-
-        // Start the timer countdown
-        if (timerSliders != null)
-            timerSliders.StartCountdown();
-
-        // Reset audio state and trigger briefing again
-        if (audioManager != null)
-        {
-            audioManager.ResetAudioState();
-            audioManager.OnPlayPressed();
-        }
+        skipStartMenuOnLoad = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void CursorLockModeOn()
