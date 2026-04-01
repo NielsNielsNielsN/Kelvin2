@@ -10,9 +10,6 @@ public class CutsceneController : MonoBehaviour
     public GameObject gameplayCamera;   // Main Camera (child of player)
     public GameObject cutsceneCamera;   // Camera with Cinemachine Brain
 
-    [Header("Player Look Script")]
-    public MonoBehaviour playerLook;    // Your mouse look script
-
     void OnEnable()
     {
         director.stopped += OnCutsceneEnd;
@@ -28,7 +25,6 @@ public class CutsceneController : MonoBehaviour
     {
         // Disable gameplay camera + look control
         gameplayCamera.SetActive(false);
-        playerLook.enabled = false;
 
         // Enable cutscene camera
         cutsceneCamera.SetActive(true);
@@ -45,6 +41,5 @@ public class CutsceneController : MonoBehaviour
 
         // Enable gameplay camera + look control
         gameplayCamera.SetActive(true);
-        playerLook.enabled = true;
     }
 }
