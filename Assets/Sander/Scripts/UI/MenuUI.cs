@@ -94,6 +94,10 @@ public class MenuUI : MonoBehaviour
         if (IsGameOverActive())
             return;
 
+        // Don't allow pause during a cutscene
+        if (CutsceneController.IsCutscenePlaying)
+            return;
+
         // ESC now toggles pause fully (open or close)
         if (Input.GetKeyDown(KeyCode.Escape))
         {

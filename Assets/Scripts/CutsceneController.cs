@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Playables;
 
 public class CutsceneController : MonoBehaviour
@@ -10,12 +11,36 @@ public class CutsceneController : MonoBehaviour
     public GameObject gameplayCamera;   // Main Camera (child of player)
     public GameObject cutsceneCamera;   // Camera with Cinemachine Brain
 
-    void OnEnable()
+    [Header("UI")]
+    [SerializeField] private GameObject crosshairCanvas;
+
+    [Header("Player References")]
+    [SerializeField] private PlayerInputHandler playerInputHandler;
+    [SerializeField] private Multitool multitool;
+
+    // Checked by MenuUI to block pause input during a cutscene
+    public static bool IsCutscenePlaying { get; private set; } = false;
+
+    private InputActionMap playerMap;
+
+    private void Awake()
+    {
+        if (playerInputHandler == null)
+            playerInputHandler = Object.FindFirstObjectByType<PlayerInputHandler>();
+
+        if (multitool == null)
+            multitool = Object.FindFirstObjectByType<Multitool>();
+
+        if (playerInputHandler != null && playerInputHandler.playerControls != null)
+            playerMap = playerInputHandler.playerControls.FindActionMap("Player");
+    }
+
+    private void OnEnable()
     {
         director.stopped += OnCutsceneEnd;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         director.stopped -= OnCutsceneEnd;
     }
@@ -23,7 +48,21 @@ public class CutsceneController : MonoBehaviour
     // Call this to start the cutscene
     public void PlayCutscene()
     {
-        // Disable gameplay camera + look control
+        IsCutscenePlaying = true;
+
+        // Disable player input
+        if (playerMap != null)
+            playerMap.Disable();
+
+        // Stop any active tool
+        if (multitool != null)
+            multitool.StopActive();
+
+        // Disable crosshair
+        if (crosshairCanvas != null)
+            crosshairCanvas.SetActive(false);
+
+        // Disable gameplay camera
         gameplayCamera.SetActive(false);
 
         // Enable cutscene camera
@@ -39,7 +78,17 @@ public class CutsceneController : MonoBehaviour
         // Disable cutscene camera
         cutsceneCamera.SetActive(false);
 
-        // Enable gameplay camera + look control
+        // Enable gameplay camera
         gameplayCamera.SetActive(true);
+
+        // Restore player input
+        if (playerMap != null)
+            playerMap.Enable();
+
+        // Re-enable crosshair
+        if (crosshairCanvas != null)
+            crosshairCanvas.SetActive(true);
+
+        IsCutscenePlaying = false;
     }
 }
