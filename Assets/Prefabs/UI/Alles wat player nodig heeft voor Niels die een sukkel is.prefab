@@ -6638,7 +6638,6 @@ MonoBehaviour:
   holdDistance: 3
   minHoldDistance: 1
   maxHoldDistance: 10
-  scrollSensitivity: 2
   scrollStepSize: 0.25
   springStiffness: 120
   springDamping: 18
@@ -35082,6 +35081,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8413545599300337891}
   - component: {fileID: 3180927172563291790}
+  - component: {fileID: 4117964068469097319}
   m_Layer: 0
   m_Name: Objective Manager
   m_TagString: Untagged
@@ -35134,6 +35134,45 @@ MonoBehaviour:
   winFadeDuration: 3
   winCanvas: {fileID: 6611453961341263556}
   crosshairCanvas: {fileID: 7107585010999421795}
+--- !u!114 &4117964068469097319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8724776106429333610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c0d003988e5424bbe3b1b478059bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectiveImageTracker
+  mineEntries:
+  - objective: {fileID: 0}
+    image: {fileID: 0}
+    completedMaterial: {fileID: 2100000, guid: afaff3b3cfbcb174d91b299836dba1ba, type: 2}
+  - objective: {fileID: 0}
+    image: {fileID: 0}
+    completedMaterial: {fileID: 2100000, guid: afaff3b3cfbcb174d91b299836dba1ba, type: 2}
+  - objective: {fileID: 0}
+    image: {fileID: 0}
+    completedMaterial: {fileID: 2100000, guid: afaff3b3cfbcb174d91b299836dba1ba, type: 2}
+  repairEntries:
+  - objective: {fileID: 0}
+    image: {fileID: 0}
+    completedMaterial: {fileID: 2100000, guid: afaff3b3cfbcb174d91b299836dba1ba, type: 2}
+  - objective: {fileID: 0}
+    image: {fileID: 0}
+    completedMaterial: {fileID: 2100000, guid: afaff3b3cfbcb174d91b299836dba1ba, type: 2}
+  transportEntries:
+  - objective: {fileID: 0}
+    image: {fileID: 0}
+    completedMaterial: {fileID: 2100000, guid: afaff3b3cfbcb174d91b299836dba1ba, type: 2}
+  - objective: {fileID: 0}
+    image: {fileID: 0}
+    completedMaterial: {fileID: 2100000, guid: afaff3b3cfbcb174d91b299836dba1ba, type: 2}
+  - objective: {fileID: 0}
+    image: {fileID: 0}
+    completedMaterial: {fileID: 2100000, guid: afaff3b3cfbcb174d91b299836dba1ba, type: 2}
 --- !u!1 &8728524149901356542
 GameObject:
   m_ObjectHideFlags: 0
